@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import asyncio
 import logging
+import os
 import time
 from typing import AsyncIterator, Optional
 
@@ -72,6 +73,7 @@ class EngineManager:
         self._last_used: dict[str, float] = {}  # model_id → timestamp
         self._loaded_at: dict[str, float] = {}  # model_id → load timestamp
         self._active_model: Optional[str] = None
+        self._active_physical_model: Optional[str] = None
 
         # Background tasks
         self._unload_task: Optional[asyncio.Task] = None
@@ -135,6 +137,8 @@ class EngineManager:
             except asyncio.CancelledError:
                 pass
         await self.registry.shutdown_all()
+        self._active_model = None
+        self._active_physical_model = None
         logger.info("Engine stopped")
 
     # ── Model Registration ─────────────────────────────────────
@@ -156,6 +160,16 @@ class EngineManager:
             "provider_id": provider_id,
         }
         logger.info(f"Model registered: {model_id} (type={model_type})")
+
+    def get_physical_identity(self, model_id: str) -> str:
+        """Return canonical physical model identity: '{provider_id}::{canonical_path}'."""
+        if model_id not in self._model_configs:
+            return ""
+        cfg = self._model_configs[model_id]
+        p_id = cfg.get("provider_id") or (self.registry.active_provider_id or "default")
+        raw_path = cfg.get("path", "")
+        norm_path = os.path.realpath(os.path.normpath(raw_path)) if raw_path else ""
+        return f"{p_id}::{norm_path}"
 
     # ── Inference ──────────────────────────────────────────────
 
@@ -223,7 +237,7 @@ class EngineManager:
 
     async def _ensure_model_loaded(self, model_id: str) -> InferenceProvider:
         """Ensure a model is loaded. Lazy load if needed.
-        Implements anti-OOM protection and VRAM-aware loading."""
+        Implements anti-OOM protection, VRAM-aware loading, and physical model identity reuse."""
         if model_id not in self._model_configs:
             raise ValueError(f"Model '{model_id}' not registered")
 
@@ -235,32 +249,58 @@ class EngineManager:
         if provider is None:
             raise RuntimeError(f"No provider found for model '{model_id}' (provider_id={provider_id})")
 
+        target_physical_id = self.get_physical_identity(model_id)
+
+        # 1. Fast-path: Check if the model is directly reported loaded by the provider
         if await provider.is_model_loaded(model_id):
+            self._active_model = model_id
+            self._active_physical_model = target_physical_id
             return provider
+
+        # 2. Physical Identity Reuse: Check if another logical role sharing the same provider
+        # and canonical physical artifact is already resident
+        all_providers = self.registry.get_all_providers()
+        for p_id, p_instance in all_providers.items():
+            if p_instance == provider:
+                loaded = await p_instance.loaded_models()
+                for loaded_id in loaded:
+                    if self.get_physical_identity(loaded_id) == target_physical_id:
+                        self._active_model = model_id
+                        self._active_physical_model = target_physical_id
+                        now = time.time()
+                        self._last_used[model_id] = now
+                        self._last_used[loaded_id] = now
+                        logger.info(
+                            f"[MODEL-REUSE] Logical alias '{model_id}' reusing active physical model "
+                            f"'{loaded_id}' ({target_physical_id})"
+                        )
+                        return provider
 
         # Anti-OOM check
         await self._check_resources(config["estimated_vram_mb"])
 
-        # If another model is loaded and we're in single-model mode,
+        # If another physical model is loaded and we're in single-model mode,
         # unload it across all providers in the registry first to free 100% VRAM
         if self.hardware.tier != HardwareTier.PERFORMANCE:
-            all_providers = self.registry.get_all_providers()
             for p_id, p_instance in all_providers.items():
                 loaded = await p_instance.loaded_models()
                 for loaded_id in loaded:
-                    if loaded_id != model_id or p_instance != provider:
+                    loaded_physical = self.get_physical_identity(loaded_id)
+                    if loaded_physical != target_physical_id or p_instance != provider:
                         logger.info(f"[MODEL-SWAP] Swapping active model: {loaded_id} ({p_id}) → {model_id} ({provider_id})")
                         await p_instance.unload_model(loaded_id)
                         self._loaded_at.pop(loaded_id, None)
                         self._last_used.pop(loaded_id, None)
 
         # Load the model
-        logger.info(f"[MODEL-LOAD] Ensuring model is loaded: {model_id}")
+        logger.info(f"[MODEL-LOAD] Ensuring model is loaded: {model_id} (physical: {target_physical_id})")
         print("ENGINE CONFIG PATH:", config["path"])
         await provider.load_model(model_id, config["path"])
         self._active_model = model_id
-        self._last_used[model_id] = time.time()
-        self._loaded_at[model_id] = time.time()
+        self._active_physical_model = target_physical_id
+        now = time.time()
+        self._last_used[model_id] = now
+        self._loaded_at[model_id] = now
         logger.info(f"[MODEL-LIFECYCLE] Model loaded successfully: {model_id}")
         return provider
 
@@ -321,6 +361,7 @@ class EngineManager:
                         self._loaded_at.pop(model_id, None)
                         if self._active_model == model_id:
                             self._active_model = None
+                            self._active_physical_model = None
                     elif lifetime > self._model_absolute_lifetime:
                         logger.info(
                             f"[MODEL-UNLOAD] Force recycling model: {model_id} "
@@ -331,6 +372,7 @@ class EngineManager:
                         self._loaded_at.pop(model_id, None)
                         if self._active_model == model_id:
                             self._active_model = None
+                            self._active_physical_model = None
 
             except asyncio.CancelledError:
                 break
@@ -342,6 +384,10 @@ class EngineManager:
     @property
     def active_model(self) -> Optional[str]:
         return self._active_model
+
+    @property
+    def active_physical_model(self) -> Optional[str]:
+        return self._active_physical_model
 
     async def get_status(self) -> dict:
         """Get engine status for /v1/status endpoint."""
@@ -364,6 +410,7 @@ class EngineManager:
 
         return {
             "active_model": self._active_model,
+            "active_physical_model": self._active_physical_model,
             "hardware_tier": self.hardware.tier.value,
             "max_vram_mb": self._max_vram_mb,
             "gpu": {

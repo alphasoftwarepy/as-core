@@ -136,8 +136,10 @@ async def lifespan(app: FastAPI):
     # 8. Start engine
     await engine.start()
 
-    # 4.0.2: Start non-blocking base chat model warmup in background
-    asyncio.create_task(engine.warmup_model("chat"))
+    # 4.0.2: Start non-blocking base chat model warmup in background (skip during pytest runs)
+    warmup_task = None
+    if not os.environ.get("PYTEST_CURRENT_TEST"):
+        warmup_task = asyncio.create_task(engine.warmup_model("chat"))
 
     # Create uploads directory for document sessions
     from pathlib import Path
@@ -220,6 +222,11 @@ async def lifespan(app: FastAPI):
 
     # Shutdown
     logger.info("Shutting down AS Code...")
+    if warmup_task and not warmup_task.done():
+        try:
+            await asyncio.wait_for(asyncio.shield(warmup_task), timeout=5.0)
+        except Exception:
+            pass
     await engine.stop()
     logger.info("Goodbye!")
 
