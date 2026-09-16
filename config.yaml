@@ -25,7 +25,7 @@ models:
     id: "gemma-chat"
     file: "models/gemma/gemma-3n-E2B-it-int4.litertlm"
     type: "general"
-    provider: "litert_cli"
+    provider: "litert_embedded"
     params_billions: 2.0
     estimated_vram_mb: 1500
     quantization: "int4"
@@ -41,7 +41,7 @@ models:
     id: "gemma-code"
     file: "models/gemma/gemma-3n-E2B-it-int4.litertlm"
     type: "coding"
-    provider: "litert_cli"
+    provider: "litert_embedded"
     params_billions: 2.0
     estimated_vram_mb: 1500
     quantization: "int4"
@@ -97,7 +97,7 @@ models:
 
 # Provider configuration
 providers:
-  active: "litert_cli"
+  active: "litert_embedded"
 
   llamacpp:
     binary_path: "moe_poc/bins/llama-server.exe"
