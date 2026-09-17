@@ -111,15 +111,25 @@
                 <div class="flex items-center gap-3">
                     <span class="text-xs text-surface-200/50 font-medium tracking-wide">Workspace</span>
 
-                    <!-- Primary Model / Backend Selector (Phase P2) -->
+                    <!-- Primary Model / Backend Selector (Single Resident Model) -->
                     <div class="flex items-center gap-1.5 bg-surface-800/90 border border-surface-700/60 rounded-lg px-2.5 py-1 text-xs shadow-sm">
                         <span class="text-[10px] text-accent-400 font-bold tracking-wider uppercase">MODELO:</span>
                         <select id="quickModelSelect" class="bg-transparent text-surface-100 text-xs font-semibold border-none outline-none cursor-pointer focus:ring-0">
-                            <option value="auto" class="bg-surface-900 text-surface-100">AUTO (Coordinator)</option>
                             <option value="chat" class="bg-surface-900 text-surface-100">Gemma E2B (LiteRT)</option>
                             <option value="reasoning" class="bg-surface-900 text-surface-100">Gemma E4B (LiteRT)</option>
                             <option value="olmoe" class="bg-surface-900 text-surface-100">OLMoE (AS-Core MoE)</option>
                             <option value="moe_large" class="bg-surface-900 text-surface-100">Qwen MoE — llama.cpp</option>
+                        </select>
+                    </div>
+
+                    <!-- Cognitive Profile Selector (Single Resident Model) -->
+                    <div class="flex items-center gap-1.5 bg-surface-800/90 border border-surface-700/60 rounded-lg px-2.5 py-1 text-xs shadow-sm">
+                        <span class="text-[10px] text-accent-400 font-bold tracking-wider uppercase">PERFIL:</span>
+                        <select id="quickProfileSelect" class="bg-transparent text-surface-100 text-xs font-semibold border-none outline-none cursor-pointer focus:ring-0">
+                            <option value="AUTO" class="bg-surface-900 text-surface-100">AUTO — Adaptativo</option>
+                            <option value="BALANCED" class="bg-surface-900 text-surface-100">BALANCED — Equilibrado</option>
+                            <option value="CODE" class="bg-surface-900 text-surface-100">CODE — Código</option>
+                            <option value="CREATIVE" class="bg-surface-900 text-surface-100">CREATIVE — Creativo</option>
                         </select>
                     </div>
                 </div>
@@ -201,10 +211,9 @@
     <div id="settingsPanel" class="settings-panel hidden">
         <div class="settings-grid">
             <!-- Model Selector -->
-            <div class="setting-group">
+            <div class="setting-group flex-1 min-w-[200px]">
                 <label class="setting-label" for="modelSelect">Model / Backend</label>
-                <select id="modelSelect" class="setting-select">
-                    <option value="auto">AUTO (Coordinator Smart Router)</option>
+                <select id="modelSelect" class="setting-select w-full">
                     <option value="chat">Gemma E2B — LiteRT (General Chat)</option>
                     <option value="code">Gemma Code — LiteRT (Coding)</option>
                     <option value="reasoning">Gemma E4B — LiteRT (Reasoning)</option>
@@ -213,13 +222,14 @@
                 </select>
             </div>
 
-            <!-- Preset Selector -->
-            <div class="setting-group">
-                <label class="setting-label" for="presetSelect">Runtime Preset</label>
-                <select id="presetSelect" class="setting-select">
-                    <option value="BALANCED">Balanced — Creative logic with structure</option>
-                    <option value="PRECISE">Precise — Low randomness, strict code/extraction</option>
-                    <option value="CREATIVE">Creative — High expressiveness, conversational</option>
+            <!-- Cognitive Profile Selector -->
+            <div class="setting-group flex-1 min-w-[200px]">
+                <label class="setting-label" for="profileSelect">Cognitive Profile</label>
+                <select id="profileSelect" class="setting-select w-full">
+                    <option value="AUTO">AUTO — Adaptativo</option>
+                    <option value="BALANCED">BALANCED — Equilibrado</option>
+                    <option value="CODE">CODE — Código</option>
+                    <option value="CREATIVE">CREATIVE — Creativo</option>
                 </select>
             </div>
         </div>
@@ -230,6 +240,17 @@
                 <span class="inline-block transition-transform duration-200 group-open:rotate-90">▶</span> Advanced Runtime Settings
             </summary>
             <div class="settings-grid mt-3">
+                <!-- Runtime Preset Override (Advanced) -->
+                <div class="setting-group">
+                    <label class="setting-label" for="presetSelect">Runtime Preset (Override)</label>
+                    <select id="presetSelect" class="setting-select">
+                        <option value="FROM_PROFILE">FROM PROFILE (Automatic)</option>
+                        <option value="BALANCED">Balanced — Creative logic with structure</option>
+                        <option value="PRECISE">Precise — Low randomness, strict code/extraction</option>
+                        <option value="CREATIVE">Creative — High expressiveness, conversational</option>
+                    </select>
+                </div>
+
                 <!-- Temperature -->
                 <div class="setting-group">
                     <label class="setting-label" for="temperatureSlider">

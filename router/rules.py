@@ -43,7 +43,7 @@ CODING_KEYWORDS: frozenset[str] = frozenset({
     "coverage", "spec",
     # Languages & tech
     "python", "javascript", "typescript", "html", "css", "sql",
-    "json", "yaml", "toml", "dockerfile", "makefile",
+    "yaml", "toml", "dockerfile", "makefile",
     # Structures
     "api", "endpoint", "route", "handler", "middleware",
     "component", "module", "package", "library", "framework",

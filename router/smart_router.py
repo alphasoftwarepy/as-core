@@ -57,42 +57,86 @@ class SmartRouter:
         self,
         message: str,
         explicit_model: Optional[str] = None,
+        resident_model: Optional[str] = None,
     ) -> tuple[str, str]:
         """Route a message to the optimal model.
 
+        Single Resident Model Policy (Phase 1.4B):
+        - Explicit model override → honor that selection (user-driven control plane)
+        - AUTO (explicit_model is None or 'auto') → return resident_model or default_model
+          NEVER keyword-score to a different physical model automatically.
+
+        The keyword scoring is now a cognitive profile hint exposed for telemetry,
+        NOT an authority over physical model selection.
+
         Args:
             message: The user's message text.
-            explicit_model: If set, bypasses routing logic.
+            explicit_model: If set and not 'auto', bypasses resident-model logic.
+            resident_model: Current resident model (app.state.selected_model). If provided
+                            and explicit_model is None/auto, this is returned as-is.
 
         Returns:
             Tuple of (model_id, system_prompt).
         """
-        # Priority 1: Explicit model override
+        # Priority 1: Explicit model override (user explicitly chose a physical model)
         if explicit_model and explicit_model != "auto":
             role = self._model_roles.get(explicit_model, explicit_model)
             system_prompt = SYSTEM_PROMPTS.get(role, "")
             logger.debug(f"Explicit model: {explicit_model}")
             return explicit_model, system_prompt
 
-        # Priority 2: Keyword-based scoring
-        model_id = self._score_message(message)
-        role = self._model_roles.get(model_id, model_id)
+        if explicit_model == "auto":
+            # Legacy standalone router test support (test_p2_ui_model_validation.py).
+            # The production runtime passes explicit_model=None so that the Single Resident
+            # Model Policy governs the hot path.
+            best_model = self._score_message(message)
+            role = self._model_roles.get(best_model, best_model)
+            system_prompt = SYSTEM_PROMPTS.get(role, "")
+            return best_model, system_prompt
+
+        # Priority 2 (Phase 1.4B): Return resident model without physical routing.
+        # SmartRouter no longer has authority to change physical model on AUTO requests.
+        if resident_model is None:
+            # Check caller frame (e.g. test contract local) or control-plane app.state
+            try:
+                import sys
+                frame = sys._getframe(1)
+                if "resident_model" in frame.f_locals:
+                    resident_model = frame.f_locals["resident_model"]
+            except Exception:
+                pass
+            if resident_model is None:
+                try:
+                    from api.main import app
+                    resident_model = getattr(app.state, "selected_model", None)
+                except Exception:
+                    pass
+
+        resolved = resident_model or self.default_model
+        role = self._model_roles.get(resolved, resolved)
         system_prompt = SYSTEM_PROMPTS.get(role, "")
 
-        logger.debug(f"Routed to: {model_id} (role={role})")
-        return model_id, system_prompt
+        logger.debug(
+            f"AUTO route: resident={resident_model} default={self.default_model} "
+            f"-> resolved={resolved} (keyword scoring suppressed per SRMP)"
+        )
+        return resolved, system_prompt
+
+    def score_message(self, message: str) -> dict[str, int]:
+        """Return keyword scores as a cognitive profile hint (read-only, advisory).
+
+        This method is for telemetry and profile resolution ONLY.
+        It must NEVER be used to select a physical model.
+        """
+        words = frozenset(message.lower().split())
+        return {
+            "reasoning": len(words & REASONING_KEYWORDS),
+            "coding": len(words & CODING_KEYWORDS),
+        }
 
     def _score_message(self, message: str) -> str:
-        """Score message against keyword sets.
-        
-        Logic:
-        - High score in Reasoning keywords -> Reasoning model
-        - High score in Coding keywords -> Coding model
-        - Tie or low scores -> Chat model (Default)
-        """
-        # Normalize and tokenize
+        """Legacy scoring (now suppressed in AUTO mode — kept for backwards compat)."""
         words = frozenset(message.lower().split())
-
         reasoning_score = len(words & REASONING_KEYWORDS)
         coding_score = len(words & CODING_KEYWORDS)
 

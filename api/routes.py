@@ -20,6 +20,7 @@ from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 
+from pydantic import BaseModel
 from api.models import (
     ChatCompletionChoice,
     ChatCompletionRequest,
@@ -33,7 +34,9 @@ from api.models import (
 from api.streaming import stream_inference_results
 from api.document_service import get_document_service
 from api.database import get_db
+from config.settings import get_settings
 from providers.base import InferenceRequest
+from router.smart_router import SmartRouter
 
 logger = logging.getLogger("as-code.api.routes")
 
@@ -61,9 +64,9 @@ async def chat_completions(
     - Working Memory injection (X-Session-Id header)
     - Runtime Coordinator (workflow state, task progression, suggestions)
     """
-    engine = request.app.state.engine
-    smart_router = request.app.state.router
-    settings = request.app.state.settings
+    engine = getattr(request.app.state, "engine", None)
+    smart_router = getattr(request.app.state, "router", None) or SmartRouter()
+    settings = getattr(request.app.state, "settings", None) or get_settings()
 
     # Generate request ID for tracking and cancellation
     request_id = body.get_request_id()
@@ -73,9 +76,28 @@ async def chat_completions(
     if not user_message:
         raise HTTPException(status_code=400, detail="No user message provided")
 
-    # Route to optimal model first (needed for mode/pipeline inference)
-    model_param = body.model if body.model != "auto" else None
-    model_id, _ = smart_router.route(user_message, model_param)
+    # Validate explicit model if requested (R10)
+    model_param = body.model if body.model and body.model != "auto" else None
+    if model_param:
+        registered = []
+        if engine and hasattr(engine, "get_registered_models"):
+            registered = [m["id"] for m in engine.get_registered_models()]
+        elif settings and hasattr(settings, "models") and settings.models:
+            registered = list(settings.models.keys())
+        else:
+            registered = ["chat", "code", "reasoning", "olmoe"]
+
+        if model_param not in registered:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Model '{model_param}' is not registered or unavailable",
+            )
+
+    resident_model = getattr(request.app.state, "selected_model", None)
+    model_id, _ = smart_router.route(user_message, model_param, resident_model=resident_model)
+
+    if not engine:
+        raise HTTPException(status_code=503, detail="Inference engine not ready")
 
     # ── Language Detection & Root Prompt Localization ─────────────
     # Heuristically detect if user query is Spanish (FIX 1 & 2)
@@ -208,6 +230,7 @@ async def chat_completions(
         previous_user_message=previous_user_message,
         manual_skill=skill_id,
         timestamp=time.time(),
+        profile=body.profile,
         snapshot=snapshot,
         language_confidence_threshold=2,
         explicit_reset=any(user_message.lower().startswith(cmd) for cmd in ['/reset', '/clear', '/new'])
@@ -281,40 +304,37 @@ async def chat_completions(
         "CREATIVE": {"temperature": 0.8, "top_k": 50, "top_p": 1.0, "max_tokens": 5120},
     }
 
-    # Resolve preset automatically based on mode/pipeline/skill
-    inferred_mode = "analytical" # default fallback
-    if model_id == "code" or resolved_skill == "code":
-        inferred_mode = "coding"
-    elif resolved_skill == "sales":
-        inferred_mode = "sales"
-    elif resolved_skill in ("content_creator", "marketing") or model_id == "chat":
-        inferred_mode = "conversational"
-    elif resolved_skill in ("business", "legal") or model_id == "reasoning":
-        inferred_mode = "analytical"
+    from runtime.coordinator.profiles import PROFILE_TO_PRESET
 
-    # Map to semantic presets
-    preset_name = "BALANCED" # default fallback
-    if inferred_mode in ("coding", "extraction"):
-        preset_name = "PRECISE"
-    elif inferred_mode in ("analytical", "sales"):
-        preset_name = "BALANCED"
-    elif inferred_mode == "conversational":
-        preset_name = "CREATIVE"
+    # 1. Base resolution: derive default preset deterministically from Cognitive Profile
+    resolved_profile = (
+        getattr(manifest, "resolved_profile", None)
+        or getattr(contract, "profile", None)
+        or "BALANCED"
+    )
+    default_preset = PROFILE_TO_PRESET.get(resolved_profile, "BALANCED")
 
-    # User headers can override preset directly (UI dropdown selection)
+    # 2. Check for explicit Advanced / API override
     header_preset = request.headers.get("X-Runtime-Preset")
-    if header_preset in PRESETS:
-        preset_name = header_preset
+    body_preset = getattr(body, "preset", None)
+    explicit_preset = header_preset or body_preset
+
+    if explicit_preset in PRESETS and explicit_preset not in ("FROM_PROFILE", "AUTO", None):
+        preset_name = explicit_preset
+        logger.info(
+            f"[RUNTIME-PRESET] override={preset_name} explicitly set (profile={resolved_profile})"
+        )
+    else:
+        preset_name = default_preset
+        logger.info(
+            f"[RUNTIME-PRESET] resolved={preset_name} from profile={resolved_profile}"
+        )
 
     preset = PRESETS[preset_name]
     logger.info(
-        f"[RUNTIME-PRESET] resolved={preset_name} for inferred_mode={inferred_mode} "
-        f"(skill={resolved_skill}, model={model_id})"
-    )
-    logger.info(
         f"[SKILL-TRACE] runtime_preset_resolver: "
         f"skill={resolved_skill}, model={model_id} "
-        f"-> inferred_mode={inferred_mode} "
+        f"-> profile={resolved_profile} "
         f"-> preset_name={preset_name}"
     )
 
@@ -425,8 +445,12 @@ async def chat_completions(
 @router.get("/models", response_model=ModelListResponse)
 async def list_models(request: Request):
     """List available models."""
-    engine = request.app.state.engine
-    models = engine.get_registered_models()
+    engine = getattr(request.app.state, "engine", None)
+    if engine:
+        models = engine.get_registered_models()
+    else:
+        settings = getattr(request.app.state, "settings", None) or get_settings()
+        models = [{"id": k, "owned_by": "as-code"} for k in getattr(settings, "models", {}).keys()]
 
     return ModelListResponse(
         data=[
@@ -445,9 +469,65 @@ async def list_models(request: Request):
 @router.get("/status", response_model=StatusResponse)
 async def get_status(request: Request):
     """Get system status including hardware, models, and provider info."""
-    engine = request.app.state.engine
-    status = await engine.get_status()
+    engine = getattr(request.app.state, "engine", None)
+    if engine:
+        status = await engine.get_status()
+    else:
+        status = {
+            "active_model": None,
+            "loaded_models": [],
+            "max_vram_mb": 0,
+            "estimated_vram_mb": 0,
+            "status": "ready",
+            "active_provider": "none",
+        }
+    status["selected_model"] = getattr(request.app.state, "selected_model", None)
+    status["active_physical_model"] = status.get("active_physical_model") or getattr(engine, "active_physical_model", None) or status.get("active_model")
+    status["active_provider"] = getattr(getattr(engine, "registry", None), "active_provider_id", None) or (getattr(request.app.state, "settings", None).active_provider if getattr(request.app.state, "settings", None) else None)
     return StatusResponse(**status)
+
+
+
+# ── POST /v1/models/select ─────────────────────────────────────
+
+
+class ModelSelectRequest(BaseModel):
+    model: Optional[str] = None
+    model_id: Optional[str] = None
+
+
+@router.post("/models/select")
+async def select_model(payload: ModelSelectRequest, request: Request):
+    """Explicitly select a physical resident model in the control plane."""
+    target_model = payload.model or payload.model_id
+    if not target_model:
+        raise HTTPException(status_code=400, detail="model or model_id is required")
+
+    engine = getattr(request.app.state, "engine", None)
+    settings = getattr(request.app.state, "settings", None) or get_settings()
+
+    registered = []
+    if engine and hasattr(engine, "get_registered_models"):
+        registered = [m["id"] for m in engine.get_registered_models()]
+    elif settings and hasattr(settings, "models") and settings.models:
+        registered = list(settings.models.keys())
+    else:
+        registered = ["chat", "code", "reasoning", "olmoe"]
+
+    if target_model not in registered:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Model '{target_model}' is not registered or unavailable",
+        )
+
+    if engine and hasattr(engine, "_ensure_model_loaded"):
+        try:
+            await engine._ensure_model_loaded(target_model)
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Failed to load model '{target_model}': {e}")
+
+    request.app.state.selected_model = target_model
+    return {"status": "ok", "selected_model": target_model}
 
 
 # ── POST /v1/cancel ────────────────────────────────────────────

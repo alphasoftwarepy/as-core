@@ -66,7 +66,11 @@ class RuntimeContract(BaseModel):
     manual_skill: Optional[str] = None
     preset_name: Optional[str] = None
     timestamp: float
-    
+
+    # Cognitive profile: controls behavior, NOT physical model (Phase 1.4B)
+    # AUTO | BALANCED | CREATIVE | CODE — None is treated as AUTO
+    profile: Optional[str] = None
+
     # Deterministic Continuity extension fields
     snapshot: Optional[SessionSnapshot] = None
     language_confidence_threshold: int = 2
@@ -100,10 +104,14 @@ class ContextManifest(BaseModel):
     
     # Prompt compilado definitivo
     system_prompt_snapshot: str
-    
+
+    # Cognitive profile resolved for this request (Phase 1.4B/1.4C)
+    prompt_family: Optional[str] = None  # SOFTWARE_PROMPT | GENERAL_PROMPT | BUSINESS_PROMPT | None
+    resolved_profile: Optional[str] = None  # BALANCED | CREATIVE | CODE
+
     # Decisión de continuidad determinística
     continuity_decision: Optional[ContinuityDecision] = None
-    
+
     # Capability Gate flag
     capability_gate_open: bool = False
 

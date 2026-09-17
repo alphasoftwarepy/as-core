@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         welcomeScreen: document.getElementById('welcomeScreen'),
         modelSelect: document.getElementById('modelSelect'),
         quickModelSelect: document.getElementById('quickModelSelect'),
+        profileSelect: document.getElementById('profileSelect'),
+        quickProfileSelect: document.getElementById('quickProfileSelect'),
         presetSelect: document.getElementById('presetSelect'),
         temperatureSlider: document.getElementById('temperatureSlider'),
         tempValue: document.getElementById('tempValue'),
@@ -95,20 +97,65 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.tempValue.textContent = e.target.value;
     });
 
-    function updateModelSelection(val) {
+    async function updateModelSelection(val) {
+        if (!val) return;
         if (elements.modelSelect) elements.modelSelect.value = val;
         if (elements.quickModelSelect) elements.quickModelSelect.value = val;
-        if (elements.telMode) {
-            elements.telMode.textContent = val === 'auto' ? 'AUTO' : 'MANUAL';
-            elements.telMode.className = val === 'auto' ? 'telemetry-value text-accent-400 font-bold' : 'telemetry-value text-emerald-400 font-bold';
+        if (elements.telModel) elements.telModel.textContent = val;
+        try {
+            await fetch('/v1/models/select', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ model: val })
+            });
+        } catch (e) {
+            console.warn('Failed to select model on backend:', e);
         }
+    }
+
+    const presetProfileMap = {
+        CODE: { temp: 0.1, tokens: 4096 },
+        BALANCED: { temp: 0.5, tokens: 4096 },
+        CREATIVE: { temp: 0.8, tokens: 5120 },
+        AUTO: { temp: 0.5, tokens: 4096 }
+    };
+
+    function syncPresetFromProfile(profileVal) {
+        if (!elements.presetSelect || elements.presetSelect.value === 'FROM_PROFILE') {
+            const config = presetProfileMap[profileVal] || presetProfileMap.BALANCED;
+            if (elements.temperatureSlider) {
+                elements.temperatureSlider.value = config.temp;
+                elements.tempValue.textContent = config.temp;
+            }
+            if (elements.maxTokensInput) {
+                elements.maxTokensInput.value = config.tokens;
+            }
+        }
+    }
+
+    function updateProfileSelection(val) {
+        if (!val) return;
+        if (elements.profileSelect) elements.profileSelect.value = val;
+        if (elements.quickProfileSelect) elements.quickProfileSelect.value = val;
+        if (elements.telMode) {
+            elements.telMode.textContent = val;
+            elements.telMode.className = 'telemetry-value text-accent-400 font-bold';
+        }
+        syncPresetFromProfile(val);
     }
     elements.quickModelSelect?.addEventListener('change', (e) => updateModelSelection(e.target.value));
     elements.modelSelect?.addEventListener('change', (e) => updateModelSelection(e.target.value));
+    elements.quickProfileSelect?.addEventListener('change', (e) => updateProfileSelection(e.target.value));
+    elements.profileSelect?.addEventListener('change', (e) => updateProfileSelection(e.target.value));
 
     elements.presetSelect?.addEventListener('change', (e) => {
+        if (e.target.value === 'FROM_PROFILE') {
+            const currentProfile = elements.profileSelect?.value || elements.quickProfileSelect?.value || 'AUTO';
+            syncPresetFromProfile(currentProfile);
+            return;
+        }
         const presetMap = {
-            PRECISE: { temp: 0.1, tokens: 2048 },
+            PRECISE: { temp: 0.1, tokens: 4096 },
             BALANCED: { temp: 0.5, tokens: 4096 },
             CREATIVE: { temp: 0.8, tokens: 5120 }
         };
@@ -192,11 +239,15 @@ document.addEventListener('DOMContentLoaded', () => {
         let firstTokenTime = null;
         let tokenCount = 0;
         let wasUserAborted = false;  // true ONLY when user clicked Stop or pressed Escape
-        let providerUsed = '—';
+        let providerUsed = elements.telProvider?.textContent || '—';
         let modelUsed = null;
 
+        const currentProfile = elements.profileSelect?.value || elements.quickProfileSelect?.value || 'AUTO';
+        const currentModel = elements.modelSelect?.value || elements.quickModelSelect?.value || 'chat';
+
         const requestBody = {
-            model: elements.modelSelect.value,
+            model: currentModel,
+            profile: currentProfile,
             messages: state.chatHistory,
             temperature: parseFloat(elements.temperatureSlider.value),
             max_tokens: parseInt(elements.maxTokensInput.value, 10),
@@ -206,8 +257,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const headers = {
             'Content-Type': 'application/json'
         };
-        if (elements.presetSelect?.value) {
+        if (elements.presetSelect?.value && elements.presetSelect.value !== 'FROM_PROFILE') {
             headers['X-Runtime-Preset'] = elements.presetSelect.value;
+            requestBody.preset = elements.presetSelect.value;
         }
         // Read active skill from SkillsUI (authoritative state);
         // falls back to hidden #skillSelect for compatibility.
@@ -244,7 +296,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const elapsedSec = (performance.now() - startTime) / 1000;
             const finalTps = elapsedSec > 0 ? (tokenCount / elapsedSec).toFixed(1) : '—';
             const ttftText = firstTokenTime ? `${(firstTokenTime - startTime).toFixed(0)} ms` : '—';
-            const modeText = elements.modelSelect.value === 'auto' ? 'AUTO' : 'MANUAL';
+            const currentProfile = elements.profileSelect?.value || elements.quickProfileSelect?.value || 'AUTO';
+            const currentModel = elements.modelSelect?.value || elements.quickModelSelect?.value || 'chat';
+            const modeText = currentProfile;
             const totalDurationSec = elapsedSec.toFixed(2);
 
             if (elements.telTps) elements.telTps.textContent = finalTps;
@@ -255,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const metaBadge = document.createElement('div');
                 metaBadge.className = 'mt-3 pt-2 border-t border-surface-800/60 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[11px] text-surface-400/75 select-none font-mono';
                 metaBadge.innerHTML = `
-                    <span class="text-accent-400 font-semibold">${modelUsed || elements.modelSelect.value}</span>
+                    <span class="text-accent-400 font-semibold">${modelUsed || currentModel}</span>
                     <span>•</span>
                     <span>${providerUsed} (${modeText})</span>
                     <span>•</span>
@@ -358,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 modelUsed = data.model;
                                 updateRoutingIndicator(modelUsed);
                                 elements.telModel.textContent = modelUsed;
-                                elements.telProvider.textContent = data.provider || 'litert_cli';
+                                elements.telProvider.textContent = data.provider || elements.telProvider?.textContent || '—';
                             }
 
                             fullText += delta;
@@ -562,6 +616,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 if (data.gpu && data.gpu.vram_free_mb !== undefined) {
                     elements.telVram.textContent = `${Math.round(data.gpu.vram_free_mb / 1024 * 10) / 10} GB free`;
+                }
+                if (data.active_provider && elements.telProvider) {
+                    elements.telProvider.textContent = data.active_provider;
                 }
                 if (data.provider && data.provider.status) {
                     if (state.isGenerating) {

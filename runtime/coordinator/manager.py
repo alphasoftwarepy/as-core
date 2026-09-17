@@ -10,6 +10,7 @@ from runtime.coordinator.suggestions import get_suggested_skills
 from runtime.coordinator.continuity_resolver import DeterministicContinuityResolver
 from runtime.coordinator.prompts import resolve_root_prompt
 from runtime.coordinator.workflow_continuation import WorkflowContinuationResolver
+from runtime.coordinator.profiles import resolve_cognitive_profile as _resolve_profile_fn, PROFILE_BALANCED, PROFILE_CODE
 
 
 logger = logging.getLogger("as-code.runtime.coordinator")
@@ -215,7 +216,7 @@ class PureCoordinator:
         lang = decision.detected_language
         rag_query = decision.final_rag_query
 
-        # 6. Root Prompt (via Prompt Family resolution)
+        # 6. Root Prompt (via Prompt Family + Cognitive Profile resolution)
         prompt_family = None
         skill_manifest = None
         if resolved_skill and skill_service:
@@ -223,7 +224,18 @@ class PureCoordinator:
             if skill_manifest:
                 prompt_family = skill_manifest.prompt_family
 
-        if contract.model_id == "code" or resolved_skill == "programming":
+        # Cognitive profile takes authority over prompt family selection.
+        # Previously this was: `if contract.model_id == "code" or resolved_skill == "programming"`
+        # Now: any CODE profile (explicit or skill-derived) applies SOFTWARE_PROMPT.
+        # This decouples prompt behavior from physical model identity.
+        resolved_profile = PureCoordinator.resolve_cognitive_profile(
+            explicit_override=getattr(contract, "profile", None),
+            skill_prompt_family=prompt_family,
+            user_message=contract.user_message,
+        )
+        if getattr(contract, "profile", None) is None:
+            contract.profile = resolved_profile
+        if resolved_profile == PROFILE_CODE:
             prompt_family = "SOFTWARE_PROMPT"
 
         root_prompt = resolve_root_prompt(lang, prompt_family)
@@ -236,34 +248,26 @@ class PureCoordinator:
             if skill_prompt:
                 system_prompt = f"{system_prompt}\n\n{skill_prompt}"
 
-        # ── Capability Gate Evaluation ──────────────────────────────
-        from config.settings import get_settings
-        settings = get_settings()
-
-        model_cfg = settings.models.get(contract.model_id, {}) if settings and hasattr(settings, "models") else {}
-        model_type = model_cfg.get("type", "general")
-
-        # Resolve capability mode based on model_type
-        if model_type == "agent":
-            cap_mode = "on"
-        elif model_type in ("coding", "reasoning", "moe", "moe_research"):
-            cap_mode = "on_if_skill"
-        else:
-            cap_mode = "off"
+        # ── Capability Gate Evaluation (Phase 1.4B) ─────────────────────
+        # Gate authority belongs EXCLUSIVELY to the Skill Manifest, not the physical model.
+        # Previously, gate was gated on model_type (general → off, coding → on_if_skill).
+        # This created a hidden physical routing path: UI had to send model_id='code' to open
+        # the capability gate. That implicit coupling is eliminated here.
+        #
+        # New invariant:
+        #   capability_gate_open = True   ←→   active Skill has uses_capabilities=True
+        #   capability_gate_open = False  ←→   no Skill, or Skill has uses_capabilities=False
 
         skill_uses_caps = (
             skill_manifest is not None
             and getattr(skill_manifest, "uses_capabilities", False)
         )
 
-        capability_gate_open = (
-            cap_mode == "on"
-            or (cap_mode == "on_if_skill" and skill_uses_caps)
-        )
+        capability_gate_open = skill_uses_caps
 
         logger.info(
-            f"[CAPABILITY-GATE] model_id={contract.model_id} model_type={model_type} "
-            f"cap_mode={cap_mode} skill_uses_caps={skill_uses_caps} gate_open={capability_gate_open}"
+            f"[CAPABILITY-GATE] model_id={contract.model_id} "
+            f"skill_uses_caps={skill_uses_caps} gate_open={capability_gate_open}"
         )
 
         if capability_gate_open:
@@ -298,6 +302,8 @@ class PureCoordinator:
 
             # 7.6 Inject Capability Catalog (Phase 4.1.2)
             from runtime.capabilities.registry import get_capability_registry
+            from config.settings import get_settings as _get_settings
+            _settings = _get_settings()
             
             registry = get_capability_registry()
             
@@ -318,7 +324,7 @@ class PureCoordinator:
                 catalog_lines.append("\n### CATÁLOGO DE CAPACIDADES DISPONIBLES")
                 catalog_lines.append("Solo puedes invocar las siguientes capacidades y acciones:")
                 for cap_id, cap in registry.capabilities.items():
-                    status = cap.check(settings)
+                    status = cap.check(_settings)
                     if not status.enabled:
                         continue
                     if not status.available:
@@ -336,7 +342,7 @@ class PureCoordinator:
                 catalog_lines.append("\n### AVAILABLE CAPABILITIES CATALOG")
                 catalog_lines.append("You are only allowed to invoke the following capabilities and actions:")
                 for cap_id, cap in registry.capabilities.items():
-                    status = cap.check(settings)
+                    status = cap.check(_settings)
                     if not status.enabled:
                         continue
                     if not status.available:
@@ -512,6 +518,8 @@ class PureCoordinator:
             char_budget=char_budget,
             char_count=char_count,
             system_prompt_snapshot=system_prompt,
+            prompt_family=prompt_family,
+            resolved_profile=resolved_profile,
             continuity_decision=decision,
             capability_gate_open=capability_gate_open,
             graph_enabled=graph_enabled,
@@ -546,3 +554,52 @@ class PureCoordinator:
 
         return "\n".join(lines).strip()
 
+    @staticmethod
+    def resolve_cognitive_profile(
+        explicit_override: Optional[str] = None,
+        skill_prompt_family: Optional[str] = None,
+        user_message: Optional[str] = None,
+    ) -> str:
+        """Deterministic cognitive profile resolver (Phase 1.4B).
+
+        Delegates to the pure function in profiles.py.
+        Controls HOW the model behaves — NEVER which physical model to load.
+
+        Args:
+            explicit_override: Value of request.profile (AUTO/BALANCED/CREATIVE/CODE).
+            skill_prompt_family: Prompt family from active Skill manifest, if any.
+            user_message: Optional user message content to detect coding constructs.
+
+        Returns:
+            One of: 'BALANCED', 'CREATIVE', 'CODE'
+        """
+        return _resolve_profile_fn(
+            explicit_override=explicit_override,
+            skill_prompt_family=skill_prompt_family,
+            user_message=user_message,
+        )
+
+    @staticmethod
+    def resolve_profile(
+        explicit_override: Optional[str] = None,
+        skill_prompt_family: Optional[str] = None,
+        user_message: Optional[str] = None,
+    ) -> str:
+        """Single source of truth for profile resolution — shared by API and UI paths.
+
+        Alias for resolve_cognitive_profile(), satisfying the R19 API/UI contract
+        that both surfaces must invoke the same deterministic hierarchy.
+
+        Args:
+            explicit_override: Value of request.profile (AUTO/BALANCED/CREATIVE/CODE).
+            skill_prompt_family: Prompt family from active Skill manifest, if any.
+            user_message: Optional user message content to detect coding constructs.
+
+        Returns:
+            One of: 'BALANCED', 'CREATIVE', 'CODE'
+        """
+        return PureCoordinator.resolve_cognitive_profile(
+            explicit_override=explicit_override,
+            skill_prompt_family=skill_prompt_family,
+            user_message=user_message,
+        )

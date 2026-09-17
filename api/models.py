@@ -12,6 +12,9 @@ from typing import Any, Literal, Optional
 
 from pydantic import BaseModel, Field
 
+# ── Cognitive Profiles ─────────────────────────────────────────
+CognitiveProfile = Literal["AUTO", "BALANCED", "CREATIVE", "CODE"]
+
 
 # ── Request Models ─────────────────────────────────────────────
 
@@ -27,7 +30,15 @@ class ChatCompletionRequest(BaseModel):
     """OpenAI-compatible chat completion request."""
     model: str = Field(
         default="auto",
-        description="Model ID or 'auto' for smart routing",
+        description="Physical model ID or 'auto' (retain current resident model)",
+    )
+    profile: Optional[CognitiveProfile] = Field(
+        default="AUTO",
+        description="Cognitive profile: AUTO | BALANCED | CREATIVE | CODE. Controls behavior, NOT physical model.",
+    )
+    preset: Optional[str] = Field(
+        default=None,
+        description="Optional runtime preset override: PRECISE | BALANCED | CREATIVE",
     )
     messages: list[ChatMessage] = Field(
         default_factory=list,
@@ -149,9 +160,15 @@ class ModelListResponse(BaseModel):
 
 class StatusResponse(BaseModel):
     """Response for GET /v1/status (AS Code extension)."""
+    # Control plane state: what the user chose
+    selected_model: Optional[str] = None
+    # Runtime state: what the engine actually has active
     active_model: Optional[str] = None
+    active_physical_model: Optional[str] = None
+    active_provider: Optional[str] = None
     hardware_tier: str = "unknown"
     ram_available_mb: int = 0
     gpu: dict[str, Any] = Field(default_factory=dict)
     provider: dict[str, Any] = Field(default_factory=dict)
     registered_models: list[str] = Field(default_factory=list)
+

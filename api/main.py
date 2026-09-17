@@ -212,6 +212,12 @@ async def lifespan(app: FastAPI):
     app.state.settings = settings
     app.state.hardware = hardware
 
+    # Single Resident Model Policy: initialize control-plane preference to configured default.
+    # Derived from config.yaml model order — first registered model is the process-scoped default.
+    _default_model_id = next(iter(settings.models.keys()), "chat")
+    app.state.selected_model = _default_model_id
+    logger.info(f"Selected model initialized: {app.state.selected_model}")
+
     logger.info(f"API ready at http://{settings.host}:{settings.port}/v1")
     logger.info(f"UI  ready at http://{settings.host}:{settings.port}/")
     logger.info(f"Active provider: {settings.active_provider}")
@@ -241,6 +247,12 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url=None,  # Disable redoc to save memory
 )
+
+# Single Resident Model Policy: set process-scoped default at module level so that
+# tests importing 'app' without running lifespan still see the documented default.
+# The lifespan overrides this with the config-derived value when the server actually starts.
+DEFAULT_MODEL_ID = "chat"
+app.state.selected_model = DEFAULT_MODEL_ID
 
 # CORS (allow local development)
 app.add_middleware(

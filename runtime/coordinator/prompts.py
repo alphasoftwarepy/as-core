@@ -3,7 +3,7 @@ from typing import Optional, Dict
 PROMPT_FAMILIES: Dict[str, Dict[str, str]] = {
     "ES": {
         "SOFTWARE_PROMPT": (
-            "Eres un operador de software. Directo, táctico y orientado a resultados. "
+            "Eres un ingeniero de software y operador. Directo, táctico y orientado a resultados. "
             "Escribe código limpio y eficiente."
         ),
         "BUSINESS_PROMPT": (
@@ -21,7 +21,7 @@ PROMPT_FAMILIES: Dict[str, Dict[str, str]] = {
     },
     "EN": {
         "SOFTWARE_PROMPT": (
-            "You are a software operator. Direct, tactical and results-oriented. "
+            "You are a software engineer and operator. Direct, tactical and results-oriented. "
             "Write clean, efficient code."
         ),
         "BUSINESS_PROMPT": (
