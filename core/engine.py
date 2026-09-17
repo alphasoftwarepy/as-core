@@ -104,6 +104,7 @@ class EngineManager:
         # Generation busy guard tracking (Single-User minimal protection)
         self._is_generating: bool = False
         self._generating_model: Optional[str] = None
+        self._load_lock: asyncio.Lock = asyncio.Lock()
 
         # Background tasks
         self._unload_task: Optional[asyncio.Task] = None
@@ -158,7 +159,7 @@ class EngineManager:
         )
 
     async def stop(self) -> None:
-        """Stop the engine and shutdown all providers."""
+        """Stop the engine and shutdown all providers. Idempotent."""
         self._running = False
         if self._unload_task:
             self._unload_task.cancel()
@@ -166,9 +167,12 @@ class EngineManager:
                 await self._unload_task
             except asyncio.CancelledError:
                 pass
+            self._unload_task = None
         await self.registry.shutdown_all()
         self._active_model = None
         self._active_physical_model = None
+        self._is_generating = False
+        self._generating_model = None
         logger.info("Engine stopped")
 
     # ── Model Registration ─────────────────────────────────────
@@ -205,64 +209,85 @@ class EngineManager:
 
     async def generate(self, request: InferenceRequest) -> InferenceResult:
         """Run inference (non-streaming). Handles model loading and BUSY protection."""
-        try:
-            provider = await self._ensure_model_loaded(request.model_id)
-        except EngineBusyError as e:
-            logger.warning(f"[BUSY-GUARD] Request rejected: {e}")
+        if self._is_generating:
+            logger.warning(
+                f"[BUSY-GUARD] Request rejected: engine is currently generating with '{self._generating_model or self._active_model}'"
+            )
             return InferenceResult(
-                text=f"Engine BUSY: active inference in progress on '{self._active_model}'",
+                text=f"Engine BUSY: active inference in progress on '{self._generating_model or self._active_model}'",
                 finish_reason="busy",
                 model_id=request.model_id,
             )
 
-        if provider is None:
-            return InferenceResult(
-                text="No active inference provider",
-                finish_reason="error",
-                model_id=request.model_id,
-            )
-
-        self._last_used[request.model_id] = time.time()
         self._is_generating = True
         self._generating_model = request.model_id
         try:
+            try:
+                provider = await self._ensure_model_loaded(request.model_id)
+            except EngineBusyError as e:
+                logger.warning(f"[BUSY-GUARD] Request rejected: {e}")
+                return InferenceResult(
+                    text=f"Engine BUSY: active inference in progress on '{self._active_model}'",
+                    finish_reason="busy",
+                    model_id=request.model_id,
+                )
+
+            if provider is None:
+                return InferenceResult(
+                    text="No active inference provider",
+                    finish_reason="error",
+                    model_id=request.model_id,
+                )
+
             return await provider.generate(request)
         finally:
             self._is_generating = False
             self._generating_model = None
+            self._last_used[request.model_id] = time.time()
 
     async def generate_stream(
         self, request: InferenceRequest
     ) -> AsyncIterator[InferenceResult]:
         """Run inference (streaming). Handles model loading and BUSY protection."""
-        try:
-            provider = await self._ensure_model_loaded(request.model_id)
-        except EngineBusyError as e:
-            logger.warning(f"[BUSY-GUARD] Streaming request rejected: {e}")
+        if self._is_generating:
+            logger.warning(
+                f"[BUSY-GUARD] Streaming request rejected: engine is currently generating with '{self._generating_model or self._active_model}'"
+            )
             yield InferenceResult(
-                text=f"Engine BUSY: active inference in progress on '{self._active_model}'",
+                text=f"Engine BUSY: active inference in progress on '{self._generating_model or self._active_model}'",
                 finish_reason="busy",
                 model_id=request.model_id,
             )
             return
 
-        if provider is None:
-            yield InferenceResult(
-                text="No active inference provider",
-                finish_reason="error",
-                model_id=request.model_id,
-            )
-            return
-
-        self._last_used[request.model_id] = time.time()
         self._is_generating = True
         self._generating_model = request.model_id
         try:
+            try:
+                provider = await self._ensure_model_loaded(request.model_id)
+            except EngineBusyError as e:
+                logger.warning(f"[BUSY-GUARD] Streaming request rejected: {e}")
+                yield InferenceResult(
+                    text=f"Engine BUSY: active inference in progress on '{self._active_model}'",
+                    finish_reason="busy",
+                    model_id=request.model_id,
+                )
+                return
+
+            if provider is None:
+                yield InferenceResult(
+                    text="No active inference provider",
+                    finish_reason="error",
+                    model_id=request.model_id,
+                )
+                return
+
             async for chunk in provider.generate_stream(request):
                 yield chunk
         finally:
             self._is_generating = False
             self._generating_model = None
+            self._last_used[request.model_id] = time.time()
 
     async def cancel_generation(self, request_id: str, model_id: Optional[str] = None) -> None:
         """Cancel an in-progress generation."""
@@ -310,74 +335,84 @@ class EngineManager:
 
         target_physical_id = self.get_physical_identity(model_id)
 
-        # 0. BUSY GUARD: If another physical model is currently actively generating, reject transition!
-        if self._is_generating and self._active_physical_model and self._active_physical_model != target_physical_id:
-            raise EngineBusyError(
-                f"Engine is BUSY generating with active model '{self._active_model}'. "
-                f"Transition to '{model_id}' rejected."
-            )
+        # 0. BUSY GUARD: If another model is currently actively generating, reject transition!
+        if self._is_generating and self._generating_model and self._generating_model != model_id:
+            gen_physical = self.get_physical_identity(self._generating_model)
+            if gen_physical != target_physical_id:
+                raise EngineBusyError(
+                    f"Engine is BUSY generating with active model '{self._generating_model}'. "
+                    f"Transition to '{model_id}' rejected."
+                )
 
-        # 1. Fast-path: Check if the model is directly reported loaded by the provider
+        # 1. Fast-path: Check if the model is directly reported loaded by the provider (without lock)
         if await provider.is_model_loaded(model_id):
             self._active_model = model_id
             self._active_physical_model = target_physical_id
             return provider
 
-        # 2. Physical Identity Reuse: Check if another logical role sharing the same provider
-        # and canonical physical artifact is already resident
-        all_providers = self.registry.get_all_providers()
-        for p_id, p_instance in all_providers.items():
-            if p_instance == provider:
-                loaded = await p_instance.loaded_models()
-                for loaded_id in loaded:
-                    if self.get_physical_identity(loaded_id) == target_physical_id:
-                        self._active_model = model_id
-                        self._active_physical_model = target_physical_id
-                        now = time.time()
-                        self._last_used[model_id] = now
-                        self._last_used[loaded_id] = now
-                        logger.info(
-                            f"[MODEL-REUSE] Logical alias '{model_id}' reusing active physical model "
-                            f"'{loaded_id}' ({target_physical_id})"
-                        )
-                        return provider
+        # 2. Acquire load serialization lock for swap/load operations
+        async with self._load_lock:
+            # Re-check fast-path under lock (double-checked locking pattern)
+            if await provider.is_model_loaded(model_id):
+                self._active_model = model_id
+                self._active_physical_model = target_physical_id
+                return provider
 
-        # 3. Model Swap: If another physical model is loaded and we're in single-model mode,
-        # unload it across all providers in the registry first to free 100% VRAM
-        if self.hardware.tier != HardwareTier.PERFORMANCE:
+            # Physical Identity Reuse: Check if another logical role sharing the same provider
+            # and canonical physical artifact is already resident
+            all_providers = self.registry.get_all_providers()
             for p_id, p_instance in all_providers.items():
-                loaded = await p_instance.loaded_models()
-                for loaded_id in loaded:
-                    loaded_physical = self.get_physical_identity(loaded_id)
-                    if loaded_physical != target_physical_id or p_instance != provider:
-                        logger.info(f"[MODEL-SWAP] Swapping active model: {loaded_id} ({p_id}) → {model_id} ({provider_id})")
-                        await p_instance.unload_model(loaded_id)
-                        self._loaded_at.pop(loaded_id, None)
-                        self._last_used.pop(loaded_id, None)
-                        if self._active_model == loaded_id:
-                            self._active_model = None
-                            self._active_physical_model = None
+                if p_instance == provider:
+                    loaded = await p_instance.loaded_models()
+                    for loaded_id in loaded:
+                        if self.get_physical_identity(loaded_id) == target_physical_id:
+                            self._active_model = model_id
+                            self._active_physical_model = target_physical_id
+                            now = time.time()
+                            self._last_used[model_id] = now
+                            self._last_used[loaded_id] = now
+                            logger.info(
+                                f"[MODEL-REUSE] Logical alias '{model_id}' reusing active physical model "
+                                f"'{loaded_id}' ({target_physical_id})"
+                            )
+                            return provider
 
-        # 4. Observability / Telemetry check: check resources after previous model is unloaded
-        await self._check_resources(config["estimated_vram_mb"])
+            # 3. Model Swap: If another physical model is loaded and we're in single-model mode,
+            # unload it across all providers in the registry first to free 100% VRAM
+            if self.hardware.tier != HardwareTier.PERFORMANCE:
+                for p_id, p_instance in all_providers.items():
+                    loaded = await p_instance.loaded_models()
+                    for loaded_id in loaded:
+                        loaded_physical = self.get_physical_identity(loaded_id)
+                        if loaded_physical != target_physical_id or p_instance != provider:
+                            logger.info(f"[MODEL-SWAP] Swapping active model: {loaded_id} ({p_id}) → {model_id} ({provider_id})")
+                            await p_instance.unload_model(loaded_id)
+                            self._loaded_at.pop(loaded_id, None)
+                            self._last_used.pop(loaded_id, None)
+                            if self._active_model == loaded_id:
+                                self._active_model = None
+                                self._active_physical_model = None
 
-        # 5. Load the target model with explicit failure state protection
-        logger.info(f"[MODEL-LOAD] Ensuring model is loaded: {model_id} (physical: {target_physical_id})")
-        try:
-            await provider.load_model(model_id, config["path"])
-        except Exception as e:
-            self._active_model = None
-            self._active_physical_model = None
-            logger.error(f"[MODEL-LOAD-FAIL] Target model '{model_id}' failed to load: {e}")
-            raise
+            # 4. Observability / Telemetry check: check resources after previous model is unloaded
+            await self._check_resources(config["estimated_vram_mb"])
 
-        self._active_model = model_id
-        self._active_physical_model = target_physical_id
-        now = time.time()
-        self._last_used[model_id] = now
-        self._loaded_at[model_id] = now
-        logger.info(f"[MODEL-LIFECYCLE] Model loaded successfully: {model_id}")
-        return provider
+            # 5. Load the target model with explicit failure state protection
+            logger.info(f"[MODEL-LOAD] Ensuring model is loaded: {model_id} (physical: {target_physical_id})")
+            try:
+                await provider.load_model(model_id, config["path"])
+            except Exception as e:
+                self._active_model = None
+                self._active_physical_model = None
+                logger.error(f"[MODEL-LOAD-FAIL] Target model '{model_id}' failed to load: {e}")
+                raise
+
+            self._active_model = model_id
+            self._active_physical_model = target_physical_id
+            now = time.time()
+            self._last_used[model_id] = now
+            self._loaded_at[model_id] = now
+            logger.info(f"[MODEL-LIFECYCLE] Model loaded successfully: {model_id}")
+            return provider
 
     async def _check_resources(self, required_vram_mb: int) -> None:
         """OBSERVABILITY / TELEMETRY ONLY.
@@ -414,44 +449,42 @@ class EngineManager:
                 if self._is_generating:
                     continue
 
-                provider = self.registry.active_provider
-                if provider is None:
-                    continue
-
+                all_providers = self.registry.get_all_providers()
                 now = time.time()
-                loaded = await provider.loaded_models()
 
-                for model_id in loaded:
-                    # 1. Check Idle Timeout
-                    last_used = self._last_used.get(model_id, 0)
-                    idle_time = now - last_used
+                for p_id, provider in all_providers.items():
+                    loaded = await provider.loaded_models()
+                    for model_id in loaded:
+                        # 1. Check Idle Timeout
+                        last_used = self._last_used.get(model_id, 0)
+                        idle_time = now - last_used
 
-                    # 2. Check Absolute Lifetime
-                    loaded_at = self._loaded_at.get(model_id, now)
-                    lifetime = now - loaded_at
+                        # 2. Check Absolute Lifetime
+                        loaded_at = self._loaded_at.get(model_id, now)
+                        lifetime = now - loaded_at
 
-                    if idle_time > self._model_unload_timeout:
-                        logger.info(
-                            f"[MODEL-UNLOAD] Unloading idle model: {model_id} "
-                            f"(idle for {idle_time:.1f}s, threshold {self._model_unload_timeout}s)"
-                        )
-                        await provider.unload_model(model_id)
-                        self._last_used.pop(model_id, None)
-                        self._loaded_at.pop(model_id, None)
-                        if self._active_model == model_id:
-                            self._active_model = None
-                            self._active_physical_model = None
-                    elif lifetime > self._model_absolute_lifetime:
-                        logger.info(
-                            f"[MODEL-UNLOAD] Force recycling model: {model_id} "
-                            f"(absolute lifetime {lifetime:.1f}s exceeded limit of {self._model_absolute_lifetime}s)"
-                        )
-                        await provider.unload_model(model_id)
-                        self._last_used.pop(model_id, None)
-                        self._loaded_at.pop(model_id, None)
-                        if self._active_model == model_id:
-                            self._active_model = None
-                            self._active_physical_model = None
+                        if idle_time > self._model_unload_timeout:
+                            logger.info(
+                                f"[MODEL-UNLOAD] Unloading idle model: {model_id} "
+                                f"(idle for {idle_time:.1f}s, threshold {self._model_unload_timeout}s)"
+                            )
+                            await provider.unload_model(model_id)
+                            self._last_used.pop(model_id, None)
+                            self._loaded_at.pop(model_id, None)
+                            if self._active_model == model_id:
+                                self._active_model = None
+                                self._active_physical_model = None
+                        elif lifetime > self._model_absolute_lifetime:
+                            logger.info(
+                                f"[MODEL-UNLOAD] Force recycling model: {model_id} "
+                                f"(absolute lifetime {lifetime:.1f}s exceeded limit of {self._model_absolute_lifetime}s)"
+                            )
+                            await provider.unload_model(model_id)
+                            self._last_used.pop(model_id, None)
+                            self._loaded_at.pop(model_id, None)
+                            if self._active_model == model_id:
+                                self._active_model = None
+                                self._active_physical_model = None
 
             except asyncio.CancelledError:
                 break
