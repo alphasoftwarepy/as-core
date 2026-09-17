@@ -38,6 +38,11 @@ from providers.registry import ProviderRegistry
 logger = logging.getLogger("as-code.core.engine")
 
 
+class EngineBusyError(RuntimeError):
+    """Raised when a model swap/transition is requested while an active generation is in progress."""
+    pass
+
+
 class EngineManager:
     """Central engine orchestrator.
 
@@ -58,9 +63,30 @@ class EngineManager:
         model_unload_timeout: Optional[float] = None,
         model_absolute_lifetime: Optional[float] = None,
         anti_oom_threshold_mb: int = 500,
+        runtime_mode: Optional[str] = None,
     ) -> None:
         self.registry = provider_registry
         self.hardware = hardware_info or detect_hardware()
+
+        # Runtime mode validation (Single-user first / multi-user reserved)
+        if runtime_mode is None:
+            try:
+                from config.settings import get_settings
+                self.runtime_mode = get_settings().runtime_mode or "single_user"
+            except Exception:
+                self.runtime_mode = "single_user"
+        else:
+            self.runtime_mode = runtime_mode
+
+        if self.runtime_mode == "multi_user":
+            raise RuntimeError(
+                "Runtime mode 'multi_user' is RESERVED / NOT IMPLEMENTED in Phase 0. "
+                "Only 'single_user' is supported."
+            )
+        elif self.runtime_mode != "single_user":
+            raise ValueError(
+                f"Unknown runtime_mode '{self.runtime_mode}'. Supported: 'single_user'."
+            )
 
         # Hardware-adaptive settings
         self._max_vram_mb = max_vram_mb
@@ -74,6 +100,10 @@ class EngineManager:
         self._loaded_at: dict[str, float] = {}  # model_id → load timestamp
         self._active_model: Optional[str] = None
         self._active_physical_model: Optional[str] = None
+
+        # Generation busy guard tracking (Single-User minimal protection)
+        self._is_generating: bool = False
+        self._generating_model: Optional[str] = None
 
         # Background tasks
         self._unload_task: Optional[asyncio.Task] = None
@@ -174,8 +204,16 @@ class EngineManager:
     # ── Inference ──────────────────────────────────────────────
 
     async def generate(self, request: InferenceRequest) -> InferenceResult:
-        """Run inference (non-streaming). Handles model loading."""
-        provider = await self._ensure_model_loaded(request.model_id)
+        """Run inference (non-streaming). Handles model loading and BUSY protection."""
+        try:
+            provider = await self._ensure_model_loaded(request.model_id)
+        except EngineBusyError as e:
+            logger.warning(f"[BUSY-GUARD] Request rejected: {e}")
+            return InferenceResult(
+                text=f"Engine BUSY: active inference in progress on '{self._active_model}'",
+                finish_reason="busy",
+                model_id=request.model_id,
+            )
 
         if provider is None:
             return InferenceResult(
@@ -185,13 +223,28 @@ class EngineManager:
             )
 
         self._last_used[request.model_id] = time.time()
-        return await provider.generate(request)
+        self._is_generating = True
+        self._generating_model = request.model_id
+        try:
+            return await provider.generate(request)
+        finally:
+            self._is_generating = False
+            self._generating_model = None
 
     async def generate_stream(
         self, request: InferenceRequest
     ) -> AsyncIterator[InferenceResult]:
-        """Run inference (streaming). Handles model loading."""
-        provider = await self._ensure_model_loaded(request.model_id)
+        """Run inference (streaming). Handles model loading and BUSY protection."""
+        try:
+            provider = await self._ensure_model_loaded(request.model_id)
+        except EngineBusyError as e:
+            logger.warning(f"[BUSY-GUARD] Streaming request rejected: {e}")
+            yield InferenceResult(
+                text=f"Engine BUSY: active inference in progress on '{self._active_model}'",
+                finish_reason="busy",
+                model_id=request.model_id,
+            )
+            return
 
         if provider is None:
             yield InferenceResult(
@@ -202,8 +255,14 @@ class EngineManager:
             return
 
         self._last_used[request.model_id] = time.time()
-        async for chunk in provider.generate_stream(request):
-            yield chunk
+        self._is_generating = True
+        self._generating_model = request.model_id
+        try:
+            async for chunk in provider.generate_stream(request):
+                yield chunk
+        finally:
+            self._is_generating = False
+            self._generating_model = None
 
     async def cancel_generation(self, request_id: str, model_id: Optional[str] = None) -> None:
         """Cancel an in-progress generation."""
@@ -237,7 +296,7 @@ class EngineManager:
 
     async def _ensure_model_loaded(self, model_id: str) -> InferenceProvider:
         """Ensure a model is loaded. Lazy load if needed.
-        Implements anti-OOM protection, VRAM-aware loading, and physical model identity reuse."""
+        Implements BUSY guard, physical model identity reuse, and atomic swap."""
         if model_id not in self._model_configs:
             raise ValueError(f"Model '{model_id}' not registered")
 
@@ -250,6 +309,13 @@ class EngineManager:
             raise RuntimeError(f"No provider found for model '{model_id}' (provider_id={provider_id})")
 
         target_physical_id = self.get_physical_identity(model_id)
+
+        # 0. BUSY GUARD: If another physical model is currently actively generating, reject transition!
+        if self._is_generating and self._active_physical_model and self._active_physical_model != target_physical_id:
+            raise EngineBusyError(
+                f"Engine is BUSY generating with active model '{self._active_model}'. "
+                f"Transition to '{model_id}' rejected."
+            )
 
         # 1. Fast-path: Check if the model is directly reported loaded by the provider
         if await provider.is_model_loaded(model_id):
@@ -276,10 +342,7 @@ class EngineManager:
                         )
                         return provider
 
-        # Anti-OOM check
-        await self._check_resources(config["estimated_vram_mb"])
-
-        # If another physical model is loaded and we're in single-model mode,
+        # 3. Model Swap: If another physical model is loaded and we're in single-model mode,
         # unload it across all providers in the registry first to free 100% VRAM
         if self.hardware.tier != HardwareTier.PERFORMANCE:
             for p_id, p_instance in all_providers.items():
@@ -291,11 +354,23 @@ class EngineManager:
                         await p_instance.unload_model(loaded_id)
                         self._loaded_at.pop(loaded_id, None)
                         self._last_used.pop(loaded_id, None)
+                        if self._active_model == loaded_id:
+                            self._active_model = None
+                            self._active_physical_model = None
 
-        # Load the model
+        # 4. Observability / Telemetry check: check resources after previous model is unloaded
+        await self._check_resources(config["estimated_vram_mb"])
+
+        # 5. Load the target model with explicit failure state protection
         logger.info(f"[MODEL-LOAD] Ensuring model is loaded: {model_id} (physical: {target_physical_id})")
-        print("ENGINE CONFIG PATH:", config["path"])
-        await provider.load_model(model_id, config["path"])
+        try:
+            await provider.load_model(model_id, config["path"])
+        except Exception as e:
+            self._active_model = None
+            self._active_physical_model = None
+            logger.error(f"[MODEL-LOAD-FAIL] Target model '{model_id}' failed to load: {e}")
+            raise
+
         self._active_model = model_id
         self._active_physical_model = target_physical_id
         now = time.time()
@@ -305,8 +380,10 @@ class EngineManager:
         return provider
 
     async def _check_resources(self, required_vram_mb: int) -> None:
-        """Check if we have enough resources to load a model.
-        Anti-OOM protection with real-world latency priority."""
+        """OBSERVABILITY / TELEMETRY ONLY.
+        Logs warnings when free VRAM or RAM is below registered thresholds.
+        This is NOT a blocking safety gate; it informs monitoring systems
+        and operators of memory pressure without preventing execution."""
         # RAM check
         available_ram = get_ram_available_mb()
         if available_ram > 0 and available_ram < self._anti_oom_threshold_mb:
@@ -314,8 +391,6 @@ class EngineManager:
                 f"Low RAM: {available_ram}MB available "
                 f"(threshold: {self._anti_oom_threshold_mb}MB)"
             )
-            # Don't block — let the OS manage swap
-            # but log aggressively so we can tune
 
         # VRAM check
         free_vram = get_vram_free_mb()
@@ -334,6 +409,10 @@ class EngineManager:
                 # Sleep dynamically based on configured unload timeout
                 sleep_interval = min(5.0, max(1.0, self._model_unload_timeout))
                 await asyncio.sleep(sleep_interval)
+
+                # Protect active inference: never unload models while inference is running
+                if self._is_generating:
+                    continue
 
                 provider = self.registry.active_provider
                 if provider is None:

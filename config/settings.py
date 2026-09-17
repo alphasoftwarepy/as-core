@@ -112,6 +112,10 @@ class Settings(BaseSettings):
         default="balanced",
         description="System mode: ultra_light, balanced, performance",
     )
+    runtime_mode: str = Field(
+        default="single_user",
+        description="Runtime user mode: single_user (supported) or multi_user (reserved / not implemented)",
+    )
 
     # ── RAG — NotebookLM Pipeline ──────────────────────────────
     enable_rag_mode: bool = Field(

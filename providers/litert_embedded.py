@@ -91,6 +91,7 @@ class LiteRTEmbeddedProvider(InferenceProvider):
                         logger.warning(f"Error calling __exit__ on engine: {e}")
                     self._engine = None
                     self._loaded_model_id = None
+                    # PYTHON OBJECT CLEANUP: Collects dereferenced Python objects only; 0 impact on WebGPU/Dawn VRAM
                     gc.collect()
         await asyncio.to_thread(_exit)
         self._status = ProviderStatus.SHUTDOWN
@@ -116,6 +117,7 @@ class LiteRTEmbeddedProvider(InferenceProvider):
                         logger.warning(f"Error during swap exit: {e}")
                     self._engine = None
                     self._loaded_model_id = None
+                    # PYTHON OBJECT CLEANUP: Collects dereferenced Python objects only; 0 impact on WebGPU/Dawn VRAM
                     gc.collect()
 
                 # Get context limit from settings
@@ -155,6 +157,7 @@ class LiteRTEmbeddedProvider(InferenceProvider):
                         logger.warning(f"Error during exit: {e}")
                     self._engine = None
                     self._loaded_model_id = None
+                    # PYTHON OBJECT CLEANUP: Collects dereferenced Python objects only; 0 impact on WebGPU/Dawn VRAM
                     gc.collect()
         await asyncio.to_thread(_exit)
         duration = time.time() - t0
