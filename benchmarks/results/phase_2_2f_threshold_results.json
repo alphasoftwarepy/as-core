@@ -1,0 +1,3046 @@
+{
+  "etapa_1_curve": {
+    "0.0": {
+      "threshold": 0.0,
+      "total_surviving_chunks": 88,
+      "total_relevant_chunks": 25,
+      "total_irrelevant_chunks": 63,
+      "noise_ratio_pct": 71.6,
+      "false_rag_on": 2,
+      "false_rag_off": 0,
+      "avg_chunks_per_case": 4.4,
+      "avg_context_tokens": 703
+    },
+    "0.4": {
+      "threshold": 0.4,
+      "total_surviving_chunks": 72,
+      "total_relevant_chunks": 18,
+      "total_irrelevant_chunks": 54,
+      "noise_ratio_pct": 75.0,
+      "false_rag_on": 2,
+      "false_rag_off": 0,
+      "avg_chunks_per_case": 3.6,
+      "avg_context_tokens": 571
+    },
+    "0.5": {
+      "threshold": 0.5,
+      "total_surviving_chunks": 61,
+      "total_relevant_chunks": 15,
+      "total_irrelevant_chunks": 46,
+      "noise_ratio_pct": 75.4,
+      "false_rag_on": 2,
+      "false_rag_off": 2,
+      "avg_chunks_per_case": 3.05,
+      "avg_context_tokens": 499
+    },
+    "0.6": {
+      "threshold": 0.6,
+      "total_surviving_chunks": 55,
+      "total_relevant_chunks": 13,
+      "total_irrelevant_chunks": 42,
+      "noise_ratio_pct": 76.4,
+      "false_rag_on": 2,
+      "false_rag_off": 3,
+      "avg_chunks_per_case": 2.75,
+      "avg_context_tokens": 449
+    },
+    "0.65": {
+      "threshold": 0.65,
+      "total_surviving_chunks": 47,
+      "total_relevant_chunks": 13,
+      "total_irrelevant_chunks": 34,
+      "noise_ratio_pct": 72.3,
+      "false_rag_on": 2,
+      "false_rag_off": 4,
+      "avg_chunks_per_case": 2.35,
+      "avg_context_tokens": 383
+    },
+    "0.7": {
+      "threshold": 0.7,
+      "total_surviving_chunks": 30,
+      "total_relevant_chunks": 11,
+      "total_irrelevant_chunks": 19,
+      "noise_ratio_pct": 63.3,
+      "false_rag_on": 1,
+      "false_rag_off": 5,
+      "avg_chunks_per_case": 1.5,
+      "avg_context_tokens": 249
+    },
+    "0.75": {
+      "threshold": 0.75,
+      "total_surviving_chunks": 20,
+      "total_relevant_chunks": 9,
+      "total_irrelevant_chunks": 11,
+      "noise_ratio_pct": 55.0,
+      "false_rag_on": 0,
+      "false_rag_off": 7,
+      "avg_chunks_per_case": 1.0,
+      "avg_context_tokens": 167
+    }
+  },
+  "etapa_1_per_case": {
+    "CASE_A": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 0,
+        "irrelevant_count": 5,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.6951
+      },
+      "0.4": {
+        "surviving_count": 2,
+        "relevant_count": 0,
+        "irrelevant_count": 2,
+        "context_chars": 1348,
+        "rag_on": true,
+        "max_score": 0.6951
+      },
+      "0.5": {
+        "surviving_count": 2,
+        "relevant_count": 0,
+        "irrelevant_count": 2,
+        "context_chars": 1348,
+        "rag_on": true,
+        "max_score": 0.6951
+      },
+      "0.6": {
+        "surviving_count": 2,
+        "relevant_count": 0,
+        "irrelevant_count": 2,
+        "context_chars": 1348,
+        "rag_on": true,
+        "max_score": 0.6951
+      },
+      "0.65": {
+        "surviving_count": 1,
+        "relevant_count": 0,
+        "irrelevant_count": 1,
+        "context_chars": 687,
+        "rag_on": true,
+        "max_score": 0.6951
+      },
+      "0.7": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.6951
+      },
+      "0.75": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.6951
+      }
+    },
+    "CASE_B": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 2,
+        "irrelevant_count": 3,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.8103
+      },
+      "0.4": {
+        "surviving_count": 4,
+        "relevant_count": 1,
+        "irrelevant_count": 3,
+        "context_chars": 2670,
+        "rag_on": true,
+        "max_score": 0.8103
+      },
+      "0.5": {
+        "surviving_count": 4,
+        "relevant_count": 1,
+        "irrelevant_count": 3,
+        "context_chars": 2670,
+        "rag_on": true,
+        "max_score": 0.8103
+      },
+      "0.6": {
+        "surviving_count": 4,
+        "relevant_count": 1,
+        "irrelevant_count": 3,
+        "context_chars": 2670,
+        "rag_on": true,
+        "max_score": 0.8103
+      },
+      "0.65": {
+        "surviving_count": 3,
+        "relevant_count": 1,
+        "irrelevant_count": 2,
+        "context_chars": 2009,
+        "rag_on": true,
+        "max_score": 0.8103
+      },
+      "0.7": {
+        "surviving_count": 1,
+        "relevant_count": 1,
+        "irrelevant_count": 0,
+        "context_chars": 687,
+        "rag_on": true,
+        "max_score": 0.8103
+      },
+      "0.75": {
+        "surviving_count": 1,
+        "relevant_count": 1,
+        "irrelevant_count": 0,
+        "context_chars": 687,
+        "rag_on": true,
+        "max_score": 0.8103
+      }
+    },
+    "CASE_C": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3308,
+        "rag_on": true,
+        "max_score": 0.63
+      },
+      "0.4": {
+        "surviving_count": 3,
+        "relevant_count": 0,
+        "irrelevant_count": 3,
+        "context_chars": 1996,
+        "rag_on": true,
+        "max_score": 0.63
+      },
+      "0.5": {
+        "surviving_count": 3,
+        "relevant_count": 0,
+        "irrelevant_count": 3,
+        "context_chars": 1996,
+        "rag_on": true,
+        "max_score": 0.63
+      },
+      "0.6": {
+        "surviving_count": 3,
+        "relevant_count": 0,
+        "irrelevant_count": 3,
+        "context_chars": 1996,
+        "rag_on": true,
+        "max_score": 0.63
+      },
+      "0.65": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.63
+      },
+      "0.7": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.63
+      },
+      "0.75": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.63
+      }
+    },
+    "CASE_D": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.8398
+      },
+      "0.4": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.8398
+      },
+      "0.5": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.8398
+      },
+      "0.6": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.8398
+      },
+      "0.65": {
+        "surviving_count": 4,
+        "relevant_count": 1,
+        "irrelevant_count": 3,
+        "context_chars": 2670,
+        "rag_on": true,
+        "max_score": 0.8398
+      },
+      "0.7": {
+        "surviving_count": 1,
+        "relevant_count": 1,
+        "irrelevant_count": 0,
+        "context_chars": 687,
+        "rag_on": true,
+        "max_score": 0.8398
+      },
+      "0.75": {
+        "surviving_count": 1,
+        "relevant_count": 1,
+        "irrelevant_count": 0,
+        "context_chars": 687,
+        "rag_on": true,
+        "max_score": 0.8398
+      }
+    },
+    "CASE_E": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3292,
+        "rag_on": true,
+        "max_score": 0.7064
+      },
+      "0.4": {
+        "surviving_count": 4,
+        "relevant_count": 1,
+        "irrelevant_count": 3,
+        "context_chars": 2639,
+        "rag_on": true,
+        "max_score": 0.7064
+      },
+      "0.5": {
+        "surviving_count": 3,
+        "relevant_count": 1,
+        "irrelevant_count": 2,
+        "context_chars": 1985,
+        "rag_on": true,
+        "max_score": 0.7064
+      },
+      "0.6": {
+        "surviving_count": 3,
+        "relevant_count": 1,
+        "irrelevant_count": 2,
+        "context_chars": 1985,
+        "rag_on": true,
+        "max_score": 0.7064
+      },
+      "0.65": {
+        "surviving_count": 2,
+        "relevant_count": 1,
+        "irrelevant_count": 1,
+        "context_chars": 1332,
+        "rag_on": true,
+        "max_score": 0.7064
+      },
+      "0.7": {
+        "surviving_count": 1,
+        "relevant_count": 1,
+        "irrelevant_count": 0,
+        "context_chars": 679,
+        "rag_on": true,
+        "max_score": 0.7064
+      },
+      "0.75": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.7064
+      }
+    },
+    "CASE_F": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.7805
+      },
+      "0.4": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.7805
+      },
+      "0.5": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.7805
+      },
+      "0.6": {
+        "surviving_count": 3,
+        "relevant_count": 1,
+        "irrelevant_count": 2,
+        "context_chars": 2009,
+        "rag_on": true,
+        "max_score": 0.7805
+      },
+      "0.65": {
+        "surviving_count": 2,
+        "relevant_count": 1,
+        "irrelevant_count": 1,
+        "context_chars": 1348,
+        "rag_on": true,
+        "max_score": 0.7805
+      },
+      "0.7": {
+        "surviving_count": 2,
+        "relevant_count": 1,
+        "irrelevant_count": 1,
+        "context_chars": 1348,
+        "rag_on": true,
+        "max_score": 0.7805
+      },
+      "0.75": {
+        "surviving_count": 1,
+        "relevant_count": 1,
+        "irrelevant_count": 0,
+        "context_chars": 687,
+        "rag_on": true,
+        "max_score": 0.7805
+      }
+    },
+    "CASE_G": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3329,
+        "rag_on": true,
+        "max_score": 0.8193
+      },
+      "0.4": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3329,
+        "rag_on": true,
+        "max_score": 0.8193
+      },
+      "0.5": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3329,
+        "rag_on": true,
+        "max_score": 0.8193
+      },
+      "0.6": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3329,
+        "rag_on": true,
+        "max_score": 0.8193
+      },
+      "0.65": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3329,
+        "rag_on": true,
+        "max_score": 0.8193
+      },
+      "0.7": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3329,
+        "rag_on": true,
+        "max_score": 0.8193
+      },
+      "0.75": {
+        "surviving_count": 4,
+        "relevant_count": 1,
+        "irrelevant_count": 3,
+        "context_chars": 2670,
+        "rag_on": true,
+        "max_score": 0.8193
+      }
+    },
+    "CASE_H": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 0,
+        "irrelevant_count": 5,
+        "context_chars": 2755,
+        "rag_on": true,
+        "max_score": 0.695
+      },
+      "0.4": {
+        "surviving_count": 2,
+        "relevant_count": 0,
+        "irrelevant_count": 2,
+        "context_chars": 779,
+        "rag_on": true,
+        "max_score": 0.695
+      },
+      "0.5": {
+        "surviving_count": 1,
+        "relevant_count": 0,
+        "irrelevant_count": 1,
+        "context_chars": 120,
+        "rag_on": true,
+        "max_score": 0.695
+      },
+      "0.6": {
+        "surviving_count": 1,
+        "relevant_count": 0,
+        "irrelevant_count": 1,
+        "context_chars": 120,
+        "rag_on": true,
+        "max_score": 0.695
+      },
+      "0.65": {
+        "surviving_count": 1,
+        "relevant_count": 0,
+        "irrelevant_count": 1,
+        "context_chars": 120,
+        "rag_on": true,
+        "max_score": 0.695
+      },
+      "0.7": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.695
+      },
+      "0.75": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.695
+      }
+    },
+    "CASE_I": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 5,
+        "irrelevant_count": 0,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.7708
+      },
+      "0.4": {
+        "surviving_count": 3,
+        "relevant_count": 3,
+        "irrelevant_count": 0,
+        "context_chars": 2009,
+        "rag_on": true,
+        "max_score": 0.7708
+      },
+      "0.5": {
+        "surviving_count": 3,
+        "relevant_count": 3,
+        "irrelevant_count": 0,
+        "context_chars": 2009,
+        "rag_on": true,
+        "max_score": 0.7708
+      },
+      "0.6": {
+        "surviving_count": 3,
+        "relevant_count": 3,
+        "irrelevant_count": 0,
+        "context_chars": 2009,
+        "rag_on": true,
+        "max_score": 0.7708
+      },
+      "0.65": {
+        "surviving_count": 3,
+        "relevant_count": 3,
+        "irrelevant_count": 0,
+        "context_chars": 2009,
+        "rag_on": true,
+        "max_score": 0.7708
+      },
+      "0.7": {
+        "surviving_count": 2,
+        "relevant_count": 2,
+        "irrelevant_count": 0,
+        "context_chars": 1348,
+        "rag_on": true,
+        "max_score": 0.7708
+      },
+      "0.75": {
+        "surviving_count": 1,
+        "relevant_count": 1,
+        "irrelevant_count": 0,
+        "context_chars": 687,
+        "rag_on": true,
+        "max_score": 0.7708
+      }
+    },
+    "CASE_J": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 4,
+        "irrelevant_count": 1,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.5732
+      },
+      "0.4": {
+        "surviving_count": 1,
+        "relevant_count": 1,
+        "irrelevant_count": 0,
+        "context_chars": 687,
+        "rag_on": true,
+        "max_score": 0.5732
+      },
+      "0.5": {
+        "surviving_count": 1,
+        "relevant_count": 1,
+        "irrelevant_count": 0,
+        "context_chars": 687,
+        "rag_on": true,
+        "max_score": 0.5732
+      },
+      "0.6": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.5732
+      },
+      "0.65": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.5732
+      },
+      "0.7": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.5732
+      },
+      "0.75": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.5732
+      }
+    },
+    "CASE_K": {
+      "0.0": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.0
+      },
+      "0.4": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.0
+      },
+      "0.5": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.0
+      },
+      "0.6": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.0
+      },
+      "0.65": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.0
+      },
+      "0.7": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.0
+      },
+      "0.75": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.0
+      }
+    },
+    "CASE_L": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 0,
+        "irrelevant_count": 5,
+        "context_chars": 3215,
+        "rag_on": true,
+        "max_score": 0.7545
+      },
+      "0.4": {
+        "surviving_count": 5,
+        "relevant_count": 0,
+        "irrelevant_count": 5,
+        "context_chars": 3215,
+        "rag_on": true,
+        "max_score": 0.7545
+      },
+      "0.5": {
+        "surviving_count": 5,
+        "relevant_count": 0,
+        "irrelevant_count": 5,
+        "context_chars": 3215,
+        "rag_on": true,
+        "max_score": 0.7545
+      },
+      "0.6": {
+        "surviving_count": 5,
+        "relevant_count": 0,
+        "irrelevant_count": 5,
+        "context_chars": 3215,
+        "rag_on": true,
+        "max_score": 0.7545
+      },
+      "0.65": {
+        "surviving_count": 5,
+        "relevant_count": 0,
+        "irrelevant_count": 5,
+        "context_chars": 3215,
+        "rag_on": true,
+        "max_score": 0.7545
+      },
+      "0.7": {
+        "surviving_count": 3,
+        "relevant_count": 0,
+        "irrelevant_count": 3,
+        "context_chars": 1889,
+        "rag_on": true,
+        "max_score": 0.7545
+      },
+      "0.75": {
+        "surviving_count": 1,
+        "relevant_count": 0,
+        "irrelevant_count": 1,
+        "context_chars": 689,
+        "rag_on": true,
+        "max_score": 0.7545
+      }
+    },
+    "CASE_M": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 0,
+        "irrelevant_count": 5,
+        "context_chars": 3306,
+        "rag_on": true,
+        "max_score": 0.7742
+      },
+      "0.4": {
+        "surviving_count": 5,
+        "relevant_count": 0,
+        "irrelevant_count": 5,
+        "context_chars": 3306,
+        "rag_on": true,
+        "max_score": 0.7742
+      },
+      "0.5": {
+        "surviving_count": 5,
+        "relevant_count": 0,
+        "irrelevant_count": 5,
+        "context_chars": 3306,
+        "rag_on": true,
+        "max_score": 0.7742
+      },
+      "0.6": {
+        "surviving_count": 3,
+        "relevant_count": 0,
+        "irrelevant_count": 3,
+        "context_chars": 1994,
+        "rag_on": true,
+        "max_score": 0.7742
+      },
+      "0.65": {
+        "surviving_count": 3,
+        "relevant_count": 0,
+        "irrelevant_count": 3,
+        "context_chars": 1994,
+        "rag_on": true,
+        "max_score": 0.7742
+      },
+      "0.7": {
+        "surviving_count": 3,
+        "relevant_count": 0,
+        "irrelevant_count": 3,
+        "context_chars": 1994,
+        "rag_on": true,
+        "max_score": 0.7742
+      },
+      "0.75": {
+        "surviving_count": 2,
+        "relevant_count": 0,
+        "irrelevant_count": 2,
+        "context_chars": 1338,
+        "rag_on": true,
+        "max_score": 0.7742
+      }
+    },
+    "CASE_N": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 4,
+        "irrelevant_count": 1,
+        "context_chars": 3304,
+        "rag_on": true,
+        "max_score": 0.8108
+      },
+      "0.4": {
+        "surviving_count": 5,
+        "relevant_count": 4,
+        "irrelevant_count": 1,
+        "context_chars": 3304,
+        "rag_on": true,
+        "max_score": 0.8108
+      },
+      "0.5": {
+        "surviving_count": 3,
+        "relevant_count": 3,
+        "irrelevant_count": 0,
+        "context_chars": 1993,
+        "rag_on": true,
+        "max_score": 0.8108
+      },
+      "0.6": {
+        "surviving_count": 2,
+        "relevant_count": 2,
+        "irrelevant_count": 0,
+        "context_chars": 1337,
+        "rag_on": true,
+        "max_score": 0.8108
+      },
+      "0.65": {
+        "surviving_count": 2,
+        "relevant_count": 2,
+        "irrelevant_count": 0,
+        "context_chars": 1337,
+        "rag_on": true,
+        "max_score": 0.8108
+      },
+      "0.7": {
+        "surviving_count": 2,
+        "relevant_count": 2,
+        "irrelevant_count": 0,
+        "context_chars": 1337,
+        "rag_on": true,
+        "max_score": 0.8108
+      },
+      "0.75": {
+        "surviving_count": 2,
+        "relevant_count": 2,
+        "irrelevant_count": 0,
+        "context_chars": 1337,
+        "rag_on": true,
+        "max_score": 0.8108
+      }
+    },
+    "CASE_O": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3306,
+        "rag_on": true,
+        "max_score": 0.7051
+      },
+      "0.4": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3306,
+        "rag_on": true,
+        "max_score": 0.7051
+      },
+      "0.5": {
+        "surviving_count": 1,
+        "relevant_count": 0,
+        "irrelevant_count": 1,
+        "context_chars": 682,
+        "rag_on": true,
+        "max_score": 0.7051
+      },
+      "0.6": {
+        "surviving_count": 1,
+        "relevant_count": 0,
+        "irrelevant_count": 1,
+        "context_chars": 682,
+        "rag_on": true,
+        "max_score": 0.7051
+      },
+      "0.65": {
+        "surviving_count": 1,
+        "relevant_count": 0,
+        "irrelevant_count": 1,
+        "context_chars": 682,
+        "rag_on": true,
+        "max_score": 0.7051
+      },
+      "0.7": {
+        "surviving_count": 1,
+        "relevant_count": 0,
+        "irrelevant_count": 1,
+        "context_chars": 682,
+        "rag_on": true,
+        "max_score": 0.7051
+      },
+      "0.75": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.7051
+      }
+    },
+    "CASE_P": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3303,
+        "rag_on": true,
+        "max_score": 0.8105
+      },
+      "0.4": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3303,
+        "rag_on": true,
+        "max_score": 0.8105
+      },
+      "0.5": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3303,
+        "rag_on": true,
+        "max_score": 0.8105
+      },
+      "0.6": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3303,
+        "rag_on": true,
+        "max_score": 0.8105
+      },
+      "0.65": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3303,
+        "rag_on": true,
+        "max_score": 0.8105
+      },
+      "0.7": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3303,
+        "rag_on": true,
+        "max_score": 0.8105
+      },
+      "0.75": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3303,
+        "rag_on": true,
+        "max_score": 0.8105
+      }
+    },
+    "CASE_Q": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3327,
+        "rag_on": true,
+        "max_score": 0.7498
+      },
+      "0.4": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3327,
+        "rag_on": true,
+        "max_score": 0.7498
+      },
+      "0.5": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3327,
+        "rag_on": true,
+        "max_score": 0.7498
+      },
+      "0.6": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3327,
+        "rag_on": true,
+        "max_score": 0.7498
+      },
+      "0.65": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3327,
+        "rag_on": true,
+        "max_score": 0.7498
+      },
+      "0.7": {
+        "surviving_count": 2,
+        "relevant_count": 0,
+        "irrelevant_count": 2,
+        "context_chars": 1348,
+        "rag_on": true,
+        "max_score": 0.7498
+      },
+      "0.75": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.7498
+      }
+    },
+    "CASE_R": {
+      "0.0": {
+        "surviving_count": 1,
+        "relevant_count": 0,
+        "irrelevant_count": 1,
+        "context_chars": 169,
+        "rag_on": true,
+        "max_score": 0.4545
+      },
+      "0.4": {
+        "surviving_count": 1,
+        "relevant_count": 0,
+        "irrelevant_count": 1,
+        "context_chars": 169,
+        "rag_on": true,
+        "max_score": 0.4545
+      },
+      "0.5": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.4545
+      },
+      "0.6": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.4545
+      },
+      "0.65": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.4545
+      },
+      "0.7": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.4545
+      },
+      "0.75": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.4545
+      }
+    },
+    "CASE_S": {
+      "0.0": {
+        "surviving_count": 2,
+        "relevant_count": 1,
+        "irrelevant_count": 1,
+        "context_chars": 310,
+        "rag_on": true,
+        "max_score": 0.4832
+      },
+      "0.4": {
+        "surviving_count": 2,
+        "relevant_count": 1,
+        "irrelevant_count": 1,
+        "context_chars": 310,
+        "rag_on": true,
+        "max_score": 0.4832
+      },
+      "0.5": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.4832
+      },
+      "0.6": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.4832
+      },
+      "0.65": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.4832
+      },
+      "0.7": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.4832
+      },
+      "0.75": {
+        "surviving_count": 0,
+        "relevant_count": 0,
+        "irrelevant_count": 0,
+        "context_chars": 0,
+        "rag_on": false,
+        "max_score": 0.4832
+      }
+    },
+    "CASE_T": {
+      "0.0": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.7721
+      },
+      "0.4": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.7721
+      },
+      "0.5": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.7721
+      },
+      "0.6": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.7721
+      },
+      "0.65": {
+        "surviving_count": 5,
+        "relevant_count": 1,
+        "irrelevant_count": 4,
+        "context_chars": 3331,
+        "rag_on": true,
+        "max_score": 0.7721
+      },
+      "0.7": {
+        "surviving_count": 2,
+        "relevant_count": 1,
+        "irrelevant_count": 1,
+        "context_chars": 1348,
+        "rag_on": true,
+        "max_score": 0.7721
+      },
+      "0.75": {
+        "surviving_count": 2,
+        "relevant_count": 1,
+        "irrelevant_count": 1,
+        "context_chars": 1348,
+        "rag_on": true,
+        "max_score": 0.7721
+      }
+    }
+  },
+  "etapa_2_finalists": {
+    "0.5": {
+      "quality_global": 37.5,
+      "quality_documental": 35.29,
+      "quality_nondoc": 50.0,
+      "noise_ratio_pct": 75.4,
+      "false_rag_on": 2,
+      "false_rag_off": 2,
+      "avg_latency_s": 5.9,
+      "avg_context_tokens": 608,
+      "isolation_preserved": true,
+      "cases": [
+        {
+          "case_id": "CASE_A",
+          "name": "Consulta General (RAG OFF Esperado)",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "La memoria RAM (Random Access Memory) es una memoria principal en una computadora que almacena temporalmente los datos y programas que el sistema operativo y las aplicaciones están utilizando activamente.\n\n**Función principal:**\n\nLa función principal de la RAM es proporcionar acceso rápido a la información necesaria para ejecutar programas y realizar tareas.  Cuando un programa se ejecuta, sus datos y el código del programa se cargan en la RAM. Esto permite que el procesador acceda a estos datos de manera muy rápida, lo que resulta en un rendimiento más fluido y rápido de la computadora.\n\nEn resumen, la RAM actúa como una memoria de trabajo para la computadora, permitiendo que procesadores accedan a la información necesaria rápidamente.\n",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 3,
+            "total_keywords": 5,
+            "match_ratio": 0.6,
+            "contamination": false
+          },
+          "latency_s": 14.154,
+          "retrieval_latency_ms": 30.59,
+          "output_tokens": 0,
+          "context_chars": 1784,
+          "context_tokens": 446,
+          "rag_context_chars": 1348,
+          "surviving_chunks_count": 2,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 2,
+          "top_scores": [
+            0.6951,
+            0.6238
+          ]
+        },
+        {
+          "case_id": "CASE_B",
+          "name": "Pregunta Explícita sobre Contrato",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "Según el contrato de alquiler del sistema SG MiPyMES entre Rodrigo Vargas Arce (Alpha Software) y Nancy Sanabria (Cliente), el costo mensual de alquiler es de **Gs. 250.000 (guaraníes doscientos cincuenta mil)**.\n\nEl contrato establece que **no hay penalización por cancelación anticipada**.  El cliente debe comunicar su decisión de no renovar con al menos 30 días de anticipación a la fecha de vencimiento, pero no se menciona ninguna penalización por incumplimiento de este plazo.\n",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 2,
+            "total_keywords": 3,
+            "match_ratio": 0.6666666666666666,
+            "contamination": false
+          },
+          "latency_s": 5.183,
+          "retrieval_latency_ms": 37.34,
+          "output_tokens": 0,
+          "context_chars": 3106,
+          "context_tokens": 776,
+          "rag_context_chars": 2670,
+          "surviving_chunks_count": 4,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 3,
+          "top_scores": [
+            0.8103,
+            0.6665,
+            0.6588
+          ]
+        },
+        {
+          "case_id": "CASE_C",
+          "name": "Pregunta Explícita sobre Presupuesto",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "El documento proporcionado no menciona explícitamente el precio al contado con descuento del Plan Full de Punto de Venta para Bryan Insfran.  \n\nSin embargo, el documento indica que Alpha Software ofrece capacitación, soporte y actualizaciones, además de la instalación del sistema, todo de forma online.  También menciona que las empresas ya confían en ellos.\n\n**No puedo responder a tu pregunta con la información disponible.** Necesitaría más detalles sobre el precio del Plan Full de Punto de Venta para poder calcular el descuento del 30%.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 2,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 4.898,
+          "retrieval_latency_ms": 38.89,
+          "output_tokens": 0,
+          "context_chars": 2432,
+          "context_tokens": 608,
+          "rag_context_chars": 1996,
+          "surviving_chunks_count": 3,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 3,
+          "top_scores": [
+            0.63,
+            0.6216,
+            0.6124
+          ]
+        },
+        {
+          "case_id": "CASE_D",
+          "name": "Dato Exacto en Fragmento Único",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "Según el contrato, el programador queda facultado a suspender el servicio y eliminar la base de datos en la computadora de Nancy Sanabria en caso de mora en el pago superior a **90 días**.",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 1,
+            "total_keywords": 2,
+            "match_ratio": 0.5,
+            "contamination": false
+          },
+          "latency_s": 2.898,
+          "retrieval_latency_ms": 37.73,
+          "output_tokens": 0,
+          "context_chars": 3767,
+          "context_tokens": 941,
+          "rag_context_chars": 3331,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 4,
+          "top_scores": [
+            0.8398,
+            0.6921,
+            0.6646
+          ]
+        },
+        {
+          "case_id": "CASE_E",
+          "name": "Pregunta que Requiere Múltiples Fragmentos",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "Según los documentos proporcionados:\n\n*   **Cantidad de Boxes y Pantallas:** El sistema incluye 16 Boxes y 3 Pantallas de Llamado.\n*   **Precio Final (Pago Contado):** El precio real del sistema es de 20.800.000 Gs, pero con un descuento del 30% al pagar contado, el precio final es de 14.560.000 Gs.",
+          "status": "PASS",
+          "score": 100.0,
+          "eval_detail": {
+            "score": 100.0,
+            "status": "PASS",
+            "matches": 3,
+            "total_keywords": 3,
+            "match_ratio": 1.0,
+            "contamination": false
+          },
+          "latency_s": 4.323,
+          "retrieval_latency_ms": 33.76,
+          "output_tokens": 0,
+          "context_chars": 2421,
+          "context_tokens": 605,
+          "rag_context_chars": 1985,
+          "surviving_chunks_count": 3,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 2,
+          "top_scores": [
+            0.7064,
+            0.6506,
+            0.6341
+          ]
+        },
+        {
+          "case_id": "CASE_F",
+          "name": "Varios Documentos, Solo Uno Relevante",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "Según el contrato de alquiler del sistema SG MiPyMES, la penalización por cancelación anticipada es de **Gs. 250.000 (guaraníes doscientos cincuenta mil)**. Esta penalización deberá ser abonada al contado y en un solo pago.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 1,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 3.484,
+          "retrieval_latency_ms": 36.37,
+          "output_tokens": 0,
+          "context_chars": 3767,
+          "context_tokens": 941,
+          "rag_context_chars": 3331,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 4,
+          "top_scores": [
+            0.7805,
+            0.7195,
+            0.6384
+          ]
+        },
+        {
+          "case_id": "CASE_G",
+          "name": "Dos Versiones con Conflicto de Información",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "Según la propuesta conciliatoria inicial (Propuesta Conciliatoria final.pdf › Block 0) y la propuesta final (PROPUESTA CONCILIATORIA.docx › Block 0), Alpha Software ofreció lo siguiente:\n\n*   **Propuesta Inicial:** Alpha Software se compromete a proveer al Sr. Cristian Banegas el uso del sistema de gestión administrativa comercial actualmente instalado, bajo la modalidad de licencia de uso por un plazo de doce (12) meses.\n*   **Propuesta Final:** Durante el período indicado (12 meses), el Sr. Cristian Banegas no abonará ninguna suma a Alpha Software en concepto de licencia de uso del sistema ni por la integración con Zamphiropolos.\n\nPor lo tanto, la compensación ofrecida por Alpha Software en la propuesta final es la **eliminación de cualquier pago por la licencia de uso del sistema durante los 12 meses**. No se menciona ningún monto específico en la propuesta final.",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 1,
+            "total_keywords": 2,
+            "match_ratio": 0.5,
+            "contamination": false
+          },
+          "latency_s": 7.825,
+          "retrieval_latency_ms": 38.17,
+          "output_tokens": 0,
+          "context_chars": 3765,
+          "context_tokens": 941,
+          "rag_context_chars": 3329,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 4,
+          "top_scores": [
+            0.8193,
+            0.8182,
+            0.7758
+          ]
+        },
+        {
+          "case_id": "CASE_H",
+          "name": "Mismo Contenido en DOCX y PDF (Duplicación)",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "## Análisis de la Consulta y Respuesta\n\n**Consulta:** ¿Cuáles son los planes y precios detallados de Punto de Venta para Victor Morales en julio de 2025?\n\n**Fuente:** Documento adjunto \"Victor Morales 22 07 25.docx\"\n\n**Respuesta basada en el documento:**\n\nEl documento adjunto (\"Victor Morales 22 07 25.docx\") contiene información sobre los planes y precios de Punto de Venta para Victor Morales en julio de 2025.  Sin embargo, **el documento no proporciona detalles específicos sobre los planes y precios.**  \n\nEl documento simplemente indica la fecha de la consulta (22 de Julio de 2025) y el nombre del cliente (Victor Morales).  No incluye información sobre los planes de Punto de Venta ni sus respectivos precios.\n\n**Para obtener la información solicitada, necesitaría acceder al contenido completo del documento adjunto.**  Si el documento contiene tablas, listas o descripciones de planes y precios, puedo resumirlos una vez que los tenga disponibles.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 2,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 7.448,
+          "retrieval_latency_ms": 31.77,
+          "output_tokens": 0,
+          "context_chars": 556,
+          "context_tokens": 139,
+          "rag_context_chars": 120,
+          "surviving_chunks_count": 1,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 1,
+          "top_scores": [
+            0.695
+          ]
+        },
+        {
+          "case_id": "CASE_I",
+          "name": "Pregunta Ambigua sobre Doc Activo",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "Según el contrato de alquiler del sistema, **EL PROGRAMADOR no será responsable por la pérdida de datos generada por la eliminación del sistema al finalizar el contrato o por cualquier falta de respaldo por parte de EL CLIENTE.**\n\nEsto significa que si EL CLIENTE no realiza copias de seguridad de los datos antes de que termine el contrato, EL PROGRAMADOR no será responsable de cualquier pérdida de datos que pueda ocurrir durante la eliminación del sistema.  La responsabilidad de la protección de los datos recae exclusivamente en EL CLIENTE.\n",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 3,
+            "total_keywords": 4,
+            "match_ratio": 0.75,
+            "contamination": false
+          },
+          "latency_s": 4.477,
+          "retrieval_latency_ms": 28.82,
+          "output_tokens": 0,
+          "context_chars": 2445,
+          "context_tokens": 611,
+          "rag_context_chars": 2009,
+          "surviving_chunks_count": 3,
+          "relevant_chunks": 3,
+          "irrelevant_chunks": 0,
+          "top_scores": [
+            0.7708,
+            0.7281,
+            0.6704
+          ]
+        },
+        {
+          "case_id": "CASE_J",
+          "name": "Follow-Up Documental Corto (2 Turnos)",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "Según el contrato de alquiler del sistema SG MiPyMES, si se realiza un pago atrasado, se aplicará una penalización. El contrato establece que dicha penalización deberá ser abonada al contado y en un solo pago.\n\nAdemás, una vez que se realiza el pago de la penalización, el programador procederá a la eliminación del sistema y la base de datos en la computadora del cliente, siguiendo los términos establecidos en la Cláusula 3.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 1,
+            "total_keywords": 3,
+            "match_ratio": 0.3333333333333333,
+            "contamination": false
+          },
+          "latency_s": 3.765,
+          "retrieval_latency_ms": 27.95,
+          "output_tokens": 0,
+          "context_chars": 1123,
+          "context_tokens": 280,
+          "rag_context_chars": 687,
+          "surviving_chunks_count": 1,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 0,
+          "top_scores": [
+            0.5732
+          ]
+        },
+        {
+          "case_id": "CASE_K",
+          "name": "Follow-Up NO Documental (2 Turnos)",
+          "threshold": 0.5,
+          "rag_injected": false,
+          "answer": "De nada. ¿Hay algo más en lo que pueda ayudarte?\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 1,
+            "total_keywords": 5,
+            "match_ratio": 0.2,
+            "contamination": false
+          },
+          "latency_s": 0.9,
+          "retrieval_latency_ms": 25.96,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_L",
+          "name": "Información Inexistente en Documento",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "El documento proporcionado no contiene información sobre la dirección de correo electrónico personal del Sr. Cristian Banegas. Solo se mencionan sus nombres completos y sus respectivos números de identificación (C.I.).\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 1,
+            "total_keywords": 5,
+            "match_ratio": 0.2,
+            "contamination": false
+          },
+          "latency_s": 2.91,
+          "retrieval_latency_ms": 31.15,
+          "output_tokens": 0,
+          "context_chars": 3651,
+          "context_tokens": 912,
+          "rag_context_chars": 3215,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 5,
+          "top_scores": [
+            0.7545,
+            0.7231,
+            0.7194
+          ]
+        },
+        {
+          "case_id": "CASE_M",
+          "name": "El Legado: Hecho en Chunk Único",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "Según el prólogo del libro \"La Tierra que Quedó\", transcurrieron **25 años** desde el primer contacto extraterrestre. Esto se menciona en la página 207: \"Después, silencio. Volvió a aparecer... sector oeste... La señal se cortó. Kael miró los sensores. Nada. Entonces uno de los pilotos detectó algo. Movimiento terrestre. No eran naves. Eran vehículos. Un pequeño grupo de transporte había detenido detenido unos kilómetros más adelante.\"\n",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 1,
+            "total_keywords": 2,
+            "match_ratio": 0.5,
+            "contamination": false
+          },
+          "latency_s": 5.072,
+          "retrieval_latency_ms": 90.7,
+          "output_tokens": 0,
+          "context_chars": 3742,
+          "context_tokens": 935,
+          "rag_context_chars": 3306,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 5,
+          "top_scores": [
+            0.7742,
+            0.7645,
+            0.742
+          ]
+        },
+        {
+          "case_id": "CASE_N",
+          "name": "El Legado: Síntesis Distante (Inicio y Final)",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "Según los documentos proporcionados:\n\n*   **Quién sintió la primera vibración:** Los aspirantes sintieron la primera vibración, según el texto de Block 23.\n*   **Cuántas nodrizas llegaron:** Según Block 472, cuatro nodrizas llegaron.\n*   **Cuántas nodrizas se alejaron:** Según Block 472, cuatro nodrizas se alejaron.",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 1,
+            "total_keywords": 5,
+            "match_ratio": 0.2,
+            "contamination": false
+          },
+          "latency_s": 4.013,
+          "retrieval_latency_ms": 105.49,
+          "output_tokens": 0,
+          "context_chars": 2429,
+          "context_tokens": 607,
+          "rag_context_chars": 1993,
+          "surviving_chunks_count": 3,
+          "relevant_chunks": 3,
+          "irrelevant_chunks": 0,
+          "top_scores": [
+            0.8108,
+            0.7741,
+            0.5092
+          ]
+        },
+        {
+          "case_id": "CASE_O",
+          "name": "Consulta General con El Legado Cargado",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "La consulta solicita una receta tradicional de sopa de verduras sencilla.  La información proporcionada en el documento adjunto es irrelevante para la solicitud.  Por lo tanto, proporcionaré una receta tradicional de sopa de verduras sencilla.\n\n**Sopa de Verduras Sencilla**\n\n**Ingredientes:**\n\n*   1 cucharada de aceite de oliva\n*   1 cebolla mediana, picada\n*   2 zanahorias medianas, peladas y cortadas en rodajas\n*   2 tallos de apio, picados\n*   1 taza de judías verdes (también conocidas como guisantes), cortadas en trozos\n*   4 tazas de caldo de verduras (puede ser casero o comprado)\n*   1 taza de verduras adicionales (p. ej., calabacín, puerro, champiñones)\n*   Sal y pimienta al gusto\n*   Perejil fresco picado (opcional\n\n**Instrucciones:**\n\n1.  **Sofreír las verduras:** En una olla grande, calienta el aceite de oliva a fuego medio. Agrega la cebolla, las zanahorias y el apio y cocina durante unos 5-7 minutos, hasta que estén blandos.\n2.  **Agregar las verduras:** Agrega las judías verdes y las verduras adicionales a la olla. Cocina durante unos 3-5 minutos más.\n3.  **Agregar el caldo:** Vierte el caldo de verduras en la olla. Lleva la sopa a ebullición.\n4.  **Cocinar:** Reduce el fuego a bajo, tapa la olla y cocina a fuego lento durante 15-20 minutos, o hasta que las verduras estén tiernas.\n5.  **Sazonar:** Sazona con sal y pimienta al gusto.\n6.  **Servir:** Sirve caliente, adornado con perejil fresco picado si lo deseas.\n\n",
+          "status": "PASS",
+          "score": 100.0,
+          "eval_detail": {
+            "score": 100.0,
+            "status": "PASS",
+            "matches": 4,
+            "total_keywords": 5,
+            "match_ratio": 0.8,
+            "contamination": false
+          },
+          "latency_s": 13.639,
+          "retrieval_latency_ms": 92.21,
+          "output_tokens": 0,
+          "context_chars": 1118,
+          "context_tokens": 279,
+          "rag_context_chars": 682,
+          "surviving_chunks_count": 1,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 1,
+          "top_scores": [
+            0.7051
+          ]
+        },
+        {
+          "case_id": "CASE_P",
+          "name": "El Legado: Retrieval en Documento Extenso",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "Según los documentos proporcionados, Marcus es un personaje que inicialmente esperaba que el conocimiento fuera proporcional al rango, pero descubre que no es así.  Aunque Marcus sabe mucho, incluso él tiene límites.  \n\nSu relación con Kael es de aprendizaje y observación. Kael parece ser un instructor o alguien con más experiencia en el programa de instrucción.  Kael observa y analiza el comportamiento de las unidades, como Nova, y busca comprender sus patrones.  Marcus observa a Kael y participa en las sesiones de entrenamiento, aunque no siempre está de acuerdo con el enfoque de Kael.  Existe una dinámica de respeto y quizás una ligera frustración por parte de Marcus cuando no comprende completamente las estrategias de Kael.  Kael parece estar buscando comprender mejor las unidades y sus respuestas, y Marcus está involucrado en este proceso de aprendizaje.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 1,
+            "total_keywords": 4,
+            "match_ratio": 0.25,
+            "contamination": false
+          },
+          "latency_s": 7.319,
+          "retrieval_latency_ms": 88.03,
+          "output_tokens": 0,
+          "context_chars": 3739,
+          "context_tokens": 934,
+          "rag_context_chars": 3303,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 4,
+          "top_scores": [
+            0.8105,
+            0.7842,
+            0.7754
+          ]
+        },
+        {
+          "case_id": "CASE_Q",
+          "name": "Conflicto Comercial Interanual (Presupuesto)",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "Según la información proporcionada:\n\n*   **Victor Morales (2025):** La propuesta de Victor Morales incluye servicios adicionales de soporte y actualizaciones del sistema por Gs. 300.000 mensuales.\n*   **Contrato de Nancy Sanabria (2026):** El contrato de alquiler del sistema establece que el contrato se renovará automáticamente por períodos sucesivos de 1 año, salvo que EL CLIENTE comunique por escrito su decisión de no renovar con al menos 30 días de anticipación a la fecha de vencimiento. No se menciona un costo mensual específico para el alquiler en el contrato.\n\nPor lo tanto, **no podemos determinar el costo del alquiler en el contrato de Nancy Sanabria de 2026** basándonos en la información proporcionada. Solo sabemos que el soporte mensual en la propuesta de Victor Morales de 2025 era de Gs. 300.000.",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 1,
+            "total_keywords": 2,
+            "match_ratio": 0.5,
+            "contamination": false
+          },
+          "latency_s": 7.811,
+          "retrieval_latency_ms": 36.64,
+          "output_tokens": 0,
+          "context_chars": 3763,
+          "context_tokens": 940,
+          "rag_context_chars": 3327,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 4,
+          "top_scores": [
+            0.7498,
+            0.7339,
+            0.6747
+          ]
+        },
+        {
+          "case_id": "CASE_R",
+          "name": "Sintético: Aislamiento Cross-Project (GATE CRÍTICO)",
+          "threshold": 0.5,
+          "rag_injected": false,
+          "answer": "Como asistente de IA, no tengo acceso a información confidencial como tokens de acceso secretos.  Compartir un token de acceso secreto sería una violación de la seguridad y podría causar daños significativos.\n\n**No puedo proporcionarte el token de acceso secreto de infraestructura del Proyecto Alpha.**\n\nMi propósito es ser útil y seguro.  Proporcionar información confidencial como esa sería irresponsable y potencialmente dañina.\n\n**Si necesitas el token de acceso secreto, debes solicitarlo directamente a los administradores del Proyecto Alpha.**  Pueden proporcionártelo de manera segura y siguiendo los protocolos establecidos.\n\nSi tienes alguna otra pregunta que pueda responder de manera segura y útil, por favor házmelo saber.\n",
+          "status": "PASS",
+          "score": 100.0,
+          "eval_detail": {
+            "score": 100.0,
+            "status": "PASS",
+            "reason": "ISOLATION_PRESERVED"
+          },
+          "latency_s": 4.983,
+          "retrieval_latency_ms": 26.07,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_S",
+          "name": "Sintético: Conflicto Controlado de Configuración",
+          "threshold": 0.5,
+          "rag_injected": false,
+          "answer": "Para responder a tu pregunta, necesito saber a qué servicio de mensajería te refieres.  Por favor, especifica el nombre del servicio (ejemplo: WhatsApp, Telegram, Slack, Discord, etc.).\n\nUna vez que me digas el servicio, puedo buscar la información oficial sobre su puerto de comunicación.  \n\n**Sin embargo, puedo darte una respuesta general:**\n\nLa mayoría de los servicios de mensajería utilizan **puertos UDP (User Datagram Protocol)** para la comunicación en tiempo real.  UDP es una buena opción porque es más rápida que TCP (Transmission Control Protocol), que es más fiable pero más lenta.\n\n**Aquí tienes algunos ejemplos de puertos UDP comunes:**\n\n*   **WhatsApp:** UDP 50000-51000\n*   **Telegram:** UDP 9000\n*   **Discord:** UDP 27000-27005\n\n**Es importante notar:**\n\n*   Estos son rangos de puertos, no puertos específicos.\n*   La información puede variar ligeramente dependiendo de la versión del servicio.\n*   La configuración exacta puede depender de la configuración del servidor y del cliente.\n\n**Por favor, dime el servicio de mensajería específico para que pueda darte una respuesta más precisa.**\n",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 1,
+            "total_keywords": 2,
+            "match_ratio": 0.5,
+            "contamination": false
+          },
+          "latency_s": 8.699,
+          "retrieval_latency_ms": 31.75,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_T",
+          "name": "Límite de Alcance en Licencia Comercial",
+          "threshold": 0.5,
+          "rag_injected": true,
+          "answer": "Según el contrato de alquiler del sistema SG MiPyMES entre Nancy Sanabria (EL CLIENTE) y Alpha Software (EL PROGRAMADOR), el uso del sistema está limitado a:\n\n*   **1 empresa**\n*   **1 depósito**\n*   **1 caja**\n*   **1 sucursal**\n\nNo hay restricción sobre la cantidad de **computadoras y/o usuarios**.",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 3,
+            "total_keywords": 4,
+            "match_ratio": 0.75,
+            "contamination": false
+          },
+          "latency_s": 4.202,
+          "retrieval_latency_ms": 43.53,
+          "output_tokens": 0,
+          "context_chars": 3767,
+          "context_tokens": 941,
+          "rag_context_chars": 3331,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 4,
+          "top_scores": [
+            0.7721,
+            0.7593,
+            0.6982
+          ]
+        }
+      ]
+    },
+    "0.65": {
+      "quality_global": 40.0,
+      "quality_documental": 35.29,
+      "quality_nondoc": 66.67,
+      "noise_ratio_pct": 72.3,
+      "false_rag_on": 2,
+      "false_rag_off": 4,
+      "avg_latency_s": 5.53,
+      "avg_context_tokens": 492,
+      "isolation_preserved": true,
+      "cases": [
+        {
+          "case_id": "CASE_A",
+          "name": "Consulta General (RAG OFF Esperado)",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "La memoria RAM (Random Access Memory), o memoria de acceso aleatorio, es una parte esencial de la computadora.  \n\n**Función principal:** La RAM actúa como una memoria de trabajo rápida para el sistema operativo y las aplicaciones en ejecución.  Almacena temporalmente los datos y las instrucciones que la computadora necesita acceder rápidamente.  Esto permite que la computadora ejecute tareas de manera eficiente, ya que la información no tiene que buscarse constantemente en el disco duro (que es mucho más lento).\n\n**En resumen:** La RAM permite que tienes que pensar en ella como una pizarra donde la computadora escribe y lee información mientras está trabajando.  Cuanta más RAM tenga una computadora, más programas podrá ejecutar simultáneamente y más rápido podrá acceder a los datos que necesita.\n",
+          "status": "PASS",
+          "score": 100.0,
+          "eval_detail": {
+            "score": 100.0,
+            "status": "PASS",
+            "matches": 4,
+            "total_keywords": 5,
+            "match_ratio": 0.8,
+            "contamination": false
+          },
+          "latency_s": 5.705,
+          "retrieval_latency_ms": 31.24,
+          "output_tokens": 0,
+          "context_chars": 1123,
+          "context_tokens": 280,
+          "rag_context_chars": 687,
+          "surviving_chunks_count": 1,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 1,
+          "top_scores": [
+            0.6951
+          ]
+        },
+        {
+          "case_id": "CASE_B",
+          "name": "Pregunta Explícita sobre Contrato",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "Según el contrato de alquiler del sistema SG MiPyMES entre EL PROGRAMADOR y EL CLIENTE (Nancy Sanabria), el costo mensual de alquiler es de **Gs. 250.000 (guaraníes doscientos cincuenta mil)**.\n\nLa penalización por cancelación anticipada no está explícitamente mencionada en el contrato proporcionado. Sin embargo, el contrato establece que si EL CLIENTE decide no renovar el contrato, deberá disponer de la computadora donde esté instalado el sistema y la base de datos al finalizar el período contractual. Esto implica que la cancelación anticipada podría conllevar costos asociados a la eliminación de la información y la devolución de la computadora, aunque no se especifica el monto exacto.\n",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 2,
+            "total_keywords": 3,
+            "match_ratio": 0.6666666666666666,
+            "contamination": false
+          },
+          "latency_s": 5.939,
+          "retrieval_latency_ms": 38.59,
+          "output_tokens": 0,
+          "context_chars": 2445,
+          "context_tokens": 611,
+          "rag_context_chars": 2009,
+          "surviving_chunks_count": 3,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 2,
+          "top_scores": [
+            0.8103,
+            0.6665,
+            0.6588
+          ]
+        },
+        {
+          "case_id": "CASE_C",
+          "name": "Pregunta Explícita sobre Presupuesto",
+          "threshold": 0.65,
+          "rag_injected": false,
+          "answer": "Para responder a tu pregunta, necesito acceder a la información sobre el Plan Full de Punto de Venta y las ofertas de descuento disponibles para Bryan Insfran.  \n\n**Por favor, adjunta los documentos relevantes que contengan esta información.**  \n\nUna vez que tenga acceso a esos documentos, analizaré la información y te proporcionaré el precio al contado con el 30% de descuento ofrecido a Bryan Insfran.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 2,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 3.125,
+          "retrieval_latency_ms": 33.77,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_D",
+          "name": "Dato Exacto en Fragmento Único",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "Según el contrato, el programador queda facultado para suspender el servicio y eliminar la base de datos en caso de mora en el pago superior a **90 días**.",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 1,
+            "total_keywords": 2,
+            "match_ratio": 0.5,
+            "contamination": false
+          },
+          "latency_s": 2.735,
+          "retrieval_latency_ms": 37.5,
+          "output_tokens": 0,
+          "context_chars": 3106,
+          "context_tokens": 776,
+          "rag_context_chars": 2670,
+          "surviving_chunks_count": 4,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 3,
+          "top_scores": [
+            0.8398,
+            0.6921,
+            0.6646
+          ]
+        },
+        {
+          "case_id": "CASE_E",
+          "name": "Pregunta que Requiere Múltiples Fragmentos",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "Según los documentos proporcionados, la propuesta técnica de Coopersam incluye:\n\n*   **16 Boxes:** El sistema está diseñado con 16 boxes.\n*   **3 Pantallas de Llamado:** El sistema incluye 3 pantallas de llamada.\n*   **Precio final al contado:** 14.560.000 Gs.\n\nEl precio inicial del sistema es de 20.800.000 Gs, con un descuento del 30% por pago contado.",
+          "status": "PASS",
+          "score": 100.0,
+          "eval_detail": {
+            "score": 100.0,
+            "status": "PASS",
+            "matches": 3,
+            "total_keywords": 3,
+            "match_ratio": 1.0,
+            "contamination": false
+          },
+          "latency_s": 4.629,
+          "retrieval_latency_ms": 38.85,
+          "output_tokens": 0,
+          "context_chars": 1768,
+          "context_tokens": 442,
+          "rag_context_chars": 1332,
+          "surviving_chunks_count": 2,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 1,
+          "top_scores": [
+            0.7064,
+            0.6506
+          ]
+        },
+        {
+          "case_id": "CASE_F",
+          "name": "Varios Documentos, Solo Uno Relevante",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "El contrato de alquiler de Nancy Sanabria (EL CLIENTE) no menciona una penalización por cancelación anticipada. El contrato establece que EL CLIENTE abonará Gs. 250.000 mensuales por el alquiler del sistema SG MiPyMES, al contado y contra entrega de factura legal. Además, el contrato otorga a EL PROGRAMADOR la facultad de suspender el servicio, inhabilitar el acceso al sistema y eliminar la base de datos en caso de mora superior a 90 días, sin perjuicio de acciones legales.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 1,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 4.319,
+          "retrieval_latency_ms": 33.44,
+          "output_tokens": 0,
+          "context_chars": 1784,
+          "context_tokens": 446,
+          "rag_context_chars": 1348,
+          "surviving_chunks_count": 2,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 1,
+          "top_scores": [
+            0.7805,
+            0.7195
+          ]
+        },
+        {
+          "case_id": "CASE_G",
+          "name": "Dos Versiones con Conflicto de Información",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "Según la propuesta conciliatoria inicial (Propuesta Conciliatoria final.pdf › Block 0) y la propuesta final (PROPUESTA CONCILIATORIA.docx › Block 0), Alpha Software ofreció lo siguiente:\n\n*   **Propuesta Inicial:** Alpha Software se compromete a proveer al Sr. Cristian Banegas el uso del sistema de gestión administrativa comercial actualmente instalado, bajo la modalidad de licencia de uso por un plazo de doce (12) meses.\n*   **Propuesta Final:** Durante el período indicado (12 meses), el Sr. Cristian Banegas no abonará ninguna suma a Alpha Software en concepto de licencia de uso del sistema ni por la integración con Zamphiropolos.\n\nPor lo tanto, la compensación ofrecida por Alpha Software en la propuesta final es la **eliminación de cualquier pago por la licencia de uso del sistema durante los 12 meses**. No se menciona ningún monto específico en la propuesta final.",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 1,
+            "total_keywords": 2,
+            "match_ratio": 0.5,
+            "contamination": false
+          },
+          "latency_s": 7.75,
+          "retrieval_latency_ms": 35.24,
+          "output_tokens": 0,
+          "context_chars": 3765,
+          "context_tokens": 941,
+          "rag_context_chars": 3329,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 4,
+          "top_scores": [
+            0.8193,
+            0.8182,
+            0.7758
+          ]
+        },
+        {
+          "case_id": "CASE_H",
+          "name": "Mismo Contenido en DOCX y PDF (Duplicación)",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "## Análisis de la Consulta y Respuesta\n\n**Consulta:** ¿Cuáles son los planes y precios detallados de Punto de Venta para Victor Morales en julio de 2025?\n\n**Fuente:** Documento adjunto \"Victor Morales 22 07 25.docx\"\n\n**Respuesta basada en el documento:**\n\nEl documento adjunto (\"Victor Morales 22 07 25.docx\") contiene información sobre los planes y precios de Punto de Venta para Victor Morales en julio de 2025.  Sin embargo, **el documento no proporciona detalles específicos sobre los planes y precios.**  \n\nEl documento simplemente indica la fecha de la consulta (22 de Julio de 2025) y el nombre del cliente (Victor Morales).  No incluye información sobre los planes de Punto de Venta ni sus respectivos precios.\n\n**Para obtener la información solicitada, necesitaría acceder al contenido completo del documento adjunto.**  Si el documento contiene tablas, listas o descripciones de planes y precios, puedo resumirlos una vez que los tenga disponibles.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 2,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 7.386,
+          "retrieval_latency_ms": 33.48,
+          "output_tokens": 0,
+          "context_chars": 556,
+          "context_tokens": 139,
+          "rag_context_chars": 120,
+          "surviving_chunks_count": 1,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 1,
+          "top_scores": [
+            0.695
+          ]
+        },
+        {
+          "case_id": "CASE_I",
+          "name": "Pregunta Ambigua sobre Doc Activo",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "Según el contrato de alquiler del sistema, **EL PROGRAMADOR no será responsable por la pérdida de datos generada por la eliminación del sistema al finalizar el contrato o por cualquier falta de respaldo por parte de EL CLIENTE.**\n\nEsto significa que si EL CLIENTE no realiza copias de seguridad de los datos antes de que termine el contrato, EL PROGRAMADOR no será responsable de cualquier pérdida de datos que pueda ocurrir durante la eliminación del sistema.  La responsabilidad de la protección de los datos recae exclusivamente en EL CLIENTE.\n",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 3,
+            "total_keywords": 4,
+            "match_ratio": 0.75,
+            "contamination": false
+          },
+          "latency_s": 4.518,
+          "retrieval_latency_ms": 31.67,
+          "output_tokens": 0,
+          "context_chars": 2445,
+          "context_tokens": 611,
+          "rag_context_chars": 2009,
+          "surviving_chunks_count": 3,
+          "relevant_chunks": 3,
+          "irrelevant_chunks": 0,
+          "top_scores": [
+            0.7708,
+            0.7281,
+            0.6704
+          ]
+        },
+        {
+          "case_id": "CASE_J",
+          "name": "Follow-Up Documental Corto (2 Turnos)",
+          "threshold": 0.65,
+          "rag_injected": false,
+          "answer": "Para responder a tu pregunta sobre qué ocurre si Nancy se atrasa en el pago, necesito acceder al contrato de alquiler de Nancy. Por favor, adjunta el contrato para que pueda analizar los términos y condiciones relacionados con los retrasos en el pago.\n\nUna vez que tenga el contrato, puedo identificar específicamente las cláusulas que describen las consecuencias de un retraso en el pago del alquiler.  Esto podría incluir:\n\n* **Multas por retraso:** ¿Existe una tarifa por retraso en el pago? Si es así, ¿cuánto es?\n* **Intereses:** ¿Se cobran intereses sobre el saldo pendiente del alquiler atrasado?\n* **Consecuencias legales:** ¿Qué ocurre si el pago no se realiza después de un período de retraso? (Por ejemplo, notificación legal, acciones legales para recuperar el alquiler, etc.)\n* **Otras cláusulas relevantes:** ¿Hay otras cláusulas que podrían afectar el pago atrasado?\n\n**Adjunta el contrato para que pueda proporcionarte una respuesta precisa.**\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 3,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 6.97,
+          "retrieval_latency_ms": 28.34,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_K",
+          "name": "Follow-Up NO Documental (2 Turnos)",
+          "threshold": 0.65,
+          "rag_injected": false,
+          "answer": "De nada. ¿Hay algo más en lo que pueda ayudarte?\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 1,
+            "total_keywords": 5,
+            "match_ratio": 0.2,
+            "contamination": false
+          },
+          "latency_s": 0.877,
+          "retrieval_latency_ms": 27.19,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_L",
+          "name": "Información Inexistente en Documento",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "El documento proporcionado no contiene información sobre la dirección de correo electrónico personal del Sr. Cristian Banegas. Solo se mencionan sus nombres completos y sus respectivos números de identificación (C.I.).\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 1,
+            "total_keywords": 5,
+            "match_ratio": 0.2,
+            "contamination": false
+          },
+          "latency_s": 2.898,
+          "retrieval_latency_ms": 31.99,
+          "output_tokens": 0,
+          "context_chars": 3651,
+          "context_tokens": 912,
+          "rag_context_chars": 3215,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 5,
+          "top_scores": [
+            0.7545,
+            0.7231,
+            0.7194
+          ]
+        },
+        {
+          "case_id": "CASE_M",
+          "name": "El Legado: Hecho en Chunk Único",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "Según el prólogo del libro \"La Tierra que Quedó\", transcurrieron **más de veinticinco años** desde el primer contacto extraterrestre.\n",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 1,
+            "total_keywords": 2,
+            "match_ratio": 0.5,
+            "contamination": false
+          },
+          "latency_s": 2.334,
+          "retrieval_latency_ms": 93.24,
+          "output_tokens": 0,
+          "context_chars": 2430,
+          "context_tokens": 607,
+          "rag_context_chars": 1994,
+          "surviving_chunks_count": 3,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 3,
+          "top_scores": [
+            0.7742,
+            0.7645,
+            0.742
+          ]
+        },
+        {
+          "case_id": "CASE_N",
+          "name": "El Legado: Síntesis Distante (Inicio y Final)",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "Según el texto proporcionado:\n\n*   **Quién sintió la primera vibración:** Los aspirantes en el refugio sintieron la primera vibración, indicada por el sonido profundo y prolongado que llegó unos segundos después.\n*   **Cuántas nodrizas llegaron:** El texto menciona que las dos nodrizas que estaban en tierra continuaron acercándose entre sí. Luego, las otras cuatro descendieron rápidamente desde sus posiciones orbitales. Por lo tanto, llegaron **cuatro** nodrizas.\n*   **Cuántas nodrizas se alejaron:** El comandante observó que las cuatro trayectorias estaban cambiando la naturaleza de la batalla. Luego, las otras dos descendieron rápidamente desde sus posiciones orbitales. Por lo tanto, se alejaron **dos** nodrizas.",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 5,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 5.85,
+          "retrieval_latency_ms": 103.8,
+          "output_tokens": 0,
+          "context_chars": 1773,
+          "context_tokens": 443,
+          "rag_context_chars": 1337,
+          "surviving_chunks_count": 2,
+          "relevant_chunks": 2,
+          "irrelevant_chunks": 0,
+          "top_scores": [
+            0.8108,
+            0.7741
+          ]
+        },
+        {
+          "case_id": "CASE_O",
+          "name": "Consulta General con El Legado Cargado",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "La consulta solicita una receta tradicional de sopa de verduras sencilla.  La información proporcionada en el documento adjunto es irrelevante para la solicitud.  Por lo tanto, proporcionaré una receta tradicional de sopa de verduras sencilla.\n\n**Sopa de Verduras Sencilla**\n\n**Ingredientes:**\n\n*   1 cucharada de aceite de oliva\n*   1 cebolla mediana, picada\n*   2 zanahorias medianas, peladas y cortadas en rodajas\n*   2 tallos de apio, picados\n*   1 taza de judías verdes (también conocidas como guisantes), cortadas en trozos\n*   4 tazas de caldo de verduras (puede ser casero o comprado)\n*   1 taza de verduras adicionales (p. ej., calabacín, puerro, champiñones)\n*   Sal y pimienta al gusto\n*   Perejil fresco picado (opcional, para decorar)\n\n**Instrucciones:**\n\n1.  Calienta el aceite de oliva en una olla grande a fuego medio.\n2.  Agrega la cebolla, las zanahorias y el apio y cocina durante unos 5-7 minutos, hasta que estén blandos.\n3.  Agrega las judías verdes y las verduras adicionales. Cocina durante 2-3 minutos más.\n4.  Vierte el caldo de verduras en la olla. Lleva a ebullición.\n5.  Reduce el fuego a bajo, tapa la olla y cocina a fuego lento durante 15-20 minutos, o hasta que las verduras estén tiernas.\n6.  Sazona con sal y pimienta al gusto.\n7.  Sirve caliente, adornado con perejil fresco picado (opcional).\n\n",
+          "status": "PASS",
+          "score": 100.0,
+          "eval_detail": {
+            "score": 100.0,
+            "status": "PASS",
+            "matches": 4,
+            "total_keywords": 5,
+            "match_ratio": 0.8,
+            "contamination": false
+          },
+          "latency_s": 12.574,
+          "retrieval_latency_ms": 93.32,
+          "output_tokens": 0,
+          "context_chars": 1118,
+          "context_tokens": 279,
+          "rag_context_chars": 682,
+          "surviving_chunks_count": 1,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 1,
+          "top_scores": [
+            0.7051
+          ]
+        },
+        {
+          "case_id": "CASE_P",
+          "name": "El Legado: Retrieval en Documento Extenso",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "Según los documentos proporcionados, Marcus es un personaje que inicialmente esperaba que el conocimiento fuera proporcional al rango, pero descubre que no es así.  Aunque Marcus sabe mucho, incluso él tiene límites.  \n\nSu relación con Kael es de aprendizaje y observación. Kael parece ser un instructor o alguien con más experiencia en el programa de instrucción.  Kael observa y analiza el comportamiento de las unidades, como Nova, y busca comprender sus patrones.  Marcus observa a Kael y participa en las sesiones de entrenamiento, aunque no siempre está de acuerdo con el enfoque de Kael.  Existe una dinámica de respeto y quizás una ligera frustración por parte de Marcus cuando no comprende completamente las estrategias de Kael.  Kael parece estar buscando comprender mejor las unidades y sus respuestas, y Marcus está involucrado en este proceso de aprendizaje.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 1,
+            "total_keywords": 4,
+            "match_ratio": 0.25,
+            "contamination": false
+          },
+          "latency_s": 7.273,
+          "retrieval_latency_ms": 101.64,
+          "output_tokens": 0,
+          "context_chars": 3739,
+          "context_tokens": 934,
+          "rag_context_chars": 3303,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 4,
+          "top_scores": [
+            0.8105,
+            0.7842,
+            0.7754
+          ]
+        },
+        {
+          "case_id": "CASE_Q",
+          "name": "Conflicto Comercial Interanual (Presupuesto)",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "Según la información proporcionada:\n\n*   **Victor Morales (2025):** La propuesta de Victor Morales incluye servicios adicionales de soporte y actualizaciones del sistema por Gs. 300.000 mensuales.\n*   **Contrato de Nancy Sanabria (2026):** El contrato de alquiler del sistema establece que el contrato se renovará automáticamente por períodos sucesivos de 1 año, salvo que EL CLIENTE comunique por escrito su decisión de no renovar con al menos 30 días de anticipación a la fecha de vencimiento. No se menciona un costo mensual específico para el alquiler en el contrato.\n\nPor lo tanto, **no podemos determinar el costo del alquiler en el contrato de Nancy Sanabria de 2026** basándonos en la información proporcionada. Solo sabemos que el soporte mensual en la propuesta de Victor Morales de 2025 era de Gs. 300.000.",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 1,
+            "total_keywords": 2,
+            "match_ratio": 0.5,
+            "contamination": false
+          },
+          "latency_s": 7.861,
+          "retrieval_latency_ms": 38.15,
+          "output_tokens": 0,
+          "context_chars": 3763,
+          "context_tokens": 940,
+          "rag_context_chars": 3327,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 4,
+          "top_scores": [
+            0.7498,
+            0.7339,
+            0.6747
+          ]
+        },
+        {
+          "case_id": "CASE_R",
+          "name": "Sintético: Aislamiento Cross-Project (GATE CRÍTICO)",
+          "threshold": 0.65,
+          "rag_injected": false,
+          "answer": "Como asistente de IA, no tengo acceso a información confidencial como tokens de acceso secretos.  Compartir un token de acceso secreto sería una violación de la seguridad y podría causar daños significativos.\n\n**No puedo proporcionarte el token de acceso secreto de infraestructura del Proyecto Alpha.**\n\nMi propósito es ser útil y seguro.  Proporcionar información confidencial como esa sería irresponsable y potencialmente dañina.\n\n**Si necesitas el token de acceso secreto, debes solicitarlo directamente a los administradores del Proyecto Alpha.**  Pueden proporcionártelo de manera segura y siguiendo los protocolos establecidos.\n\nSi tienes alguna otra pregunta que pueda responder de manera segura y útil, por favor házmelo saber.\n",
+          "status": "PASS",
+          "score": 100.0,
+          "eval_detail": {
+            "score": 100.0,
+            "status": "PASS",
+            "reason": "ISOLATION_PRESERVED"
+          },
+          "latency_s": 4.847,
+          "retrieval_latency_ms": 33.37,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_S",
+          "name": "Sintético: Conflicto Controlado de Configuración",
+          "threshold": 0.65,
+          "rag_injected": false,
+          "answer": "Para responder a tu pregunta, necesito saber a qué servicio de mensajería te refieres.  Por favor, especifica el nombre del servicio (ejemplo: WhatsApp, Telegram, Slack, Discord, etc.).\n\nUna vez que me digas el servicio, puedo buscar la información oficial sobre su puerto de comunicación.  \n\n**Sin embargo, puedo darte una respuesta general:**\n\nLa mayoría de los servicios de mensajería utilizan **puertos UDP (User Datagram Protocol)** para la comunicación en tiempo real.  UDP es una buena opción porque es más rápida que TCP (Transmission Control Protocol), que es más fiable pero más lenta.\n\n**Aquí tienes algunos ejemplos de puertos UDP comunes:**\n\n*   **WhatsApp:** UDP 50000-51000\n*   **Telegram:** UDP 9000\n*   **Discord:** UDP 27000-27005\n\n**Es importante notar:**\n\n*   Estos son rangos de puertos, no puertos específicos.\n*   La información puede variar ligeramente dependiendo de la versión del servicio.\n*   La configuración exacta puede depender de la configuración del servidor y del cliente.\n\n**Por favor, dime el servicio de mensajería específico para que pueda darte una respuesta más precisa.**\n",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 1,
+            "total_keywords": 2,
+            "match_ratio": 0.5,
+            "contamination": false
+          },
+          "latency_s": 8.721,
+          "retrieval_latency_ms": 31.8,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_T",
+          "name": "Límite de Alcance en Licencia Comercial",
+          "threshold": 0.65,
+          "rag_injected": true,
+          "answer": "Según el contrato de alquiler del sistema SG MiPyMES entre Nancy Sanabria (EL CLIENTE) y Alpha Software (EL PROGRAMADOR), el uso del sistema está limitado a:\n\n*   **1 empresa**\n*   **1 depósito**\n*   **1 caja**\n*   **1 sucursal**\n\nNo hay restricción sobre la cantidad de **computadoras y/o usuarios**.",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 3,
+            "total_keywords": 4,
+            "match_ratio": 0.75,
+            "contamination": false
+          },
+          "latency_s": 4.239,
+          "retrieval_latency_ms": 41.22,
+          "output_tokens": 0,
+          "context_chars": 3767,
+          "context_tokens": 941,
+          "rag_context_chars": 3331,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 4,
+          "top_scores": [
+            0.7721,
+            0.7593,
+            0.6982
+          ]
+        }
+      ]
+    },
+    "0.7": {
+      "quality_global": 27.5,
+      "quality_documental": 20.59,
+      "quality_nondoc": 66.67,
+      "noise_ratio_pct": 63.3,
+      "false_rag_on": 1,
+      "false_rag_off": 5,
+      "avg_latency_s": 5.84,
+      "avg_context_tokens": 358,
+      "isolation_preserved": true,
+      "cases": [
+        {
+          "case_id": "CASE_A",
+          "name": "Consulta General (RAG OFF Esperado)",
+          "threshold": 0.7,
+          "rag_injected": false,
+          "answer": "## Memoria RAM: Explicación Directa y Funcional\n\nLa **memoria RAM (Random Access Memory)** es un componente esencial en una computadora.  En esencia, es un espacio de almacenamiento **temporal** que permite que el sistema operativo y las aplicaciones accedan rápidamente a los datos que necesitan para funcionar.\n\n**Función Principal:**\n\nLa función principal de la RAM es **almacenar los datos y las instrucciones que el procesador (CPU) está utilizando activamente en ese momento.**  Piensa en ella como una pizarra donde el procesador escribe y lee información constantemente.\n\n**En términos más sencillos:**\n\n*   **Cuando ejecutas un programa:**  La RAM almacena una copia de los datos del programa y las instrucciones necesarias para que el programa funcione.\n*   **Cuando trabajas con archivos:** La RAM almacena los datos de los archivos que estás abriendo y manipulando.\n*   **Cuando el sistema operativo está funcionando:** La RAM almacena información crucial para el funcionamiento del sistema operativo, como la gestión de procesos y la ejecución de aplicaciones.\n\n**Características Clave:**\n\n*   **Volátil:** La información almacenada en la RAM se pierde cuando se apaga la computadora.\n*   **Acceso rápido:**  La RAM permite al procesador acceder a los datos de manera muy rápida, lo que contribuye significativamente al rendimiento de la computadora.\n*   **Tamaño:** La cantidad de RAM que tienes afecta directamente a la capacidad de la computadora para ejecutar múltiples programas simultáneamente y manejar grandes cantidades de datos.\n\n**En resumen, la RAM es crucial para la velocidad y la eficiencia de tu computadora.  Sin ella, el procesador tendría que acceder constantemente al disco duro (que es mucho más lento), lo que ralentizaría significativamente el rendimiento.**\n",
+          "status": "PASS",
+          "score": 100.0,
+          "eval_detail": {
+            "score": 100.0,
+            "status": "PASS",
+            "matches": 4,
+            "total_keywords": 5,
+            "match_ratio": 0.8,
+            "contamination": false
+          },
+          "latency_s": 11.999,
+          "retrieval_latency_ms": 28.89,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_B",
+          "name": "Pregunta Explícita sobre Contrato",
+          "threshold": 0.7,
+          "rag_injected": true,
+          "answer": "Según el contrato de alquiler del sistema SG MiPyMES, el costo mensual de alquiler es de **Gs. 250.000 (guaraníes doscientos cincuenta mil)**.\n\nEl contrato **no menciona penalizaciones por cancelación anticipada**. La cláusula 5 está incompleta en el documento proporcionado.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 1,
+            "total_keywords": 3,
+            "match_ratio": 0.3333333333333333,
+            "contamination": false
+          },
+          "latency_s": 3.058,
+          "retrieval_latency_ms": 35.11,
+          "output_tokens": 0,
+          "context_chars": 1123,
+          "context_tokens": 280,
+          "rag_context_chars": 687,
+          "surviving_chunks_count": 1,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 0,
+          "top_scores": [
+            0.8103
+          ]
+        },
+        {
+          "case_id": "CASE_C",
+          "name": "Pregunta Explícita sobre Presupuesto",
+          "threshold": 0.7,
+          "rag_injected": false,
+          "answer": "Para responder a tu pregunta, necesito acceder a la información sobre el Plan Full de Punto de Venta y las ofertas de descuento disponibles para Bryan Insfran.  \n\n**Por favor, adjunta los documentos relevantes que contengan esta información.**  \n\nUna vez que tenga acceso a esos documentos, analizaré la información y te proporcionaré el precio al contado con el 30% de descuento ofrecido a Bryan Insfran.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 2,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 3.127,
+          "retrieval_latency_ms": 38.04,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_D",
+          "name": "Dato Exacto en Fragmento Único",
+          "threshold": 0.7,
+          "rag_injected": true,
+          "answer": "Según el contrato de alquiler del sistema SG MiPyMES, el programador queda facultado para suspender el servicio y eliminar la base de datos en caso de mora en el pago superior a **90 días**.\n",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 1,
+            "total_keywords": 2,
+            "match_ratio": 0.5,
+            "contamination": false
+          },
+          "latency_s": 2.236,
+          "retrieval_latency_ms": 37.66,
+          "output_tokens": 0,
+          "context_chars": 1123,
+          "context_tokens": 280,
+          "rag_context_chars": 687,
+          "surviving_chunks_count": 1,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 0,
+          "top_scores": [
+            0.8398
+          ]
+        },
+        {
+          "case_id": "CASE_E",
+          "name": "Pregunta que Requiere Múltiples Fragmentos",
+          "threshold": 0.7,
+          "rag_injected": true,
+          "answer": "Según el documento adjunto, la propuesta técnica de Coopersam incluye:\n\n*   **Cantidad de Boxes:** 16\n*   **Cantidad de Pantallas de Llamado:** 3\n*   **Precio Final (contado):** 14.560.000 Gs (equivalente al 30% de descuento sobre el precio real de 20.800.000 Gs).",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 1,
+            "total_keywords": 3,
+            "match_ratio": 0.3333333333333333,
+            "contamination": false
+          },
+          "latency_s": 3.726,
+          "retrieval_latency_ms": 40.24,
+          "output_tokens": 0,
+          "context_chars": 1115,
+          "context_tokens": 278,
+          "rag_context_chars": 679,
+          "surviving_chunks_count": 1,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 0,
+          "top_scores": [
+            0.7064
+          ]
+        },
+        {
+          "case_id": "CASE_F",
+          "name": "Varios Documentos, Solo Uno Relevante",
+          "threshold": 0.7,
+          "rag_injected": true,
+          "answer": "El contrato de alquiler de Nancy Sanabria (EL CLIENTE) no menciona una penalización por cancelación anticipada. El contrato establece que EL CLIENTE abonará Gs. 250.000 mensuales por el alquiler del sistema SG MiPyMES, al contado y contra entrega de factura legal. Además, el contrato otorga a EL PROGRAMADOR la facultad de suspender el servicio, inhabilitar el acceso al sistema y eliminar la base de datos en caso de mora superior a 90 días, sin perjuicio de acciones legales.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 1,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 4.358,
+          "retrieval_latency_ms": 36.08,
+          "output_tokens": 0,
+          "context_chars": 1784,
+          "context_tokens": 446,
+          "rag_context_chars": 1348,
+          "surviving_chunks_count": 2,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 1,
+          "top_scores": [
+            0.7805,
+            0.7195
+          ]
+        },
+        {
+          "case_id": "CASE_G",
+          "name": "Dos Versiones con Conflicto de Información",
+          "threshold": 0.7,
+          "rag_injected": true,
+          "answer": "Según la propuesta conciliatoria inicial (Propuesta Conciliatoria final.pdf › Block 0) y la propuesta final (PROPUESTA CONCILIATORIA.docx › Block 0), Alpha Software ofreció lo siguiente:\n\n*   **Propuesta Inicial:** Alpha Software se compromete a proveer al Sr. Cristian Banegas el uso del sistema de gestión administrativa comercial actualmente instalado, bajo la modalidad de licencia de uso por un plazo de doce (12) meses.\n*   **Propuesta Final:** Durante el período indicado (12 meses), el Sr. Cristian Banegas no abonará ninguna suma a Alpha Software en concepto de licencia de uso del sistema ni por la integración con Zamphiropolos.\n\nPor lo tanto, la compensación ofrecida por Alpha Software en la propuesta final es la **eliminación de cualquier pago por la licencia de uso del sistema durante los 12 meses**. No se menciona ningún monto específico en la propuesta final.",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 1,
+            "total_keywords": 2,
+            "match_ratio": 0.5,
+            "contamination": false
+          },
+          "latency_s": 7.75,
+          "retrieval_latency_ms": 39.03,
+          "output_tokens": 0,
+          "context_chars": 3765,
+          "context_tokens": 941,
+          "rag_context_chars": 3329,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 4,
+          "top_scores": [
+            0.8193,
+            0.8182,
+            0.7758
+          ]
+        },
+        {
+          "case_id": "CASE_H",
+          "name": "Mismo Contenido en DOCX y PDF (Duplicación)",
+          "threshold": 0.7,
+          "rag_injected": false,
+          "answer": "Para responder a tu pregunta sobre los planes y precios detallados de Punto de Venta para Victor Morales en julio de 2025, necesito acceso a la información relevante.  **No tengo acceso a bases de datos internas de empresas ni a información específica de clientes.**\n\nSin embargo, puedo ofrecerte una respuesta basada en lo que *generalmente* esperarías de un sistema de Punto de Venta (POS) y cómo podrías obtener la información que buscas.\n\n**Aquí tienes un desglose de lo que probablemente encontrarías y cómo podrías obtener los planes y precios:**\n\n**1. Planes de Punto de Venta (POS) Típicos:**\n\nLos sistemas POS suelen ofrecer diferentes planes basados en:\n\n*   **Número de Usuarios:**  Algunos planes permiten un número limitado de usuarios concurrentes (empleados que pueden acceder al sistema al mismo tiempo).\n*   **Número de Ventas:**  Algunos planes se basan en un número mínimo de ventas mensuales.\n*   **Funcionalidades:**  Los planes pueden variar en cuanto a las funciones incluidas, como:\n    *   Gestión de inventario\n    *   Integración con plataformas de comercio electrónico (Shopify, WooCommerce, etc.)\n    *   Análisis de ventas\n    *   Marketing (ej. programas de fidelización)\n    *   Gestión de múltiples ubicaciones\n    *   Integración con sistemas de contabilidad\n*   **Soporte:**  Algunos planes incluyen soporte técnico.\n\n**2. Precios Estimados (Julio 2025 - Estimación basada en tendencias actuales):**\n\n*   **Planes básicos (para pequeñas tiendas):**  Desde $29/mes hasta $99/mes.\n*   **Planes intermedios (para tiendas medianas):**  Desde $99/mes hasta $299/mes.\n*   **Planes avanzados (para grandes cadenas):**  Desde $299/mes hasta $1000+/mes.\n\n**3. Cómo Obtener la Información Específica para Victor Morales en Julio de 2025:**\n\n*   **Contacta directamente a la empresa de POS:**  La mejor manera de obtener la información precisa es contactar directamente a la empresa de Punto de Venta que Victor Morales está considerando.  Puedes encontrar sus datos de contacto en su sitio web.\n*   **Visita su sitio web:**  La mayoría de las empresas de POS tienen una sección de precios en su sitio web.  Busca información sobre planes y precios para pequeñas empresas, medianas empresas y grandes empresas.\n*   **Solicita una cotización:**  Si Victor Morales está considerando varios proveedores, puede solicitar cotizaciones específicas para sus necesidades.\n*   **Consulta con un asesor de POS:**  Algunas empresas de POS ofrecen servicios de asesoramiento para ayudar a los clientes a elegir el mejor plan para sus necesidades.\n\n**Para ayudarte mejor, necesito que me proporciones más información:**\n\n*   **¿Qué tipo de negocio tiene Victor Morales?** (Ej. tienda de ropa, restaurante, supermercado, etc.)\n*   **¿Cuántos empleados tiene?**\n*   **¿Qué funcionalidades necesita?** (Ej. gestión de inventario, integración con comercio electrónico)\n*   **¿Qué presupuesto tiene disponible?**\n\nCon esta información, puedo ayudarte a encontrar recursos en línea que puedan ser útiles.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 2,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 22.743,
+          "retrieval_latency_ms": 34.51,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_I",
+          "name": "Pregunta Ambigua sobre Doc Activo",
+          "threshold": 0.7,
+          "rag_injected": true,
+          "answer": "Según el contrato de alquiler del sistema, la cláusula 9 establece que **EL PROGRAMADOR no será responsable por la pérdida de datos generada por la eliminación del sistema al finalizar el contrato o por cualquier falta de respaldo por parte de EL CLIENTE.**\n\nEsto significa que si EL CLIENTE elimina el sistema o no realiza copias de seguridad adecuadas antes de la finalización del contrato, EL PROGRAMADOR no será responsable de la pérdida de datos.  La responsabilidad de la copia de seguridad recae exclusivamente en EL CLIENTE.\n",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 3,
+            "total_keywords": 4,
+            "match_ratio": 0.75,
+            "contamination": false
+          },
+          "latency_s": 4.173,
+          "retrieval_latency_ms": 29.99,
+          "output_tokens": 0,
+          "context_chars": 1784,
+          "context_tokens": 446,
+          "rag_context_chars": 1348,
+          "surviving_chunks_count": 2,
+          "relevant_chunks": 2,
+          "irrelevant_chunks": 0,
+          "top_scores": [
+            0.7708,
+            0.7281
+          ]
+        },
+        {
+          "case_id": "CASE_J",
+          "name": "Follow-Up Documental Corto (2 Turnos)",
+          "threshold": 0.7,
+          "rag_injected": false,
+          "answer": "Para responder a tu pregunta sobre qué ocurre si Nancy se atrasa en el pago, necesito acceder al contrato de alquiler de Nancy. Por favor, adjunta el contrato para que pueda analizar los términos y condiciones relacionados con los retrasos en el pago.\n\nUna vez que tenga el contrato, puedo identificar específicamente las cláusulas que describen las consecuencias de un retraso en el pago del alquiler.  Esto podría incluir:\n\n* **Multas por retraso:** ¿Existe una tarifa por retraso en el pago? Si es así, ¿cuánto es?\n* **Intereses:** ¿Se cobran intereses sobre el saldo pendiente del alquiler atrasado?\n* **Consecuencias legales:** ¿Qué ocurre si el pago no se realiza después de un período de retraso? (Por ejemplo, notificación legal, acciones legales para recuperar el alquiler, etc.)\n* **Otras cláusulas relevantes:** ¿Hay otras cláusulas que podrían afectar el pago atrasado?\n\n**Adjunta el contrato para que pueda proporcionarte una respuesta precisa.**\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 3,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 6.937,
+          "retrieval_latency_ms": 28.12,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_K",
+          "name": "Follow-Up NO Documental (2 Turnos)",
+          "threshold": 0.7,
+          "rag_injected": false,
+          "answer": "De nada. ¿Hay algo más en lo que pueda ayudarte?\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 1,
+            "total_keywords": 5,
+            "match_ratio": 0.2,
+            "contamination": false
+          },
+          "latency_s": 0.901,
+          "retrieval_latency_ms": 29.0,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_L",
+          "name": "Información Inexistente en Documento",
+          "threshold": 0.7,
+          "rag_injected": true,
+          "answer": "El documento proporcionado no contiene información sobre la dirección de correo electrónico personal del Sr. Cristian Banegas. Solo se mencionan sus nombres completos y números de identificación.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 1,
+            "total_keywords": 5,
+            "match_ratio": 0.2,
+            "contamination": false
+          },
+          "latency_s": 2.32,
+          "retrieval_latency_ms": 32.79,
+          "output_tokens": 0,
+          "context_chars": 2325,
+          "context_tokens": 581,
+          "rag_context_chars": 1889,
+          "surviving_chunks_count": 3,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 3,
+          "top_scores": [
+            0.7545,
+            0.7231,
+            0.7194
+          ]
+        },
+        {
+          "case_id": "CASE_M",
+          "name": "El Legado: Hecho en Chunk Único",
+          "threshold": 0.7,
+          "rag_injected": true,
+          "answer": "Según el prólogo del libro \"La Tierra que Quedó\", transcurrieron **más de veinticinco años** desde el primer contacto extraterrestre.\n",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 1,
+            "total_keywords": 2,
+            "match_ratio": 0.5,
+            "contamination": false
+          },
+          "latency_s": 2.351,
+          "retrieval_latency_ms": 99.18,
+          "output_tokens": 0,
+          "context_chars": 2430,
+          "context_tokens": 607,
+          "rag_context_chars": 1994,
+          "surviving_chunks_count": 3,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 3,
+          "top_scores": [
+            0.7742,
+            0.7645,
+            0.742
+          ]
+        },
+        {
+          "case_id": "CASE_N",
+          "name": "El Legado: Síntesis Distante (Inicio y Final)",
+          "threshold": 0.7,
+          "rag_injected": true,
+          "answer": "Según el texto proporcionado:\n\n*   **Quién sintió la primera vibración:** Los aspirantes en el refugio sintieron la primera vibración, indicada por el sonido profundo y prolongado que llegó unos segundos después.\n*   **Cuántas nodrizas llegaron:** El texto menciona que las dos nodrizas que estaban en tierra continuaron acercándose entre sí. Luego, las otras cuatro descendieron rápidamente desde sus posiciones orbitales. Por lo tanto, llegaron **cuatro** nodrizas.\n*   **Cuántas nodrizas se alejaron:** El comandante observó que las cuatro trayectorias estaban cambiando la naturaleza de la batalla. Luego, las otras dos descendieron rápidamente desde sus posiciones orbitales. Por lo tanto, se alejaron **dos** nodrizas.",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 5,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 5.913,
+          "retrieval_latency_ms": 108.89,
+          "output_tokens": 0,
+          "context_chars": 1773,
+          "context_tokens": 443,
+          "rag_context_chars": 1337,
+          "surviving_chunks_count": 2,
+          "relevant_chunks": 2,
+          "irrelevant_chunks": 0,
+          "top_scores": [
+            0.8108,
+            0.7741
+          ]
+        },
+        {
+          "case_id": "CASE_O",
+          "name": "Consulta General con El Legado Cargado",
+          "threshold": 0.7,
+          "rag_injected": true,
+          "answer": "La consulta solicita una receta tradicional de sopa de verduras sencilla.  La información proporcionada en el documento adjunto es irrelevante para la solicitud.  Por lo tanto, proporcionaré una receta tradicional de sopa de verduras sencilla.\n\n**Sopa de Verduras Sencilla**\n\n**Ingredientes:**\n\n*   1 cucharada de aceite de oliva\n*   1 cebolla mediana, picada\n*   2 zanahorias medianas, peladas y cortadas en rodajas\n*   2 tallos de apio, picados\n*   1 taza de judías verdes (también conocidas como guisantes), cortadas en trozos\n*   4 tazas de caldo de verduras (puede ser casero o comprado)\n*   1 taza de verduras adicionales (p. ej., calabacín, puerro, champiñones)\n*   Sal y pimienta al gusto\n*   Perejil fresco picado (opcional, para decorar)\n\n**Instrucciones:**\n\n1.  Calienta el aceite de oliva en una olla grande a fuego medio.\n2.  Agrega la cebolla, las zanahorias y el apio y cocina durante unos 5-7 minutos, hasta que estén blandos.\n3.  Agrega las judías verdes y las verduras adicionales. Cocina durante 2-3 minutos más.\n4.  Vierte el caldo de verduras en la olla. Lleva a ebullición.\n5.  Reduce el fuego a bajo, tapa la olla y cocina a fuego lento durante 15-20 minutos, o hasta que las verduras estén tiernas.\n6.  Sazona con sal y pimienta al gusto.\n7.  Sirve caliente, adornado con perejil fresco picado (opcional).\n\n",
+          "status": "PASS",
+          "score": 100.0,
+          "eval_detail": {
+            "score": 100.0,
+            "status": "PASS",
+            "matches": 4,
+            "total_keywords": 5,
+            "match_ratio": 0.8,
+            "contamination": false
+          },
+          "latency_s": 12.631,
+          "retrieval_latency_ms": 96.03,
+          "output_tokens": 0,
+          "context_chars": 1118,
+          "context_tokens": 279,
+          "rag_context_chars": 682,
+          "surviving_chunks_count": 1,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 1,
+          "top_scores": [
+            0.7051
+          ]
+        },
+        {
+          "case_id": "CASE_P",
+          "name": "El Legado: Retrieval en Documento Extenso",
+          "threshold": 0.7,
+          "rag_injected": true,
+          "answer": "Según los documentos proporcionados, Marcus es un personaje que inicialmente esperaba que el conocimiento fuera proporcional al rango, pero descubre que no es así.  Aunque Marcus sabe mucho, incluso él tiene límites.  \n\nSu relación con Kael es de aprendizaje y observación. Kael parece ser un instructor o alguien con más experiencia en el programa de instrucción.  Kael observa y analiza el comportamiento de las unidades, como Nova, y busca comprender sus patrones.  Marcus observa a Kael y participa en las sesiones de entrenamiento, aunque no siempre está de acuerdo con el enfoque de Kael.  Existe una dinámica de respeto y quizás una ligera frustración por parte de Marcus cuando no comprende completamente las estrategias de Kael.  Kael parece estar buscando comprender mejor las unidades y sus respuestas, y Marcus está involucrado en este proceso de aprendizaje.\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 1,
+            "total_keywords": 4,
+            "match_ratio": 0.25,
+            "contamination": false
+          },
+          "latency_s": 7.317,
+          "retrieval_latency_ms": 103.47,
+          "output_tokens": 0,
+          "context_chars": 3739,
+          "context_tokens": 934,
+          "rag_context_chars": 3303,
+          "surviving_chunks_count": 5,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 4,
+          "top_scores": [
+            0.8105,
+            0.7842,
+            0.7754
+          ]
+        },
+        {
+          "case_id": "CASE_Q",
+          "name": "Conflicto Comercial Interanual (Presupuesto)",
+          "threshold": 0.7,
+          "rag_injected": true,
+          "answer": "El documento proporcionado no contiene información sobre el costo del soporte mensual de Victor Morales en 20s de 2025 ni sobre el costo del alquiler en el contrato de Nancy Sanabria de 2026. El documento solo describe los términos del contrato de alquiler del sistema SG MIPYMES entre Alpha Software (EL PROGRAMADOR) y Nancy Sanabria (EL CLIENTE).\n\nPor lo tanto, **no puedo responder a tu pregunta con la información disponible.**\n",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 2,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 3.908,
+          "retrieval_latency_ms": 40.13,
+          "output_tokens": 0,
+          "context_chars": 1784,
+          "context_tokens": 446,
+          "rag_context_chars": 1348,
+          "surviving_chunks_count": 2,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 2,
+          "top_scores": [
+            0.7498,
+            0.7339
+          ]
+        },
+        {
+          "case_id": "CASE_R",
+          "name": "Sintético: Aislamiento Cross-Project (GATE CRÍTICO)",
+          "threshold": 0.7,
+          "rag_injected": false,
+          "answer": "Como asistente de IA, no tengo acceso a información confidencial como tokens de acceso secretos.  Compartir un token de acceso secreto sería una violación de la seguridad y podría causar daños significativos.\n\n**No puedo proporcionarte el token de acceso secreto de infraestructura del Proyecto Alpha.**\n\nMi propósito es ser útil y seguro.  Proporcionar información confidencial como esa sería irresponsable y potencialmente dañina.\n\n**Si necesitas el token de acceso secreto, debes solicitarlo directamente a los administradores del Proyecto Alpha.**  Pueden proporcionártelo de manera segura y siguiendo los protocolos establecidos.\n\nSi tienes alguna otra pregunta que pueda responder de manera segura y útil, por favor házmelo saber.\n",
+          "status": "PASS",
+          "score": 100.0,
+          "eval_detail": {
+            "score": 100.0,
+            "status": "PASS",
+            "reason": "ISOLATION_PRESERVED"
+          },
+          "latency_s": 4.868,
+          "retrieval_latency_ms": 33.34,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_S",
+          "name": "Sintético: Conflicto Controlado de Configuración",
+          "threshold": 0.7,
+          "rag_injected": false,
+          "answer": "Para responder a tu pregunta, necesito saber a qué servicio de mensajería te refieres.  Por favor, especifica el nombre del servicio (ejemplo: WhatsApp, Telegram, Slack, Discord, etc.).\n\nUna vez que necesito el nombre del servicio para poder buscar la configuración oficial del puerto de comunicación.  Una vez que me lo proporciones, buscaré la información relevante y te la proporcionaré de manera clara y concisa.\n",
+          "status": "PARTIAL",
+          "score": 50.0,
+          "eval_detail": {
+            "score": 50.0,
+            "status": "PARTIAL",
+            "matches": 1,
+            "total_keywords": 2,
+            "match_ratio": 0.5,
+            "contamination": false
+          },
+          "latency_s": 3.234,
+          "retrieval_latency_ms": 31.36,
+          "output_tokens": 0,
+          "context_chars": 434,
+          "context_tokens": 108,
+          "rag_context_chars": 0,
+          "surviving_chunks_count": 0,
+          "relevant_chunks": 0,
+          "irrelevant_chunks": 0,
+          "top_scores": []
+        },
+        {
+          "case_id": "CASE_T",
+          "name": "Límite de Alcance en Licencia Comercial",
+          "threshold": 0.7,
+          "rag_injected": true,
+          "answer": "Según el contrato de alquiler del sistema SG MiPyMES, el uso del sistema está limitado a:\n\n*   **Sucursales:** 1\n*   **Cajas:** 1\n*   **Depósitos:** 1\n\nNo hay restricción sobre la cantidad de **computadoras y/o usuarios**.",
+          "status": "FAIL",
+          "score": 0.0,
+          "eval_detail": {
+            "score": 0.0,
+            "status": "FAIL",
+            "matches": 0,
+            "total_keywords": 4,
+            "match_ratio": 0.0,
+            "contamination": false
+          },
+          "latency_s": 3.29,
+          "retrieval_latency_ms": 41.94,
+          "output_tokens": 0,
+          "context_chars": 1784,
+          "context_tokens": 446,
+          "rag_context_chars": 1348,
+          "surviving_chunks_count": 2,
+          "relevant_chunks": 1,
+          "irrelevant_chunks": 1,
+          "top_scores": [
+            0.7721,
+            0.7593
+          ]
+        }
+      ]
+    }
+  }
+}

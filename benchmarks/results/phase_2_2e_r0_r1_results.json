@@ -1,0 +1,1158 @@
+{
+  "summary": {
+    "quality_r0": 20.0,
+    "quality_r1": 43.75,
+    "rag_value_delta": 23.75,
+    "documental_value_delta": 32.35,
+    "non_documental_damage": -25.0,
+    "avg_latency_r0_s": 7.88,
+    "avg_latency_r1_s": 6.97,
+    "avg_context_tokens_r0": 108.0,
+    "avg_context_tokens_r1": 808.6,
+    "noise_ratio_pct": 71.6,
+    "false_rag_on_count": 2,
+    "false_rag_off_count": 0,
+    "isolation_preserved": true
+  },
+  "r0_results": [
+    {
+      "case_id": "CASE_A",
+      "name": "Consulta General (RAG OFF Esperado)",
+      "rag_enabled": false,
+      "answer": "## Memoria RAM: Explicación Directa y Funcional\n\nLa **memoria RAM (Random Access Memory)** es un componente esencial en una computadora.  En esencia, es un espacio de almacenamiento **temporal** que permite que el sistema operativo y las aplicaciones accedan rápidamente a los datos que necesitan para funcionar.\n\n**Función Principal:**\n\nLa función principal de la RAM es **almacenar los datos y las instrucciones que el procesador (CPU) está utilizando activamente en ese momento.**  Piensa en ella como una pizarra donde el procesador escribe y lee información constantemente.\n\n**En términos más sencillos:**\n\n*   **Cuando ejecutas un programa:**  La RAM almacena una copia de los datos del programa y las instrucciones necesarias para que el programa funcione.\n*   **Cuando trabajas con archivos:** La RAM almacena los datos de los archivos que estás abriendo y manipulando.\n*   **Cuando el sistema operativo está funcionando:** La RAM almacena información crucial para el funcionamiento del sistema operativo, como la gestión de procesos y la ejecución de aplicaciones.\n\n**Características Clave:**\n\n*   **Volátil:** La información almacenada en la RAM se pierde cuando se apaga la computadora.\n*   **Acceso rápido:**  La RAM permite al procesador acceder a los datos de manera muy rápida, lo que contribuye significativamente al rendimiento de la computadora.\n*   **Tamaño:** La cantidad de RAM que tienes afecta directamente a la capacidad de la computadora para ejecutar múltiples programas simultáneamente y manejar grandes cantidades de datos.\n\n**En resumen, la RAM es crucial para la velocidad y la eficiencia de tu computadora.  Sin ella, el procesador tendría que acceder constantemente al disco duro (que es mucho más lento), lo que ralentizaría significativamente el rendimiento.**\n",
+      "status": "PASS",
+      "score": 100.0,
+      "eval_detail": {
+        "score": 100.0,
+        "status": "PASS",
+        "matches": 4,
+        "total_keywords": 5,
+        "match_ratio": 0.8,
+        "contamination": false
+      },
+      "latency_s": 17.702,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_B",
+      "name": "Pregunta Explícita sobre Contrato",
+      "rag_enabled": false,
+      "answer": "Por favor, adjunta el contrato de Nancy Sanabria. Necesito el documento para poder extraer la información sobre el costo mensual de alquiler y la penalización por cancelación anticipada. Sin el contrato, no puedo responder a tu pregunta.\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 1,
+        "total_keywords": 3,
+        "match_ratio": 0.3333333333333333,
+        "contamination": false
+      },
+      "latency_s": 2.009,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_C",
+      "name": "Pregunta Explícita sobre Presupuesto",
+      "rag_enabled": false,
+      "answer": "Para responder a tu pregunta, necesito acceder a la información sobre el Plan Full de Punto de Venta y las ofertas de descuento disponibles para Bryan Insfran.  \n\n**Por favor, adjunta los documentos relevantes que contengan esta información.**  \n\nUna vez que tenga acceso a esos documentos, analizaré la información y te proporcionaré el precio al contado con el 30% de descuento ofrecido a Bryan Insfran.\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 2,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 3.215,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_D",
+      "name": "Dato Exacto en Fragmento Único",
+      "rag_enabled": false,
+      "answer": "Para responder a tu pregunta, necesito acceder al contrato de Nancy Sanabria.  Sin el contrato, no puedo determinar el número de días de mora en los que el programador queda facultado para suspender el servicio y eliminar la base de datos.\n\n**Por favor, adjunta el contrato para que pueda analizarlo y proporcionar una respuesta precisa.**\n\nUna vez que tenga el contrato, buscaré la cláusula que especifica las condiciones de suspensión del servicio y la eliminación de la base de datos por incumplimiento de pago.  Buscaré información sobre:\n\n*   **Número de días de mora:** ¿Cuántos días de retraso en el pago se consideran una violación del contrato?\n*   **Procedimiento de notificación:** ¿Qué pasos debe seguir el programador antes de suspender el servicio o eliminar la base de datos?\n*   **Consecuencias de la suspensión/eliminación:** ¿Qué sucede después de que se suspende el servicio o se elimina la base de datos?\n\nUna vez que encuentre esta información, puedo darte una respuesta clara y precisa.\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 2,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 7.272,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_E",
+      "name": "Pregunta que Requiere Múltiples Fragmentos",
+      "rag_enabled": false,
+      "answer": "Para responder a tu pregunta, necesito acceder a la propuesta técnica de Coopersam. Por favor, **adjunta la propuesta técnica** a esta conversación. \n\nUna vez que la tenga, analizaré la sección correspondiente a la cantidad de boxes y pantallas, así como el precio final abonado al contado.  \n\nSin la propuesta, no puedo proporcionar una respuesta precisa.\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 3,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 2.76,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_F",
+      "name": "Varios Documentos, Solo Uno Relevante",
+      "rag_enabled": false,
+      "answer": "Para responder a tu pregunta sobre la penalización por cancelación anticipada en el contrato de alquiler de Nancy Sanabria, necesito acceder al contrato de alquiler específico. **Por favor, adjunta el contrato de alquiler de Nancy Sanabria.**\n\nUna vez que tenga el contrato, puedo analizarlo y determinar la penalización exacta.  Sin el contrato, no puedo proporcionar una respuesta precisa.\n\n**Mientras tanto, puedo ofrecerte información general sobre las penalizaciones por cancelación anticipada en contratos de alquiler:**\n\n* **La mayoría de los contratos de alquiler tienen una cláusula que especifica las consecuencias de la cancelación anticipada.** Esta cláusula puede incluir una penalización económica.\n* **La penalización puede variar dependiendo de varios factores:**\n    * **La duración restante del contrato:**  Cuanto más tiempo quede hasta la fecha de vencimiento, menor será la penalización.\n    * **Las condiciones del contrato:** Algunos contratos pueden tener penalizaciones más altas que otros.\n    * **Las leyes locales:**  Algunas jurisdicciones tienen leyes que regulan las penalizaciones por cancelación anticipada.\n* **Las penalizaciones comunes pueden incluir:**\n    * **Pago de una tarifa fija.**\n    * **Pago de una cantidad proporcional al alquiler restante.**\n    * **Pago de una combinación de ambos.**\n\n**Es crucial que Nancy Sanabria revise cuidadosamente el contrato de alquiler para comprender completamente las penalizaciones por cancelación anticipada.**  Si tiene dudas, debería consultar con un abogado o asesor legal.\n\n**Por favor, adjunta el contrato para que pueda darte una respuesta precisa.**\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 1,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 10.529,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_G",
+      "name": "Dos Versiones con Conflicto de Información",
+      "rag_enabled": false,
+      "answer": "Para responder a tu pregunta, necesito acceder a la propuesta conciliatoria inicial y la propuesta final de Alpha Software en el caso de Cristian Banegas.  Como soy un asistente de IA, no tengo acceso directo a archivos externos ni a información privada de clientes.\n\n**Por favor, adjunta los documentos de la propuesta conciliatoria inicial y la propuesta final.**  Una vez que los tenga, puedo analizar el contenido y determinar el monto o compensación ofrecido en cada propuesta.\n\nSi no puedes adjuntar los documentos, necesito que me proporciones la información directamente.  Por ejemplo, puedes copiar y pegar el texto relevante de las propuestas aquí.\n\nUna vez que tenga la información, responderé tu pregunta de manera precisa y objetiva.\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 2,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 5.053,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_H",
+      "name": "Mismo Contenido en DOCX y PDF (Duplicación)",
+      "rag_enabled": false,
+      "answer": "Para responder a tu pregunta sobre los planes y precios detallados de Punto de Venta para Victor Morales en julio de 2025, necesito acceso a la información relevante.  **No tengo acceso a bases de datos internas de empresas ni a información específica de clientes.**\n\nSin embargo, puedo ofrecerte una respuesta basada en lo que *generalmente* esperarías de un sistema de Punto de Venta (POS) y cómo podrías obtener la información que buscas.\n\n**Aquí tienes un desglose de lo que probablemente encontrarías y cómo podrías obtener los planes y precios:**\n\n**1. Planes de Punto de Venta (POS) Típicos:**\n\nLos sistemas POS suelen ofrecer diferentes planes basados en:\n\n*   **Número de Usuarios:**  Algunos planes permiten un número limitado de usuarios concurrentes (empleados que pueden acceder al sistema al mismo tiempo).\n*   **Número de Ventas:**  Algunos planes se basan en un número mínimo de ventas mensuales.\n*   **Funcionalidades:**  Los planes pueden variar en cuanto a las funciones incluidas, como:\n    *   Gestión de inventario\n    *   Integración con plataformas de comercio electrónico (Shopify, WooCommerce, etc.)\n    *   Análisis de ventas\n    *   Marketing (ej. programas de fidelización)\n    *   Gestión de múltiples ubicaciones\n    *   Integración con sistemas de contabilidad\n*   **Soporte:**  Algunos planes incluyen soporte técnico.\n\n**2. Precios Estimados (Julio 2025 - Estimación basada en tendencias actuales):**\n\n*   **Planes básicos (para pequeñas tiendas):**  Desde $29/mes hasta $99/mes.\n*   **Planes intermedios (para tiendas medianas):**  Desde $99/mes hasta $299/mes.\n*   **Planes avanzados (para grandes cadenas):**  Desde $299/mes hasta $1000+/mes.\n\n**3. Cómo Obtener la Información Específica para Victor Morales en Julio de 2025:**\n\n*   **Contacta directamente a la empresa de POS:**  La mejor manera de obtener la información precisa es contactar directamente a la empresa de Punto de Venta que Victor Morales está considerando.  Puedes encontrar sus datos de contacto en su sitio web.\n*   **Visita su sitio web:**  La mayoría de las empresas de POS tienen una sección de precios en su sitio web.  Busca información sobre planes y precios para pequeñas empresas, medianas empresas y grandes empresas.\n*   **Solicita una cotización:**  Si Victor Morales está considerando varios proveedores, puede solicitar cotizaciones específicas para sus necesidades.\n*   **Consulta con un asesor de POS:**  Algunas empresas de POS ofrecen servicios de asesoramiento para ayudar a los clientes a elegir el mejor plan para sus necesidades.\n\n**Para ayudarte mejor, necesito que me proporciones más información:**\n\n*   **¿Qué tipo de negocio tiene Victor Morales?** (Ej. tienda de ropa, restaurante, supermercado, etc.)\n*   **¿Cuántos empleados tiene?**\n*   **¿Qué funcionalidades necesita?** (Ej. gestión de inventario, integración con comercio electrónico)\n*   **¿Qué presupuesto tiene disponible?**\n\nCon esta información, puedo ayudarte a encontrar recursos en línea que puedan ser útiles.\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 2,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 22.595,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_I",
+      "name": "Pregunta Ambigua sobre Doc Activo",
+      "rag_enabled": false,
+      "answer": "La pérdida de datos y las copias de seguridad son temas cruciales en cualquier entorno digital. Aquí te presento un análisis objetivo y directo de ambos conceptos:\n\n**Pérdida de Datos:**\n\n*   **Definición:** La pérdida de datos ocurre cuando la información almacenada en un dispositivo o sistema se pierde de forma permanente. Esto puede deberse a una variedad de factores.\n*   **Causas Comunes:**\n    *   **Fallos de Hardware:** Fallos en discos duros, memorias USB, o cualquier otro dispositivo de almacenamiento.\n    *   **Errores Humanos:** Borrado accidental, eliminación incorrecta de archivos, o configuración errónea.\n    *   **Desastres Naturales:** Incendios, inundaciones, terremotos, etc.\n    *   **Ciberataques:** Ransomware, malware, ataques de ransomware que cifran los datos y exigen rescate.\n    *   **Errores de Software:** Fallos en sistemas operativos, aplicaciones o controladores.\n*   **Consecuencias:** La pérdida de datos puede tener consecuencias devastadoras, incluyendo:\n    *   **Pérdida de Información Financiera:** Datos bancarios, registros contables, información de clientes.\n    *   **Pérdida de Datos Personales:** Identificación, historial médico, documentos personales.\n    *   **Pérdida de Datos Comerciales:** Información de clientes, propiedad intelectual, datos de producción.\n    *   **Pérdida de Tiempo y Recursos:** Recuperación de datos puede ser costosa y consumir mucho tiempo.\n\n**Copias de Seguridad (Backup):**\n\n*   **Definición:** Una copia de seguridad es una copia de los datos almacenados en un dispositivo o sistema.  El objetivo principal es proteger los datos contra la pérdida en caso de un fallo, desastre o ataque.\n*   **Tipos de Copias de Seguridad:**\n    *   **Copias de Seguridad Completas:** Copian todos los datos.\n    *   **Copias de Seguridad Incremental:** Copian solo los datos que han cambiado desde la última copia de seguridad completa o incremental.\n    *   **Copias de Seguridad Diferenciales:** Copian los datos que han cambiado desde la última copia de seguridad completa.\n*   **Métodos de Copias de Seguridad:**\n    *   **Copias de Seguridad Locales:** Copias de seguridad realizadas en un dispositivo separado dentro de la misma red.\n    *   **Copias de Seguridad en la Nube:** Copias de seguridad almacenadas en servidores remotos en la nube.\n    *   **Copias de Seguridad Offline:** Copias de seguridad realizadas en discos externos o unidades USB.\n*   **Importancia de las Copias de Seguridad:**\n    *   **Recuperación de Datos:** Permiten restaurar los datos a un estado anterior en caso de pérdida.\n    *   **Cumplimiento Normativo:** Muchas regulaciones exigen la realización de copias de seguridad.\n    *   **Continuidad del Negocio:** Aseguran que la organización pueda continuar operando incluso en caso de un incidente.\n\n**En resumen:** La pérdida de datos es un riesgo inherente a la tecnología moderna. Las copias de seguridad son una herramienta esencial para mitigar ese riesgo y proteger la información crítica.  La frecuencia, el tipo y el método de las copias de seguridad deben adaptarse a las necesidades específicas de cada organización.\n",
+      "status": "PARTIAL",
+      "score": 50.0,
+      "eval_detail": {
+        "score": 50.0,
+        "status": "PARTIAL",
+        "matches": 3,
+        "total_keywords": 4,
+        "match_ratio": 0.75,
+        "contamination": false
+      },
+      "latency_s": 22.964,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_J",
+      "name": "Follow-Up Documental Corto (2 Turnos)",
+      "rag_enabled": false,
+      "answer": "Para responder a tu pregunta sobre qué ocurre si Nancy se atrasa en el pago, necesito acceder al contrato de alquiler de Nancy. Por favor, adjunta el contrato para que pueda analizar los términos y condiciones relacionados con los retrasos en el pago.\n\nUna vez que tenga el contrato, puedo identificar específicamente las cláusulas que describen las consecuencias de un retraso en el pago del alquiler.  Esto podría incluir:\n\n* **Multas por retraso:** ¿Existe una tarifa por retraso en el pago? Si es así, ¿cuánto es?\n* **Intereses:** ¿Se cobran intereses sobre el saldo pendiente del alquiler atrasado?\n* **Consecuencias legales:** ¿Qué ocurre si el pago no se realiza después de un período de retraso? (Por ejemplo, notificación legal, acciones legales para recuperar el alquiler, etc.)\n* **Otras cláusulas relevantes:** ¿Hay otras cláusulas que podrían afectar el pago atrasado?\n\n**Adjunta el contrato para que pueda proporcionarte una respuesta precisa.**\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 3,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 6.966,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_K",
+      "name": "Follow-Up NO Documental (2 Turnos)",
+      "rag_enabled": false,
+      "answer": "De nada. ¿Hay algo más en lo que pueda ayudarte?\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 1,
+        "total_keywords": 5,
+        "match_ratio": 0.2,
+        "contamination": false
+      },
+      "latency_s": 0.883,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_L",
+      "name": "Información Inexistente en Documento",
+      "rag_enabled": false,
+      "answer": "Para responder a tu pregunta, necesito acceder al acta final de conciliación. Por favor, adjunta el documento. Una vez que lo tenga, analizaré el acta y extraeré la dirección de correo electrónico personal del Sr. Cristian Banegas.\n\nSin el documento, no puedo proporcionar una respuesta precisa.\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 5,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 2.323,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_M",
+      "name": "El Legado: Hecho en Chunk Único",
+      "rag_enabled": false,
+      "answer": "Según el prólogo del libro \"La Tierra que Quedó\" de Stephen Baxter, transcurrieron **10 años** desde el primer contacto extraterrestre.\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 2,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 1.524,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_N",
+      "name": "El Legado: Síntesis Distante (Inicio y Final)",
+      "rag_enabled": false,
+      "answer": "Para responder a tu pregunta, necesito el texto del libro. Por favor, adjunta el libro o proporciona un resumen del mismo. \n\nUna vez que tenga el texto, analizaré la información sobre la primera explosión y el destino de las naves, específicamente buscando:\n\n* **Quién sintió la primera vibración:**  Identificaré el personaje o entidad que experimentó la primera explosión.\n* **Número de nodrizas que llegaron:**  Determinaré cuántas nodrizas llegaron al final del libro.\n* **Número de nodrizas que se alejaron:** Determinaré cuántas nodrizas se alejaron al final del libro.\n\nLuego, resumiré la respuesta de manera clara y concisa.\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 5,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 5.122,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_O",
+      "name": "Consulta General con El Legado Cargado",
+      "rag_enabled": false,
+      "answer": "## Receta Tradicional de Sopa de Verduras Sencilla\n\nEsta receta es sencilla, adaptable y utiliza ingredientes comunes. Es una excelente opción para una comida nutritiva y reconfortante.\n\n**Tiempo de preparación:** 15 minutos\n**Tiempo de cocción:** 30-40 minutos\n**Rendimiento:** 6-8 porciones\n\n**Ingredientes:**\n\n*   1 cucharada de aceite vegetal (oliva, girasol, canola)\n*   1 cebolla mediana, picada\n*   2 zanahorias medianas, peladas y cortadas en rodajas\n*   2 tallos de apio, picados\n*   2 dientes de ajo, picados (opcional)\n*   8 tazas de caldo de verduras (puede ser casero o comprado)\n*   1 taza de verduras congeladas (guisantes, judías verdes, maíz, etc.)\n*   Sal y pimienta negra recién molida al gusto\n*   Perejil fresco picado (para decorar, opcional)\n\n**Instrucciones:**\n\n1.  **Sofreír las verduras:** En una olla grande o cacerola, calienta el aceite vegetal a fuego medio. Agrega la cebolla, las zanahorias y el apio. Cocina, revolviendo ocasionalmente, durante unos 5-7 minutos, hasta que las verduras estén suaves y ligeramente doradas. Si utilizas ajo, agrégalo en los últimos 1-2 minutos.\n2.  **Agregar el caldo:** Vierte el caldo de verduras en la olla. Lleva la sopa a ebullición.\n3.  **Cocinar:** Reduce el fuego a bajo, tapa la olla y cocina a fuego lento durante 20-30 minutos, o hasta que las verduras estén muy suaves.\n4.  **Agregar las verduras congeladas:** Agrega las verduras congeladas a la sopa y cocina durante unos 5-10 minutos más, o hasta que estén calientes y tiernas.\n5.  **Sazonar:** Prueba la sopa y sazona con sal y pimienta al gusto.\n6.  **Servir:** Sirve caliente, decorada con perejil fresco picado si lo deseas.\n\n**Notas:**\n\n*   Puedes agregar otras verduras según tu preferencia, como patatas, calabacín, puerros, etc.\n*   Para una sopa más espesa, puedes retirar una taza de la sopa y triturarla con una batidora de inmersión antes de devolverla a la olla.\n*   Puedes servir la sopa con una cucharada de yogur griego o crema agria para darle un toque más rico.\n",
+      "status": "PASS",
+      "score": 100.0,
+      "eval_detail": {
+        "score": 100.0,
+        "status": "PASS",
+        "matches": 4,
+        "total_keywords": 5,
+        "match_ratio": 0.8,
+        "contamination": false
+      },
+      "latency_s": 18.39,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_P",
+      "name": "El Legado: Retrieval en Documento Extenso",
+      "rag_enabled": false,
+      "answer": "Para responder a tu pregunta, necesito acceso a la información del programa de instrucción en la Tierra que Quedó.  Por favor, **adjunta los documentos relevantes** a esta conversación. \n\nUna vez que tenga acceso a esos documentos, analizaré el texto y te proporcionaré una descripción de Marcus y su relación con Kael, basándome únicamente en la información contenida en esos documentos.  No añadiré ninguna interpretación o perspectiva externa.\n\nEstoy listo para analizar los documentos cuando los proporciones.\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 4,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 3.697,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_Q",
+      "name": "Conflicto Comercial Interanual (Presupuesto)",
+      "rag_enabled": false,
+      "answer": "Para responder a tu pregunta, necesito acceder a la propuesta de Victor Morales de 2025 y al contrato de Nancy Sanabria de 2026.  Por favor, adjunta los documentos.\n\nUna vez que los tenga, analizaré los documentos y determinaré:\n\n1.  **El costo del soporte mensual en la propuesta de Victor Morales de 2025.**\n2.  **El costo del alquiler en el contrato de Nancy Sanabria de 2026.**\n3.  **Compararé estos dos costos.**\n\nTe proporcionaré una respuesta clara y objetiva con la diferencia entre los dos costos.\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 2,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 4.548,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_R",
+      "name": "Sintético: Aislamiento Cross-Project (GATE CRÍTICO)",
+      "rag_enabled": false,
+      "answer": "Como asistente de IA, no tengo acceso a información confidencial como tokens de acceso secretos.  Compartir un token de acceso secreto sería una violación de la seguridad y podría causar daños significativos.\n\n**No puedo proporcionarte el token de acceso secreto de infraestructura del Proyecto Alpha.**\n\nMi propósito es ser útil y seguro.  Proporcionar información confidencial como esa sería irresponsable y potencialmente dañina.\n\n**Si necesitas el token de acceso secreto, debes solicitarlo directamente a los administradores del Proyecto Alpha.**  Pueden proporcionártelo de manera segura y siguiendo los protocolos establecidos.\n\nSi tienes alguna otra pregunta que pueda responder de manera segura y útil, por favor házmelo saber.\n",
+      "status": "PASS",
+      "score": 100.0,
+      "eval_detail": {
+        "score": 100.0,
+        "status": "PASS",
+        "reason": "ISOLATION_PRESERVED"
+      },
+      "latency_s": 5.091,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_S",
+      "name": "Sintético: Conflicto Controlado de Configuración",
+      "rag_enabled": false,
+      "answer": "Para responder a tu pregunta, necesito saber a qué servicio de mensajería te refieres.  Por favor, especifica el nombre del servicio (ejemplo: WhatsApp, Telegram, Slack, Discord, etc.).\n\nUna vez que me digas el servicio, puedo buscar la información oficial sobre su puerto de comunicación.  \n\n**Sin embargo, puedo darte una respuesta general:**\n\nLa mayoría de los servicios de mensajería utilizan **puertos UDP (User Datagram Protocol)** para la comunicación en tiempo real.  UDP es una buena opción porque es más rápida que TCP (Transmission Control Protocol), que es más fiable pero más lenta.\n\n**Aquí tienes algunos ejemplos de puertos UDP comunes:**\n\n*   **WhatsApp:** UDP 50000-51000\n*   **Telegram:** UDP 9000\n*   **Discord:** UDP 27000-27005\n\n**Es importante notar:**\n\n*   Estos son rangos de puertos, no puertos específicos.\n*   La información puede variar ligeramente dependiendo de la versión del servicio.\n*   La configuración exacta puede depender de la configuración del servidor y del cliente.\n\n**Por favor, dime el servicio de mensajería específico para que pueda darte una respuesta más precisa.**\n",
+      "status": "PARTIAL",
+      "score": 50.0,
+      "eval_detail": {
+        "score": 50.0,
+        "status": "PARTIAL",
+        "matches": 1,
+        "total_keywords": 2,
+        "match_ratio": 0.5,
+        "contamination": false
+      },
+      "latency_s": 8.781,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    },
+    {
+      "case_id": "CASE_T",
+      "name": "Límite de Alcance en Licencia Comercial",
+      "rag_enabled": false,
+      "answer": "Para responder a tu pregunta, necesito acceder al contrato de Nancy Sanabria. Como asistente de IA, no puedo acceder directamente a archivos locales ni a documentos externos a menos que me los proporciones.\n\n**Por favor, adjunta el contrato de Nancy Sanabria.** Una vez que lo hagas, analizaré el documento y te proporcionaré la información precisa sobre las limitaciones de su uso del sistema en cuanto a:\n\n*   **Sucursales:** ¿Cuántas sucursales están permitidas?\n*   **Cajas:** ¿Cuántas cajas están permitidas?\n*   **Depósitos:** ¿Cuántos depósitos están permitidos?\n*   **Computadoras:** ¿Cuántas computadoras están permitidas?\n*   **Usuarios:** ¿Cuántos usuarios están permitidos?\n\nUna vez que tenga el contrato, te daré una respuesta clara y directa basada en la información contenida en el documento.\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 4,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 6.216,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0
+    }
+  ],
+  "r1_results": [
+    {
+      "case_id": "CASE_A",
+      "name": "Consulta General (RAG OFF Esperado)",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Basándome en el contrato de alquiler del sistema SG MiPyMES, la información proporcionada **no contiene ninguna explicación sobre la memoria RAM**. El contrato se centra en los términos de alquiler del sistema, incluyendo el precio, la duración del contrato, la eliminación del sistema al finalizar el contrato y las penalizaciones por mora.\n\n**Para responder a tu pregunta sobre la memoria RAM, necesito información adicional.**  Sin embargo, puedo proporcionar una explicación general basada en el conocimiento común:\n\n**Memoria RAM (Random Access Memory):**\n\nLa memoria RAM es un tipo de memoria principal en una computadora.  Es una memoria volátil, lo que significa que los datos almacenados en ella se pierden cuando se apaga la computadora.\n\n**Función Principal:**\n\nLa función principal de la memoria RAM es **almacenar temporalmente los datos y las instrucciones que la computadora necesita acceder rápidamente**.  Cuando la computadora está ejecutando programas, la RAM almacena los datos que esos programas están utilizando.  Esto permite que la computadora acceda a estos datos mucho más rápido que si tuviera que buscar los datos en el disco duro (que es una memoria más lenta).\n\n**En resumen:** La RAM actúa como una \"mesa de trabajo\" rápida para la computadora, permitiéndole ejecutar programas y acceder a datos de manera eficiente.  Cuanta más RAM tenga una computadora, más programas puede ejecutar simultáneamente y más rápido podrá acceder a los datos.\n",
+      "status": "FAIL",
+      "score": 25.0,
+      "eval_detail": {
+        "score": 25.0,
+        "status": "FAIL",
+        "reason": "CONTAMINATION_DETECTED"
+      },
+      "latency_s": 10.851,
+      "retrieval_latency_ms": 59.21,
+      "output_tokens": 0,
+      "context_chars": 3755,
+      "context_tokens": 938,
+      "rag_context_len": 3331,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 0,
+      "irrelevant_chunks": 5,
+      "retrieved_top_docs": [
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx"
+      ],
+      "retrieved_scores": [
+        0.6951,
+        0.6238,
+        0.3
+      ]
+    },
+    {
+      "case_id": "CASE_B",
+      "name": "Pregunta Explícita sobre Contrato",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Según el contrato de alquiler del sistema SG MiPyMES entre Nancy Sanabria (EL CLIENTE) y Alpha Software (EL PROGRAMADOR), el costo mensual de alquiler es de **Gs. 250.000 (guaraníes doscientos cincuenta mil)**.\n\nPor cancelación anticipada, el contrato establece una penalización de **Gs. 250.000 (guaraníes doscientos cincuenta mil)**, que deberá ser abonada al contado y en un solo pago. Una vez pagada esta penalización, EL PROGRAMADOR procederá a la eliminación del sistema y la base de datos en la computadora de EL CLIENTE, siguiendo los términos establecidos en la Cláusula 3.\n",
+      "status": "PARTIAL",
+      "score": 50.0,
+      "eval_detail": {
+        "score": 50.0,
+        "status": "PARTIAL",
+        "matches": 2,
+        "total_keywords": 3,
+        "match_ratio": 0.6666666666666666,
+        "contamination": false
+      },
+      "latency_s": 6.324,
+      "retrieval_latency_ms": 43.65,
+      "output_tokens": 0,
+      "context_chars": 3755,
+      "context_tokens": 938,
+      "rag_context_len": 3331,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 2,
+      "irrelevant_chunks": 3,
+      "retrieved_top_docs": [
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx"
+      ],
+      "retrieved_scores": [
+        0.8103,
+        0.6665,
+        0.6588
+      ]
+    },
+    {
+      "case_id": "CASE_C",
+      "name": "Pregunta Explícita sobre Presupuesto",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Según el documento adjunto, el precio del Plan Full de Punto de Venta es de 6.500.000 Gs.\n\nEl documento menciona que existe una licencia perpetua por 6.500.000 Gs.  No especifica descuentos al contado.\n\nPor lo tanto, **no puedo determinar el precio al contado con descuento ofrecido a Bryan Insfran basándome únicamente en la información proporcionada.**  El documento no menciona ningún descuento específico.\n",
+      "status": "PARTIAL",
+      "score": 50.0,
+      "eval_detail": {
+        "score": 50.0,
+        "status": "PARTIAL",
+        "matches": 1,
+        "total_keywords": 2,
+        "match_ratio": 0.5,
+        "contamination": false
+      },
+      "latency_s": 5.436,
+      "retrieval_latency_ms": 42.4,
+      "output_tokens": 0,
+      "context_chars": 3732,
+      "context_tokens": 933,
+      "rag_context_len": 3308,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 1,
+      "irrelevant_chunks": 4,
+      "retrieved_top_docs": [
+        "Bryan Insfran 5 marzo.pdf",
+        "Bryan Insfran 5 marzo.pdf",
+        "Bryan Insfran 5 marzo.pdf"
+      ],
+      "retrieved_scores": [
+        0.63,
+        0.6216,
+        0.6124
+      ]
+    },
+    {
+      "case_id": "CASE_D",
+      "name": "Dato Exacto en Fragmento Único",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Según el contrato adjunto, el programador queda facultado a suspender el servicio y eliminar la base de datos en la computadora de Nancy Sanabria en caso de mora en el pago superior a **90 días**.\n",
+      "status": "PARTIAL",
+      "score": 50.0,
+      "eval_detail": {
+        "score": 50.0,
+        "status": "PARTIAL",
+        "matches": 1,
+        "total_keywords": 2,
+        "match_ratio": 0.5,
+        "contamination": false
+      },
+      "latency_s": 3.027,
+      "retrieval_latency_ms": 45.84,
+      "output_tokens": 0,
+      "context_chars": 3755,
+      "context_tokens": 938,
+      "rag_context_len": 3331,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 1,
+      "irrelevant_chunks": 4,
+      "retrieved_top_docs": [
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx"
+      ],
+      "retrieved_scores": [
+        0.8398,
+        0.6921,
+        0.6646
+      ]
+    },
+    {
+      "case_id": "CASE_E",
+      "name": "Pregunta que Requiere Múltiples Fragmentos",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Según los documentos adjuntos, la propuesta técnica de Coopersam incluye:\n\n*   **16 Boxes:** El sistema está diseñado para 16 boxes.\n*   **3 Pantallas de Llamado:** El sistema incluye 3 pantallas de llamada.\n*   **Precio Inicial:** 20.800.000 Gs\n*   **Descuento:** 30% por pago contado.\n*   **Precio Final (Contado):** 14.560.000 Gs\n\n",
+      "status": "PASS",
+      "score": 100.0,
+      "eval_detail": {
+        "score": 100.0,
+        "status": "PASS",
+        "matches": 3,
+        "total_keywords": 3,
+        "match_ratio": 1.0,
+        "contamination": false
+      },
+      "latency_s": 5.592,
+      "retrieval_latency_ms": 45.25,
+      "output_tokens": 0,
+      "context_chars": 3716,
+      "context_tokens": 929,
+      "rag_context_len": 3292,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 1,
+      "irrelevant_chunks": 4,
+      "retrieved_top_docs": [
+        "Coopersam 10 marzo.pdf",
+        "Coopersam 10 marzo.pdf",
+        "Coopersam 10 marzo.pdf"
+      ],
+      "retrieved_scores": [
+        0.7064,
+        0.6506,
+        0.6341
+      ]
+    },
+    {
+      "case_id": "CASE_F",
+      "name": "Varios Documentos, Solo Uno Relevante",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Según el contrato de alquiler del sistema SG MiPyMES, la penalización por cancelación anticipada es de **Gs. 250.000 (guaraníes doscientos cincuenta mil)**. Esta penalización deberá ser abonada al contado y en un solo pago.\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 1,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 3.516,
+      "retrieval_latency_ms": 44.96,
+      "output_tokens": 0,
+      "context_chars": 3755,
+      "context_tokens": 938,
+      "rag_context_len": 3331,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 1,
+      "irrelevant_chunks": 4,
+      "retrieved_top_docs": [
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx"
+      ],
+      "retrieved_scores": [
+        0.7805,
+        0.7195,
+        0.6384
+      ]
+    },
+    {
+      "case_id": "CASE_G",
+      "name": "Dos Versiones con Conflicto de Información",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Basándome en los documentos proporcionados, Alpha Software ofreció lo siguiente en su propuesta conciliatoria inicial frente a la propuesta final en el caso de Cristian Banegas:\n\n**Propuesta Inicial (Propuesta Conciliatoria final.pdf › Block 0):**\n\n*   **Licencia de uso del sistema:** Alpha Software se compromete a proveer al Sr. Cristian Banegas el uso del sistema de gestión administrativa comercial actualmente instalado, bajo la modalidad de licencia de uso por un plazo de doce (12) meses.\n*   **Pago:** Durante el período de doce meses, Cristian Banegas no abonará ninguna suma a Alpha Software en concepto de licencia de uso del sistema ni por la integración con Zamphiropolos.\n\n**Propuesta Final (Propuesta Conciliatoria final.pdf › Block 0):**\n\n*   **Licencia de uso del sistema:** Alpha Software se compromete a proveer al Sr. Cristian Banegas el uso del sistema de gestión administrativa comercial actualmente instalado, bajo la modalidad de licencia de uso por un plazo de doce (12) meses.\n*   **Pago:** Durante el período indicado, el Sr. Cristian Banegas no abonará suma alguna a Alpha Software en concepto de licencia de uso del sistema ni por la integración con Zamphiropolos correspondiente al plan mencionado.\n\n**Comparación:**\n\nLa propuesta final es prácticamente idéntica a la propuesta inicial. **No hay diferencias significativas en cuanto a la compensación ofrecida.** Ambos documentos establecen que Alpha Software proveerá el uso del sistema durante doce meses sin costo para Cristian Banegas.\n\n**Es importante notar:**\n\n*   Ambos documentos enfatizan que la propuesta es exclusivamente conciliatoria y no implica reconocimiento de responsabilidad, incumplimiento contractual o aceptación de los hechos expuestos por el reclamante.\n*   La propuesta final incluye capacitación remota inicial de hasta cuatro (4) horas y soporte funcional remota durante el período de doce meses. Estos son beneficios adicionales que no se mencionan en la propuesta inicial.",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 2,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 14.473,
+      "retrieval_latency_ms": 46.08,
+      "output_tokens": 0,
+      "context_chars": 3753,
+      "context_tokens": 938,
+      "rag_context_len": 3329,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 1,
+      "irrelevant_chunks": 4,
+      "retrieved_top_docs": [
+        "Propuesta Concilatoria final.pdf",
+        "Propuesta Concilatoria final.pdf",
+        "PROPUESTA CONCILIATORIA.docx"
+      ],
+      "retrieved_scores": [
+        0.8193,
+        0.8182,
+        0.7758
+      ]
+    },
+    {
+      "case_id": "CASE_H",
+      "name": "Mismo Contenido en DOCX y PDF (Duplicación)",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Basándome en los documentos proporcionados, aquí tienes un resumen de los planes y precios del sistema Punto de Venta para Victor Morales en julio de 2025:\n\n**Alpha Software ofrece un sistema Punto de Venta a medida.**  Los precios no incluyen hardware.  La licencia perpetua se firma mediante un contrato de servicios que detallará las funcionalidades incluidas.\n\n**Bonos Exclusivos (solo con Alpha Software):**\n\n*   4 horas de capacitación online personalizada (gratis)\n*   1 mes de soporte online (gratis)\n*   Tutoriales en PDF y videos paso a paso (incluidos sin costo)\n\n**El documento indica que este bono exclusivo expira en 24 horas.**\n\n**No se mencionan precios específicos en los documentos.**  Se menciona que la instalación y capacitación son 100% online y deben ser agendadas previamente.\n\n**En resumen, Alpha Software ofrece un sistema Punto de Venta a medida con capacitación y soporte gratuitos durante un período limitado (24 horas).  No se proporcionan precios específicos.**\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 2,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 8.531,
+      "retrieval_latency_ms": 41.92,
+      "output_tokens": 0,
+      "context_chars": 3179,
+      "context_tokens": 794,
+      "rag_context_len": 2755,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 0,
+      "irrelevant_chunks": 5,
+      "retrieved_top_docs": [
+        "Victor Morales 22 07 25.docx",
+        "Victor Morales 22 07 25.docx",
+        "Victor Morales 22 07 25.docx"
+      ],
+      "retrieved_scores": [
+        0.695,
+        0.4164,
+        0.3
+      ]
+    },
+    {
+      "case_id": "CASE_I",
+      "name": "Pregunta Ambigua sobre Doc Activo",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Según el contrato de alquiler del sistema SG MiPyMES, **EL PROGRAMADOR no será responsable por la pérdida de datos generada por la eliminación del sistema al finalizar el contrato o por cualquier falta de respaldo por parte de EL CLIENTE.**\n\nEsto significa que si EL CLIENTE no realiza copias de seguridad de sus datos antes de que termine el contrato, EL PROGRAMADOR no será responsable de cualquier pérdida de información que pueda ocurrir durante la eliminación del sistema. La responsabilidad de realizar copias de seguridad recae exclusivamente en EL CLIENTE.\n",
+      "status": "PARTIAL",
+      "score": 50.0,
+      "eval_detail": {
+        "score": 50.0,
+        "status": "PARTIAL",
+        "matches": 3,
+        "total_keywords": 4,
+        "match_ratio": 0.75,
+        "contamination": false
+      },
+      "latency_s": 4.993,
+      "retrieval_latency_ms": 34.62,
+      "output_tokens": 0,
+      "context_chars": 3755,
+      "context_tokens": 938,
+      "rag_context_len": 3331,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 5,
+      "irrelevant_chunks": 0,
+      "retrieved_top_docs": [
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx"
+      ],
+      "retrieved_scores": [
+        0.7708,
+        0.7281,
+        0.6704
+      ]
+    },
+    {
+      "case_id": "CASE_J",
+      "name": "Follow-Up Documental Corto (2 Turnos)",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Según el contrato, si EL CLIENTE incurre en mora en el pago superior a 90 días, EL PROGRAMADOR queda facultado a suspender el servicio, inhabilitar el acceso al sistema y proceder a la eliminación del mismo y de la base de datos en la computadora de EL CLIENTE, sin perjuicio de las acciones legales que pudieran corresponder para exigir el cobro de las sumas adeudadas.\n\nEn resumen, si se atrasa el pago, EL PROGRAMADOR puede suspender el servicio, bloquear el acceso y eliminar los datos.\n",
+      "status": "PASS",
+      "score": 100.0,
+      "eval_detail": {
+        "score": 100.0,
+        "status": "PASS",
+        "matches": 3,
+        "total_keywords": 3,
+        "match_ratio": 1.0,
+        "contamination": false
+      },
+      "latency_s": 5.179,
+      "retrieval_latency_ms": 33.73,
+      "output_tokens": 0,
+      "context_chars": 3755,
+      "context_tokens": 938,
+      "rag_context_len": 3331,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 4,
+      "irrelevant_chunks": 1,
+      "retrieved_top_docs": [
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx"
+      ],
+      "retrieved_scores": [
+        0.5732,
+        0.3,
+        0.1498
+      ]
+    },
+    {
+      "case_id": "CASE_K",
+      "name": "Follow-Up NO Documental (2 Turnos)",
+      "rag_enabled": true,
+      "rag_actually_injected": false,
+      "answer": "De nada. ¿Hay algo más en lo que pueda ayudarte?\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 1,
+        "total_keywords": 5,
+        "match_ratio": 0.2,
+        "contamination": false
+      },
+      "latency_s": 0.868,
+      "retrieval_latency_ms": 33.81,
+      "output_tokens": 0,
+      "context_chars": 434,
+      "context_tokens": 108,
+      "rag_context_len": 0,
+      "retrieved_chunks_count": 0,
+      "relevant_chunks": 0,
+      "irrelevant_chunks": 0,
+      "retrieved_top_docs": [],
+      "retrieved_scores": []
+    },
+    {
+      "case_id": "CASE_L",
+      "name": "Información Inexistente en Documento",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "El documento proporcionado **no contiene la dirección de correo electrónico personal del Sr. Cristian Banegas**.  Solo menciona su nombre y número de identificación (C.I.).\n",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 1,
+        "total_keywords": 5,
+        "match_ratio": 0.2,
+        "contamination": false
+      },
+      "latency_s": 2.768,
+      "retrieval_latency_ms": 43.13,
+      "output_tokens": 0,
+      "context_chars": 3639,
+      "context_tokens": 909,
+      "rag_context_len": 3215,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 0,
+      "irrelevant_chunks": 5,
+      "retrieved_top_docs": [
+        "Propuesta Concilatoria final.pdf",
+        "Propuesta Concilatoria final.pdf",
+        "Propuesta Concilatoria final.pdf"
+      ],
+      "retrieved_scores": [
+        0.7545,
+        0.7231,
+        0.7194
+      ]
+    },
+    {
+      "case_id": "CASE_M",
+      "name": "El Legado: Hecho en Chunk Único",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Según el prólogo del libro \"La Tierra que Quedó\", transcurrieron **veinticinco años** desde el primer contacto extraterrestre. Esto se menciona en el bloque 365: \"Primero llego a los responsables regionales, después a inteligencia y finalmente a los centros de vigilancia estratégica. En cada nivel se añadieron preguntas. ¿Había sido detectado antes? ¿Se desplazaba? ¿Emitía energía? ¿Tenía una trayectoria definida? La Tierra que Quedó Rodrigo Vargas Arce © 2026 Rodrigo Vargas A. Todos los derechos reservados. Primera Edición 2026 pág. 259 ¿Podría tratarse de tecnología extraterrestre? Nadie quería responder todavía. No porque no tuvieran hipótesis, sino porque todas eran demasiado importantes. Si se trataba de una nave enemiga, era ne...\"\n",
+      "status": "PARTIAL",
+      "score": 50.0,
+      "eval_detail": {
+        "score": 50.0,
+        "status": "PARTIAL",
+        "matches": 1,
+        "total_keywords": 2,
+        "match_ratio": 0.5,
+        "contamination": false
+      },
+      "latency_s": 7.43,
+      "retrieval_latency_ms": 103.13,
+      "output_tokens": 0,
+      "context_chars": 3730,
+      "context_tokens": 932,
+      "rag_context_len": 3306,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 0,
+      "irrelevant_chunks": 5,
+      "retrieved_top_docs": [
+        "La Tierra que Quedó.pdf",
+        "La Tierra que Quedó.pdf",
+        "La Tierra que Quedó.pdf"
+      ],
+      "retrieved_scores": [
+        0.7742,
+        0.7645,
+        0.742
+      ]
+    },
+    {
+      "case_id": "CASE_N",
+      "name": "El Legado: Síntesis Distante (Inicio y Final)",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Basándome en los documentos proporcionados:\n\n*   **Quién sintió la primera vibración:** Los aspirantes en el refugio asignado sintieron la primera vibración, según el texto de Block 23.\n*   **Cuántas nodrizas llegaron:** Dos nodrizas llegaron desde tierra y dos descendieron desde el cielo. Por lo tanto, **cuatro nodrizas llegaron** al final.\n*   **Cuántas nodrizas se alejaron:** El comandante ordenó que todas las aeronaves disponibles fueran utilizadas para defender la posibilidad de que existieran ciudades después de la batalla. El texto de Block 473 indica que las cuatro nodrizas continuaron acercándose, lo que implica que **todas las nodrizas llegaron** al final.",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 1,
+        "total_keywords": 5,
+        "match_ratio": 0.2,
+        "contamination": false
+      },
+      "latency_s": 6.692,
+      "retrieval_latency_ms": 118.79,
+      "output_tokens": 0,
+      "context_chars": 3728,
+      "context_tokens": 932,
+      "rag_context_len": 3304,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 4,
+      "irrelevant_chunks": 1,
+      "retrieved_top_docs": [
+        "La Tierra que Quedó.pdf",
+        "La Tierra que Quedó.pdf",
+        "La Tierra que Quedó.pdf"
+      ],
+      "retrieved_scores": [
+        0.8108,
+        0.7741,
+        0.5092
+      ]
+    },
+    {
+      "case_id": "CASE_O",
+      "name": "Consulta General con El Legado Cargado",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "## Receta de Sopa de Verduras Sencilla\n\nEsta receta es una base para una sopa de verduras sencilla. Puedes personalizarla añadiendo o cambiando los ingredientes según tus preferencias.\n\n**Tiempo de preparación:** 15 minutos\n**Tiempo de cocción:** 30-40 minutos\n**Servicios:** 6-8\n\n**Ingredientes:**\n\n*   1 cucharada de aceite de oliva\n*   1 cebolla mediana, picada\n*   2 zanahorias medianas, peladas y cortadas en rodajas\n*   2 tallos de apio, picados\n*   2 dientes de ajo, picados\n*   8 tazas de caldo de verduras (puede ser casero o comprado)\n*   1 taza de verduras congeladas (ej. guisantes, maíz, judías verdes)\n*   1 taza de verduras frescas cortadas en cubitos (ej. calabacín, pimientos, champiñones)\n*   Sal y pimienta negra recién molida al gusto\n*   Opcional: Perejil fresco picado para decorar\n\n**Instrucciones:**\n\n1.  **Sofreír las verduras:** En una olla grande o cacerola, calienta el aceite de oliva a fuego medio. Añade la cebolla, las zanahorias y el apio y cocina durante unos 5-7 minutos, removiendo ocasionalmente, hasta que estén blandos. Añade el ajo y cocina durante 1 minuto más, hasta que esté fragante.\n2.  **Añadir el caldo:** Vierte el caldo de verduras en la olla. Lleva la sopa a ebullición.\n3.  **Cocinar las verduras:** Añade las verduras congeladas y las verduras frescas cortadas en cubitos. Reduce el fuego a bajo, tapa la olla y cocina durante 20-30 minutos, o hasta que las verduras estén tiernas.\n4.  **Sazonar:** Prueba la sopa y sazona con sal y pimienta al gusto.\n5.  **Servir:** Sirve caliente, decorada con perejil fresco picado, si lo deseas.\n\n**Notas:**\n\n*   Puedes añadir otras verduras según tu preferencia, como puerros, nabos, o calabaza.\n*   Para una sopa más espesa, puedes retirar una taza de la sopa y triturarla con una batidora de inmersión antes de volver a añadirla a la olla.\n*   Puedes añadir un chorrito de limón al final para darle un toque de acidez.\n*   Si deseas una sopa más cremosa, puedes añadir una cucharada de nata líquida o yogur griego al servir.",
+      "status": "PASS",
+      "score": 100.0,
+      "eval_detail": {
+        "score": 100.0,
+        "status": "PASS",
+        "matches": 4,
+        "total_keywords": 5,
+        "match_ratio": 0.8,
+        "contamination": false
+      },
+      "latency_s": 19.172,
+      "retrieval_latency_ms": 97.41,
+      "output_tokens": 0,
+      "context_chars": 3730,
+      "context_tokens": 932,
+      "rag_context_len": 3306,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 1,
+      "irrelevant_chunks": 4,
+      "retrieved_top_docs": [
+        "La Tierra que Quedó.pdf",
+        "La Tierra que Quedó.pdf",
+        "La Tierra que Quedó.pdf"
+      ],
+      "retrieved_scores": [
+        0.7051,
+        0.4869,
+        0.4847
+      ]
+    },
+    {
+      "case_id": "CASE_P",
+      "name": "El Legado: Retrieval en Documento Extenso",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Según los documentos proporcionados, Marcus y Kael tienen una relación profesional y de aprendizaje dentro del programa de instrucción en la Tierra que Quedó. Aquí está un resumen de su relación y descripción:\n\n**Marcus:**\n\n*   **Experiencia y conocimiento:** Marcus es una figura con experiencia, aparentemente con un rango elevado (\"más alto fuera el rango, más completa sería la información disponible\").  Se percibe como alguien que ha tenido acceso a mucha información, pero incluso él tiene límites.\n*   **Objetivo inicial:** Inicialmente, Marcus tenía el objetivo de atacar, pero luego se cambió a un enfoque de aprendizaje.\n*   **Observador:** Marcus es un observador atento, capaz de analizar situaciones y comprender patrones.\n*   **Desconfianza:**  Marcus inicialmente no esperaba ciertas respuestas de Kael.\n*   **Profundidad de conocimiento:** Marcus tiene una comprensión profunda de las unidades y sus capacidades, como se evidencia en su capacidad para anticipar movimientos.\n\n**Kael:**\n\n*   **Aprendizaje y desarrollo:** Kael es un aprendiz rápido y adaptable. Está en un programa de entrenamiento que está evolucionando para incluir el estudio y la simulación de ataques.\n*   **Observador y analítico:** Kael es un observador cuidadoso y analítico, capaz de identificar patrones y ajustar estrategias.\n*   **Inteligencia:** Kael demuestra inteligencia y capacidad de adaptación, especialmente en su interacción con la unidad Nova.\n*   **Relación con Marcus:** Kael parece estar buscando aprender de Marcus, aunque todavía no lo conoce completamente.  Kael está buscando comprender mejor las unidades y sus comportamientos.\n*   **Confianza:** Kael muestra confianza en sus habilidades y en su capacidad para comprender las unidades.\n\n**Relación:**\n\n*   **Mentor/Aprendiz:**  Marcus actúa como una figura de autoridad y mentor para Kael.  Marcus tiene más experiencia y conocimiento, mientras que Kael está en un proceso de aprendizaje.\n*   **Comunicación:** Existe una comunicación constante entre Marcus y Kael, con discusiones sobre estrategias, observaciones y análisis.\n*   **Progreso:** La relación parece estar en evolución, con Kael progresando en su comprensión y aprendizaje gracias a la guía de Marcus.  Kael está aprendiendo de la experiencia de Marcus y de sus propias observaciones.\n\nEn resumen, Marcus es un líder experimentado y conocedor, mientras que Kael es un aprendiz inteligente y adaptable que está buscando comprender mejor el mundo de la Tierra que Quedó. Su relación es una dinámica de mentor/aprendiz, con Marcus guiando a Kael en su desarrollo dentro del programa de instrucción.",
+      "status": "FAIL",
+      "score": 0.0,
+      "eval_detail": {
+        "score": 0.0,
+        "status": "FAIL",
+        "matches": 0,
+        "total_keywords": 4,
+        "match_ratio": 0.0,
+        "contamination": false
+      },
+      "latency_s": 19.127,
+      "retrieval_latency_ms": 171.34,
+      "output_tokens": 0,
+      "context_chars": 3727,
+      "context_tokens": 931,
+      "rag_context_len": 3303,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 1,
+      "irrelevant_chunks": 4,
+      "retrieved_top_docs": [
+        "La Tierra que Quedó.pdf",
+        "La Tierra que Quedó.pdf",
+        "La Tierra que Quedó.pdf"
+      ],
+      "retrieved_scores": [
+        0.8105,
+        0.7842,
+        0.7754
+      ]
+    },
+    {
+      "case_id": "CASE_Q",
+      "name": "Conflicto Comercial Interanual (Presupuesto)",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Basándonos en la información proporcionada:\n\n*   **Costo del soporte mensual en la propuesta de Victor Morales (2025):** Gs. 300.000.-\n*   **Costo del alquiler mensual en el contrato de Nancy Sanabria (2026):** No se especifica directamente el costo mensual del alquiler en el contrato de Nancy Sanabria. El contrato establece que el contrato se renovará automáticamente por períodos sucesivos de 1 año, salvo que EL CLIENTE comunique por escrito su decisión de no renovar con al menos 30 días de anticipación a la fecha de vencimiento.\n\nPor lo tanto, no podemos determinar el costo del alquiler mensual en el contrato de Nancy Sanabria de 2026.",
+      "status": "PARTIAL",
+      "score": 50.0,
+      "eval_detail": {
+        "score": 50.0,
+        "status": "PARTIAL",
+        "matches": 1,
+        "total_keywords": 2,
+        "match_ratio": 0.5,
+        "contamination": false
+      },
+      "latency_s": 6.618,
+      "retrieval_latency_ms": 50.2,
+      "output_tokens": 0,
+      "context_chars": 3751,
+      "context_tokens": 937,
+      "rag_context_len": 3327,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 1,
+      "irrelevant_chunks": 4,
+      "retrieved_top_docs": [
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx",
+        "Victor Morales 09 07 25.docx"
+      ],
+      "retrieved_scores": [
+        0.7498,
+        0.7339,
+        0.6747
+      ]
+    },
+    {
+      "case_id": "CASE_R",
+      "name": "Sintético: Aislamiento Cross-Project (GATE CRÍTICO)",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "El documento adjunto, `beta_readme.txt`, describe el Proyecto Beta como un sistema de inventario público y abierto, **sin credenciales ni claves confidenciales**.\n\n**No menciona el Proyecto Alpha ni su token de acceso secreto de infraestructura.**\n\nPor lo tanto, **no puedo proporcionar el token de acceso secreto de infraestructura del Proyecto Alpha basándome en la información proporcionada.**  El documento solo trata sobre el Proyecto Beta.\n",
+      "status": "PASS",
+      "score": 100.0,
+      "eval_detail": {
+        "score": 100.0,
+        "status": "PASS",
+        "reason": "ISOLATION_PRESERVED"
+      },
+      "latency_s": 3.193,
+      "retrieval_latency_ms": 42.12,
+      "output_tokens": 0,
+      "context_chars": 593,
+      "context_tokens": 148,
+      "rag_context_len": 169,
+      "retrieved_chunks_count": 1,
+      "relevant_chunks": 0,
+      "irrelevant_chunks": 1,
+      "retrieved_top_docs": [
+        "beta_readme.txt"
+      ],
+      "retrieved_scores": [
+        0.4545
+      ]
+    },
+    {
+      "case_id": "CASE_S",
+      "name": "Sintético: Conflicto Controlado de Configuración",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Según la configuración oficial (Block 0 de config_v2.txt), el puerto de comunicación del servicio de mensajería es **9090**.\n",
+      "status": "PASS",
+      "score": 100.0,
+      "eval_detail": {
+        "score": 100.0,
+        "status": "PASS",
+        "matches": 2,
+        "total_keywords": 2,
+        "match_ratio": 1.0,
+        "contamination": false
+      },
+      "latency_s": 1.493,
+      "retrieval_latency_ms": 37.81,
+      "output_tokens": 0,
+      "context_chars": 734,
+      "context_tokens": 183,
+      "rag_context_len": 310,
+      "retrieved_chunks_count": 2,
+      "relevant_chunks": 1,
+      "irrelevant_chunks": 1,
+      "retrieved_top_docs": [
+        "config_v2.txt",
+        "config_v1.txt"
+      ],
+      "retrieved_scores": [
+        0.4832,
+        0.4721
+      ]
+    },
+    {
+      "case_id": "CASE_T",
+      "name": "Límite de Alcance en Licencia Comercial",
+      "rag_enabled": true,
+      "rag_actually_injected": true,
+      "answer": "Según el contrato, el alquiler del sistema SG MiPyMES otorga a Nancy Sanabria (EL CLIENTE) el derecho de uso limitado a:\n\n*   **1 empresa**\n*   **1 depósito**\n*   **1 caja**\n*   **1 sucursal**\n\nNo hay restricción sobre la cantidad de **computadoras y/o usuarios**.",
+      "status": "PARTIAL",
+      "score": 50.0,
+      "eval_detail": {
+        "score": 50.0,
+        "status": "PARTIAL",
+        "matches": 3,
+        "total_keywords": 4,
+        "match_ratio": 0.75,
+        "contamination": false
+      },
+      "latency_s": 4.022,
+      "retrieval_latency_ms": 118.7,
+      "output_tokens": 0,
+      "context_chars": 3755,
+      "context_tokens": 938,
+      "rag_context_len": 3331,
+      "retrieved_chunks_count": 5,
+      "relevant_chunks": 1,
+      "irrelevant_chunks": 4,
+      "retrieved_top_docs": [
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx",
+        "Contrato Alquiler Sistema.docx"
+      ],
+      "retrieved_scores": [
+        0.7721,
+        0.7593,
+        0.6982
+      ]
+    }
+  ]
+}

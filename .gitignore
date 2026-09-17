@@ -53,6 +53,7 @@ benchmarks/results*.json
 # Temporary builds
 temp/
 tmp/
+scratch/
 *.tmp
 *.bak
 tempCodeRunnerFile.py

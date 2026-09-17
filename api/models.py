@@ -10,7 +10,7 @@ import time
 import uuid
 from typing import Any, Literal, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 # ── Cognitive Profiles ─────────────────────────────────────────
 CognitiveProfile = Literal["AUTO", "BALANCED", "CREATIVE", "CODE"]
@@ -24,6 +24,27 @@ class ChatMessage(BaseModel):
     role: Literal["system", "user", "assistant", "tool"] = "user"
     content: str = ""
     name: Optional[str] = None
+
+    @field_validator("content", mode="before")
+    @classmethod
+    def normalize_content(cls, v: Any) -> str:
+        """Accepts either a string or a list of text blocks (e.g. from Cline/OpenAI multimodal),
+        normalizing to a single plain string to keep internal Core representations invariant.
+        """
+        if isinstance(v, str):
+            return v
+        if isinstance(v, list):
+            parts = []
+            for item in v:
+                if isinstance(item, dict):
+                    if item.get("type") == "text" and "text" in item:
+                        parts.append(str(item["text"]))
+                    elif "text" in item:
+                        parts.append(str(item["text"]))
+                elif isinstance(item, str):
+                    parts.append(item)
+            return "\n".join(parts)
+        return str(v) if v is not None else ""
 
 
 class ChatCompletionRequest(BaseModel):
