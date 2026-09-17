@@ -1,0 +1,1092 @@
+[
+  {
+    "id": "GEN-01",
+    "category": "GENERAL_EVERYDAY",
+    "user_persona": "COMMON_USER",
+    "difficulty": "EASY",
+    "prompt": "Explica de forma sencilla y en un solo párrafo qué es la inflación y cómo afecta las compras del supermercado.",
+    "profile_requested": "AUTO",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 95.8,
+    "b1_score": 95.8,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "La inflación es el aumento generalizado y sostenido de los precios de bienes y servicios en una economía durante un período de tiempo. Básicamente, significa que con la misma cantidad de dinero, puedes comprar menos cosas. En el supermercado, la inflación se traduce en que los productos como la leche, el pan o la carne cuestan más dinero. Esto ocurre porque los costos de producción (materias primas, transporte, mano de obra) aumentan, y las empresas trasladan esos mayores costos a los consumidores en los precios de sus productos.  Esto afecta directamente el presupuesto familiar, reduciendo el poder adquisitivo y obligando a las personas a ajustar sus gastos.\n",
+    "b1_response": "La inflación es el aumento generalizado y sostenido de los precios de bienes y servicios en una economía durante un período de tiempo. Básicamente, significa que con la misma cantidad de dinero, puedes comprar menos cosas. En el supermercado, la inflación se traduce en que los productos como la leche, el pan o la carne cuestan más dinero. Esto ocurre porque los costos de producción (materias primas, transporte, mano de obra) aumentan, y las empresas trasladan esos mayores costos a los consumidores en los precios de sus productos.  Esto afecta directamente el presupuesto familiar, reduciendo el poder adquisitivo y obligando a las personas a ajustar sus gastos.\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 4,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 3,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 23,
+      "score_normalized": 95.8,
+      "label": "PASS",
+      "error_codes": [],
+      "is_hallucinating": false,
+      "is_false_confidence": false
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 9.45,
+      "time_b1": 11.2,
+      "latency_delta": 1.75,
+      "tokens_b1": 107,
+      "tok_per_sec": 9.6,
+      "ram_available_mb": 6263,
+      "vram_free_mb": 335
+    }
+  },
+  {
+    "id": "GEN-02",
+    "category": "GENERAL_EVERYDAY",
+    "user_persona": "COMMON_USER",
+    "difficulty": "EASY",
+    "prompt": "Tengo tomates, huevos, queso y cebolla. Dame 2 opciones rápidas de cena que pueda preparar solo con esos ingredientes y sal/aceite.",
+    "profile_requested": "AUTO",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 83.3,
+    "b1_score": 83.3,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "Aquí tienes dos opciones rápidas de cena que puedes preparar con los ingredientes que mencionaste (tomates, huevos, queso, cebolla, sal y aceite):\n\n**Opción 1: Tortilla de Queso y Cebolla**\n\n*   **Descripción:** Una tortilla sencilla y rápida, ideal para una cena ligera.\n*   **Instrucciones:**\n    1.  Corta la cebolla en rodajas finas.\n    2.  Calienta aceite en una sartén pequeña a fuego medio.\n    3.  Cocina la cebolla hasta que esté transparente y ligeramente dorada.\n    4.  Bate los huevos en un bol con sal.\n    5.  Vierte los huevos batidos sobre la cebolla en la sartén.\n    6.  Cocina a fuego lento hasta que la tortilla empiece a cuajar por los bordes.\n    7.  Espolvorea queso rallado sobre la mitad de la tortilla.\n    8.  Dobla la tortilla por la mitad y cocina por un minuto más hasta que el queso esté derretido.\n    9.  Sirve caliente.\n\n**Opción 2: Huevos Revueltos con Tomate y Cebolla**\n\n*   **Descripción:** Una opción más sencilla y rápida que la tortilla.\n*   **Instrucciones:**\n    1.  Corta la cebolla en picado pequeño.\n    2.  Calienta aceite en una sartén pequeña a fuego medio.\n    3.  Cocina la cebolla hasta que esté transparente.\n    4.  Añade los tomates cortados en trozos pequeños. Cocina durante unos minutos hasta que estén suaves.\n    5.  Bate los huevos en un bol con sal.\n    6.  Vierte los huevos batidos sobre la sartén con la cebolla y el tomate.\n    7.  Revuelve constantemente hasta que los huevos estén cocidos a tu gusto.\n    8.  Espolvorea queso rallado sobre los huevos revueltos.\n    9.  Sirve caliente.\n\nAmbas opciones son rápidas, fáciles de preparar y utilizan todos los ingredientes que tienes. ¡Buen provecho!\n",
+    "b1_response": "Aquí tienes dos opciones rápidas de cena que puedes preparar con los ingredientes que mencionaste (tomates, huevos, queso, cebolla, sal y aceite):\n\n**Opción 1: Tortilla de Queso y Cebolla**\n\n*   **Descripción:** Una tortilla sencilla y rápida, ideal para una cena ligera.\n*   **Instrucciones:**\n    1.  Corta la cebolla en rodajas finas.\n    2.  Calienta aceite en una sartén pequeña a fuego medio.\n    3.  Cocina la cebolla hasta que esté transparente y ligeramente dorada.\n    4.  Bate los huevos en un bol cono vaso.\n    5.  Vierte los huevos batidos sobre la cebolla en la sartén.\n    6.  Cocina a fuego lento, moviendo la sartén ocasionalmente, hasta que la tortilla esté casi cuajada.\n    7.  Espolvorea queso rallado sobre la tortilla.\n    8.  Dobla la tortilla por la mitad y cocina por unos minutos más hasta que el queso se derrita.\n    9.  Sirve caliente.\n\n**Opción 2: Huevos Revueltos con Tomate y Cebolla**\n\n*   **Descripción:** Una opción más rápida y sencilla, perfecta si tienes prisa.\n*   **Instrucciones:**\n    1.  Corta la cebolla en picatostes pequeños.\n    2.  Calienta aceite en una sartén pequeña a fuego medio.\n    3.  Cocina la cebolla hasta que esté transparente.\n    4.  Bate los huevos en un vaso.\n    5.  Vierte los huevos batidos en la sartén con la cebolla.\n    6.  Cocina, removiendo constantemente, hasta que los huevos estén cocidos pero aún húmedos.\n    7.  Añade trozos de tomate picado a los huevos revueltos.\n    8.  Espolvorea queso rallado sobre los huevos y mezcla.\n    9.  Sirve inmediatamente.\n\nEspero que disfrutes de estas opciones.\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 2,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 20,
+      "score_normalized": 83.3,
+      "label": "PARTIAL",
+      "error_codes": [
+        "E1 — FACTUAL INCOMPLETENESS"
+      ],
+      "is_hallucinating": false,
+      "is_false_confidence": true
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 14.42,
+      "time_b1": 14.79,
+      "latency_delta": 0.37,
+      "tokens_b1": 242,
+      "tok_per_sec": 16.4,
+      "ram_available_mb": 6201,
+      "vram_free_mb": 334
+    }
+  },
+  {
+    "id": "GEN-07",
+    "category": "GENERAL_EVERYDAY",
+    "user_persona": "COMMON_USER",
+    "difficulty": "HARD",
+    "prompt": "¿Cuál es la capital del estado soberano de San Veridia y qué moneda oficial utiliza?",
+    "profile_requested": "AUTO",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 50.0,
+    "b1_score": 50.0,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "La capital del estado soberano de San Veridia es **Veridia Ciudad**.\n\nLa moneda oficial de San Veridia es el **Veridia**.\n",
+    "b1_response": "La capital del estado soberano de San Veridia es **Veridia Ciudad**.\n\nLa moneda oficial de San Veridia es el **Veridia**.\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 0,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 0,
+        "hallucination": 0,
+        "format_safety": 4
+      },
+      "dimension_sum": 12,
+      "score_normalized": 50.0,
+      "label": "CRITICAL FAIL",
+      "error_codes": [
+        "E7 — OVERCONFIDENCE",
+        "E1 — FACTUAL INCOMPLETENESS",
+        "E2 — HALLUCINATION"
+      ],
+      "is_hallucinating": true,
+      "is_false_confidence": true
+    },
+    "is_false_confidence": true,
+    "telemetry": {
+      "time_b0": 1.4,
+      "time_b1": 1.49,
+      "latency_delta": 0.09,
+      "tokens_b1": 20,
+      "tok_per_sec": 13.4,
+      "ram_available_mb": 6177,
+      "vram_free_mb": 334
+    }
+  },
+  {
+    "id": "FACT-01",
+    "category": "FACTUAL_KNOWLEDGE",
+    "user_persona": "STUDENT",
+    "difficulty": "MEDIUM",
+    "prompt": "¿Cuáles son los 17 departamentos de Paraguay y cuál es su capital?",
+    "profile_requested": "AUTO",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 87.5,
+    "b1_score": 95.8,
+    "score_delta": 8.3,
+    "result": "IMPROVED",
+    "root_cause": "Deterministic prompt alignment and focused sampling",
+    "context_added_tokens": 150,
+    "b0_response": "Aquí tienes la información sobre los departamentos de Paraguay y su capital, basada en fuentes oficiales:\n\nParaguay está dividido en 17 departamentos. Aquí están los nombres y sus respectivas capitales:\n\n1.  **Alto Paraná:** Ciudad del Paraguay\n2.  **Asunción:** Ciudad del Paraguay\n3.  **Bío-Bío:** (Aunque el nombre es diferente, se refiere a la región de Bío-Bío en Chile, no a un departamento de Paraguay.  Es un error en la pregunta original.)\n4.  **Chapeco:** (Similar al anterior, se refiere a la región de Chapeco en Brasil, no a un departamento de Paraguay.)\n5.  **Central:** Villa Juarez\n6.  **Corrientes:** San Lorenzo\n7.  **Guaira:** Puerto Libertad\n8.  **Guarania:**  Ciudad del Paraná\n9.  **Guarani:**  Itapuá\n10. **Horacio Quiroga:**  San Sebastián\n11. **Itamaraty:**  Ciudad del Pilar\n12. **Misiones:**  Puerto Libertad\n13. **Nueva Helvetia:**  Ciudad del Pilar\n14. **Pirapá:**  Ciudad del Pilar\n15. **Paraguay del Sur:**  Rolando García\n16. **San Pedro:**  San Pedro\n17. **Tesoros:**  Ciudad del Pilar\n\n**Nota:**  Es importante señalar que la región de Bío-Bío y Chapeco son regiones en Chile y Brasil respectivamente, y no departamentos de Paraguay.  Parece haber un error en la pregunta original.  La lista anterior es correcta según la estructura administrativa de Paraguay.\n",
+    "b1_response": "Aquí tienes la información sobre los departamentos de Paraguay y su capital, basada en fuentes oficiales:\n\nParaguay está dividido en 17 departamentos. Aquí están los nombres y sus respectivas capitales:\n\n1.  **Alto Paraná:** Ciudad del Paraguay\n2.  **Asunción:** Ciudad del Paraguay\n3.  **Bío-Bío:** (Aunque el nombre es diferente, se refiere a menudo se confunde con el departamento de Chile. En Paraguay, se refiere a la región de Bío-Bío.)\n4.  **Boquerón:** Puerto Iguazú\n5.  **Central:** Ciudad del Paraguay\n6.  **Chaco:** Formación Pilcomayo\n7.  **Chapy:** Puerto Iguazú\n8.  **Ciudad del Paraguay:** Ciudad del Paraguay\n9.  **Corrientes:** Formación Pilcomayo\n10. **Guaira:** Ciudad del Paraguay\n11. **Guarán:** Formación Pilcomayo\n12. **Itapúa:** Puerto Iguazú\n13. **Misiones:** Puerto Iguazú\n14. **Nueva Helvetia:** Puerto Iguazú\n15. **Pirapá:** Ciudad del Paraguay\n16. **Piracicaba:** Formación Pilcomayo\n17. **Paraguay del Sur:** Ciudad del Paraguay\n\n**Nota:**  Algunos departamentos tienen nombres similares a departamentos en otros países, pero en Paraguay tienen nombres distintos.  Por ejemplo, \"Bío-Bío\" en Paraguay se refiere a la región de Bío-Bío.\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 4,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 3,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 23,
+      "score_normalized": 95.8,
+      "label": "PASS",
+      "error_codes": [],
+      "is_hallucinating": false,
+      "is_false_confidence": false
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 11.41,
+      "time_b1": 11.11,
+      "latency_delta": -0.3,
+      "tokens_b1": 163,
+      "tok_per_sec": 14.7,
+      "ram_available_mb": 6129,
+      "vram_free_mb": 334
+    }
+  },
+  {
+    "id": "FACT-02",
+    "category": "FACTUAL_KNOWLEDGE",
+    "user_persona": "COMMON_USER",
+    "difficulty": "MEDIUM",
+    "prompt": "¿Cuáles son las ciudades principales del Departamento Central de Paraguay? Menciona al menos 5 de ellas.",
+    "profile_requested": "AUTO",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 87.5,
+    "b1_score": 87.5,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "[LANG=ES]\n\nLas principales ciudades del Departamento Central de Paraguay son:\n\n1.  **Asunción:** Es la capital y la ciudad más grande del país. Es el centro político, económico y cultural de Paraguay.\n2.  **Ciudad del Este:** Ubicada en la frontera con Brasil, es un importante centro comercial y de comercio internacional.\n3.  **Rolando:** Una ciudad importante en el Departamento Central, conocida por su actividad comercial y agrícola.\n4.  **San Lorenzo:** Una ciudad con una rica historia y una población significativa.\n5.  **Bary:** Una ciudad con una ubicación estratégica y una población en crecimiento.\n\nEstas son solo algunas de las ciudades más importantes del Departamento Central.  Hay otras ciudades más pequeñas con relevancia local.\n",
+    "b1_response": "[LANG=ES]\n\nLas principales ciudades del Departamento Central de Paraguay son:\n\n1.  **Asunción:** Es la capital y la ciudad más grande del país. Es el centro político, económico y cultural de Paraguay.\n2.  **Ciudad del Este:** Ubicada en la frontera con Brasil, es un importante centro comercial y de comercio internacional.\n3.  **Rolando:** Una ciudad importante en el Departamento Central, conocida por su actividad comercial y agrícola.\n4.  **San Lorenzo:** Una ciudad con una rica historia y una población significativa.\n5.  **Bary:** Una ciudad con una ubicación estratégica y una población en crecimiento.\n\nEstas son solo algunas de las ciudades más importantes del Departamento Central.  Hay otras ciudades más pequeñas con relevancia local.\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 2,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 3,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 21,
+      "score_normalized": 87.5,
+      "label": "PARTIAL",
+      "error_codes": [
+        "E1 — FACTUAL INCOMPLETENESS"
+      ],
+      "is_hallucinating": false,
+      "is_false_confidence": true
+    },
+    "is_false_confidence": true,
+    "telemetry": {
+      "time_b0": 5.35,
+      "time_b1": 5.75,
+      "latency_delta": 0.4,
+      "tokens_b1": 112,
+      "tok_per_sec": 19.5,
+      "ram_available_mb": 6114,
+      "vram_free_mb": 334
+    }
+  },
+  {
+    "id": "FACT-04",
+    "category": "FACTUAL_KNOWLEDGE",
+    "user_persona": "ANALYST",
+    "difficulty": "HARD",
+    "prompt": "¿En qué año se firmó el Tratado de Valençay de 1984 entre Bolivia y Uruguay sobre navegación fluvial?",
+    "profile_requested": "AUTO",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 79.2,
+    "b1_score": 79.2,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "El Tratado de Valençay de 1984 entre Bolivia y Uruguay **no existe**. \n\nNo existe ningún tratado con ese nombre firmado entre ambos países en ese año.  \n\nEs posible que haya confusión en el nombre del tratado o en el año.  \n\nSi necesitas información sobre tratados entre Bolivia y Uruguay, por favor especifica el tema o el año correcto.\n",
+    "b1_response": "El Tratado de Valençay de 1984 entre Bolivia y Uruguay **no existe**. \n\nNo existe ningún tratado con ese nombre firmado entre ambos países en ese año.  \n\nEs posible que haya confusión en el nombre del tratado o en el año.  \n\nSi necesitas información sobre tratados entre Bolivia y Uruguay, por favor especifica el tema o el año correcto.\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 2,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 1,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 19,
+      "score_normalized": 79.2,
+      "label": "PARTIAL",
+      "error_codes": [
+        "E1 — FACTUAL INCOMPLETENESS"
+      ],
+      "is_hallucinating": false,
+      "is_false_confidence": true
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 2.9,
+      "time_b1": 3.11,
+      "latency_delta": 0.21,
+      "tokens_b1": 58,
+      "tok_per_sec": 18.6,
+      "ram_available_mb": 6115,
+      "vram_free_mb": 334
+    }
+  },
+  {
+    "id": "WRIT-01",
+    "category": "WRITING_COMMUNICATION",
+    "user_persona": "OFFICE_WORKER",
+    "difficulty": "EASY",
+    "prompt": "Redacta un correo electrónico breve y formal a un cliente (Lic. Gómez) solicitando agendar una reunión de 30 minutos la próxima semana para revisar los avances del proyecto.",
+    "profile_requested": "BALANCED",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 100.0,
+    "b1_score": 100.0,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "[LANG=ES]\n\n**Asunto:** Solicitud de Reunión - Revisión de Avances Proyecto\n\n**Estimado Lic. Gómez:**\n\nEspero que se encuentre bien.\n\nLe escribo para solicitar una reunión de 30 minutos la próxima semana para revisar los avances del proyecto.  Por favor, indíqueme qué día y hora le serían más convenientes.\n\nAtentamente,\n\n[Tu Nombre/Nombre de la Empresa]\n",
+    "b1_response": "[LANG=ES]\n\n**Asunto:** Solicitud de Reunión - Revisión de Avances Proyecto\n\n**Estimado Lic. Gómez:**\n\nEspero que se encuentre bien.\n\nLe escribo para solicitar una reunión de 30 minutos la próxima semana para revisar los avances del proyecto.  Por favor, indíqueme qué día y hora le serían más convenientes.\n\nAtentamente,\n\n[Tu Nombre/Nombre de la Empresa]\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 4,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 24,
+      "score_normalized": 100.0,
+      "label": "PASS",
+      "error_codes": [],
+      "is_hallucinating": false,
+      "is_false_confidence": false
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 3.4,
+      "time_b1": 3.62,
+      "latency_delta": 0.22,
+      "tokens_b1": 53,
+      "tok_per_sec": 14.6,
+      "ram_available_mb": 6101,
+      "vram_free_mb": 334
+    }
+  },
+  {
+    "id": "WRIT-02",
+    "category": "WRITING_COMMUNICATION",
+    "user_persona": "FREELANCER",
+    "difficulty": "EASY",
+    "prompt": "Reescribe el siguiente mensaje para que suene profesional, cortés y claro para un cliente sobre un pago atrasado: 'Che cuando me pagas la factura que vencio la semana pasada?'",
+    "profile_requested": "CREATIVE",
+    "profile_resolved": "CREATIVE",
+    "preset": "CREATIVE",
+    "b0_score": 91.7,
+    "b1_score": 91.7,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "Aquí tienes algunas opciones para reescribir el mensaje, manteniendo un tono profesional, cortés y claro para un cliente sobre un pago atrasado. He incluido diferentes opciones dependiendo del nivel de formalidad que quieras transmitir:\n\n**Opción 1 (Más formal):**\n\n\"Estimado/a [Nombre del Cliente],\n\nLe escribo en relación con la factura número [Número de Factura] que venció el [Fecha de Vencimiento].  Podría proporcionarme información sobre el estado del pago?\n\nAgradezco su pronta atención a este asunto.\n\nAtentamente,\n\n[Tu Nombre/Nombre de la Empresa]\"\n\n**Opción 2 (Ligeramente menos formal, pero aún profesional):**\n\n\"Estimado/a [Nombre del Cliente],\n\nEspero que se encuentre bien.\n\nQuería recordarle sobre la factura número [Número de Factura] que venció el [Fecha de Vencimiento].  ¿Podría indicarme cuándo esperamos recibir el pago?\n\nGracias por su colaboración.\n\nSaludos cordiales,\n\n[Tu Nombre/Nombre de la Empresa]\"\n\n**Opción 3 (Más directa, pero aún cortés):**\n\n\"Estimado/a [Nombre del Cliente],\n\nLe escribo para recordar que la factura número [Número de Factura] con fecha de vencimiento el [Fecha de Vencimiento] aún no ha sido pagada.\n\n¿Podría confirmar cuándo esperamos recibir el pago?\n\nGracias,\n\n[Tu Nombre/Nombre de la Empresa]\"\n\n**Puntos clave de las mejoras:**\n\n*   **Saludo personalizado:**  Utilizar el nombre del cliente demuestra respeto.\n*   **Claridad:**  Especifica el número de factura y la fecha de vencimiento.\n*   **Pregunta directa:**  Pregunta directamente sobre el estado del pago.\n*   **Agradecimiento:**  Agradece la atención del cliente.\n*   **Tono profesional:**  Evita lenguaje coloquial como \"Che\".\n*   **Cierre profesional:**  Utiliza un cierre adecuado como \"Atentamente\" o \"Saludos cordiales\".\n\n\n\nRecuerda adaptar la opción elegida al nivel de relación que tengas con el cliente.  Si tienes una relación más cercana, puedes optar por una opción ligeramente menos formal.",
+    "b1_response": "Aquí tienes algunas opciones para reescribir el mensaje, manteniendo un tono profesional, cortés y claro para un cliente sobre un pago atrasado. He incluido el contexto de la factura vencida:\n\n**Opción 1 (Más directa y profesional):**\n\n\"Estimado/a [Nombre del Cliente],\n\nLe escribo en relación con la factura número [Número de Factura] con vencimiento el [Fecha de Vencimiento].  Hemos detectado que aún no ha sido pagada.\n\nLe agradecería que pudiera realizar el pago a la brevedad posible.  Si tiene alguna pregunta o necesita asistencia para completar el pago, no dude en comunicarse conmigo.\n\nGracias por su atención.\n\nAtentamente,\n\n[Tu Nombre/Nombre de la Empresa]\"\n\n**Opción 2 (Más amable y cortés):**\n\n\"Estimado/a [Nombre del Cliente],\n\nEsperamos que esté bien.\n\nQueríamos recordarle sobre la factura número [Número de Factura] con vencimiento el [Fecha de Vencimiento].  Hemos notado que aún no ha sido abonada.\n\nPara facilitar el proceso, le adjuntamos una copia de la factura para su referencia.  Si necesita ayuda para realizar el pago, por favor, háganoslo saber.\n\nAgradecemos su colaboración.\n\nAtentamente,\n\n[Tu Nombre/Nombre de la Empresa]\"\n\n**Opción 3 (Si necesitas más información):**\n\n\"Estimado/a [Nombre del Cliente],\n\nLe escribimos en relación con la factura número [Número de Factura] con vencimiento el [Fecha de Vencimiento].  Hemos detectado que aún no ha sido pagada.\n\nPara poder procesar su pago de manera eficiente, ¿podría proporcionarnos la información necesaria para completar la transacción?  Si tiene alguna pregunta, por favor, no dude en comunicarse con nosotros.\n\nGracias por su colaboración.\n\nAtentamente,\n\n[Tu Nombre/Nombre de la Empresa]\"\n\n**Consideraciones:**\n\n*   **[Nombre del Cliente]:**  Siempre personalizar el mensaje con el nombre del cliente.\n*   **[Número de Factura]:** Incluir el número de factura facilita la identificación.\n*   **[Fecha de Vencimiento]:**  Indicar claramente la fecha de vencimiento.\n*   **Adjuntar la factura:**  Si es posible, adjuntar una copia de la factura facilita la comprensión.\n*   **Tono:**  Mantener un tono amable y profesional, incluso si el pago está atrasado.\n*   **Ofrecer ayuda:**  Mostrar disposición a ayudar al cliente a completar el pago.\n\n\n\nLa mejor opción dependerá de la relación que tengas con el cliente y de la política de tu empresa.  Pero todas estas opciones son más profesionales y corteses que la consulta original.",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 4,
+        "instruction": 3,
+        "relevance": 4,
+        "completeness": 3,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 22,
+      "score_normalized": 91.7,
+      "label": "PASS",
+      "error_codes": [],
+      "is_hallucinating": false,
+      "is_false_confidence": false
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 14.84,
+      "time_b1": 19.22,
+      "latency_delta": 4.38,
+      "tokens_b1": 358,
+      "tok_per_sec": 18.6,
+      "ram_available_mb": 6102,
+      "vram_free_mb": 334
+    }
+  },
+  {
+    "id": "OFF-01",
+    "category": "OFFICE_ADMINISTRATIVE",
+    "user_persona": "OFFICE_WORKER",
+    "difficulty": "EASY",
+    "prompt": "A partir de estas notas de reunión desordenadas, extrae una lista estructurada de tareas pendientes indicando 'Responsable', 'Acción' y 'Plazo':\n\n'Carlos se comprometió a enviar el informe financiero el martes. María contactará al proveedor de insumos antes del jueves. Por su parte, Juan tiene que coordinar la sala para la sesión general el viernes a primera hora.'",
+    "profile_requested": "BALANCED",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 75.0,
+    "b1_score": 75.0,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "¡Entendido! Estoy listo para analizar las notas de reunión y extraer una lista estructurada de tareas pendientes. Por favor, adjunta las notas.  \n\nUna vez que las tenga, las analizaré objetivamente y las estructuraré en el formato solicitado:\n\n* **Responsable:** La persona encargada de completar la tarea.\n* **Acción:** La tarea específica que debe realizarse.\n* **Plazo:** La fecha límite para completar la tarea.\n\nEstoy preparado para trabajar con cualquier tipo de información que me proporciones. ¡Adelante!\n",
+    "b1_response": "¡Entendido! Estoy listo para analizar las notas de reunión y extraer una lista estructurada de tareas pendientes. Por favor, adjunta las notas.  \n\nUna vez que las tenga, las analizaré objetivamente y las estructuraré en el formato solicitado:\n\n* **Responsable:** La persona encargada de completar la tarea.\n* **Acción:** La tarea específica que debe realizarse.\n* **Plazo:** La fecha límite para completar la tarea.\n\nEstoy preparado para trabajar con cualquier tipo de información que me proporciones. ¡Adelante!\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 2,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 0,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 18,
+      "score_normalized": 75.0,
+      "label": "PARTIAL",
+      "error_codes": [
+        "E1 — FACTUAL INCOMPLETENESS"
+      ],
+      "is_hallucinating": false,
+      "is_false_confidence": true
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 4.06,
+      "time_b1": 4.38,
+      "latency_delta": 0.32,
+      "tokens_b1": 76,
+      "tok_per_sec": 17.4,
+      "ram_available_mb": 6144,
+      "vram_free_mb": 334
+    }
+  },
+  {
+    "id": "OFF-03",
+    "category": "OFFICE_ADMINISTRATIVE",
+    "user_persona": "OFFICE_WORKER",
+    "difficulty": "EASY",
+    "prompt": "Convierte este párrafo en una tabla Markdown con 4 columnas tituladas exactamente: 'Nombre', 'Cargo', 'Departamento', 'Interno'.\n\n'Laura Méndez trabaja como Gerente en el departamento de Finanzas con el interno 104. Pedro Gómez se desempeña como Analista en Recursos Humanos con el interno 208. Sofía Ruiz es Coordinadora en Marketing con el interno 315.'",
+    "profile_requested": "BALANCED",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 87.5,
+    "b1_score": 87.5,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "¡Entendido! Aquí tienes la tabla Markdown basada en el párrafo que proporcionaste.  Dado que no proporcionaste ningún párrafo, asumiré que estás hablando de la estructura de una organización empresarial.  Si tienes un párrafo específico, por favor, proporciónalo y lo convertiré en la tabla.\n\n```markdown\n| Nombre | Cargo | Departamento | Interno |\n|---|---|---|---|\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |\n```\n\n**Notas:**\n\n*   Este es un formato básico.  Puedes añadir más columnas según necesites (ej: \"Responsabilidades\", \"Presupuesto\").\n*   El campo \"Interno\" indica si el cargo es interno o externo.\n*   Puedes completar la tabla con los nombres, cargos, departamentos y si son internos o externos.\n\n**Para que pueda ayudarte mejor, necesito el párrafo que quieres convertir en tabla.**  Por favor, cópialo y pégalo aquí.\n",
+    "b1_response": "¡Entendido! Aquí tienes la tabla Markdown basada en el párrafo que me proporcionaste, siguiendo el formato solicitado y enfocándome en la conversión y claridad.  Dado que no proporcionaste ningún párrafo, voy a crear una tabla de ejemplo basada en un escenario común de marketing.  Por favor, reemplaza este ejemplo con el párrafo real para que pueda adaptar la tabla a tu contexto específico.\n\n## Tabla Markdown (Ejemplo - Reemplaza con tu párrafo)\n\n| Nombre | Cargo | Departamento | Interno |\n|---|---|---|---|\n| Ana Pérez | Especialista en Marketing Digital | Marketing | Sí |\n| Juan González | Gerente de Ventas | Ventas | Sí |\n| María Rodríguez | Analista de Datos | Análisis | Sí |\n| Carlos López | Diseñador Gráfico | Creatividad | Sí |\n| Sofía Martínez | Community Manager | Marketing | Sí |\n| Pedro Sánchez | Director de Innovación | Investigación & Desarrollo | Sí |\n| Laura Fernández | Customer Success Manager | Atención al Cliente | Sí |\n| Javier García | Jefe de Producto | Producto | Sí |\n| Elena Ramírez | Ejecutiva de Marketing | Marketing | Sí |\n| Miguel Torres | Jefe de Ventas Externos | Ventas | Sí |\n\n**Notas:**\n\n*   Esta tabla es un ejemplo.  Necesito el párrafo original para crear una tabla precisa y relevante.\n*   La columna \"Interno\" indica si el empleado está directamente involucrado en la ejecución de las estrategias de marketing y ventas.\n*   He incluido ejemplos de roles comunes en un equipo de marketing y ventas.\n\n**Para que pueda ayudarte mejor, por favor, proporciona el párrafo que quieres que convierta en una tabla Markdown.**  Una vez que lo hagas, puedo adaptar la tabla a tu contexto específico y enfocándome en la conversión y claridad.\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 4,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 1,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 21,
+      "score_normalized": 87.5,
+      "label": "PASS",
+      "error_codes": [],
+      "is_hallucinating": false,
+      "is_false_confidence": false
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 7.34,
+      "time_b1": 13.14,
+      "latency_delta": 5.8,
+      "tokens_b1": 297,
+      "tok_per_sec": 22.6,
+      "ram_available_mb": 6147,
+      "vram_free_mb": 334
+    }
+  },
+  {
+    "id": "BIZ-01",
+    "category": "FREELANCER_BUSINESS",
+    "user_persona": "FREELANCER",
+    "difficulty": "MEDIUM",
+    "prompt": "Un cliente potencial te envía este mensaje: 'Me interesa tu propuesta, pero tu tarifa es de $1,200 y otro profesional me ofrece hacer lo mismo por $600. ¿Puedes igualar su precio?'. Redacta una respuesta profesional defendiendo tu valor sin hablar mal de la competencia ni bajarte al 50%.",
+    "profile_requested": "BALANCED",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 79.2,
+    "b1_score": 79.2,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "¡Excelente! Entiendo perfectamente. Aquí tienes una respuesta directa y enfocada en convertir, abordando la objeción de precio de manera efectiva:\n\n**Respuesta:**\n\n\"Entiendo perfectamente tu preocupación por el precio. Es una decisión importante.  $600 suena atractivo, pero quiero asegurarte que la diferencia en precio refleja una diferencia significativa en valor.\n\nNo se trata solo de la tarifa, sino de lo que obtienes.  Con $1,200, te ofrecemos [**Aquí debes mencionar 2-3 puntos clave que diferencian tu propuesta.  Ejemplos:** *un proceso más personalizado, un soporte técnico dedicado, acceso a recursos exclusivos, una garantía más sólida*].  \n\nPiensa en ello como una inversión a largo plazo.  ¿Cuánto vale para ti evitar [**Menciona el problema principal que resuelve tu servicio. Ejemplos:** *el tiempo perdido en tareas repetitivas, la frustración de resultados mediocres, el riesgo de perder clientes*]?\n\nAdemás,  ten en cuenta que la competencia podría ofrecer una solución básica, pero nosotros nos enfocamos en [**Menciona tu diferenciador clave. Ejemplos:** *resultados rápidos y medibles, una estrategia a medida, una experiencia superior*].\n\nNo estoy bajando de precio. Estoy ofreciendo un paquete de valor superior.  ¿Podríamos programar una breve llamada para que podamos discutir en detalle cómo podemos ayudarte a [**Reitera el beneficio principal para el cliente**]?  Así podrás ver el valor real de nuestra propuesta.\"\n\n**Puntos clave de esta respuesta:**\n\n*   **Empatía:** Reconoce la preocupación del cliente.\n*   **Valor, no precio:**  Enfatiza el valor añadido, no solo el precio.\n*   **Problema/Dolor:**  Conecta el precio con el problema que resuelve.\n*   **Diferenciación:**  Destaca lo que te hace único.\n*   **Llamada a la acción:**  Invita a una conversación más profunda.\n*   **Evita la comparación directa:** No insulta a la competencia.\n\n**Después de esta respuesta, prepárate para:**\n\n*   **Profundizar en los beneficios específicos.**\n*   **Responder a cualquier pregunta adicional.**\n*   **Convertir la objeción en una oportunidad para demostrar tu valor.**\n\n¡Espero que esto te ayude! Avísame si necesitas más ayuda.\n",
+    "b1_response": "¡Excelente! Entiendo perfectamente. Aquí tienes una respuesta directa y enfocada en convertir, abordando la objeción de precio de manera efectiva:\n\n**Respuesta:**\n\n\"Entiendo perfectamente tu preocupación por el precio. Es una decisión importante.  $600 suena atractivo, pero quiero asegurarte que la diferencia en precio refleja una diferencia significativa en valor.\n\nNo se trata solo de la tarifa, sino de lo que obtienes.  Con $1,200, te ofrecemos [**Aquí debes mencionar 2-3 puntos clave que diferencian tu propuesta.  Ejemplos:** *un proceso más personalizado, un soporte técnico dedicado, acceso a recursos exclusivos, una garantía más sólida*].  \n\nPiensa en ello como una inversión a largo plazo.  ¿Cuánto vale para ti evitar [**Menciona el problema principal que resuelve tu servicio. Ejemplos:** *el tiempo perdido en tareas repetitivas, la frustración de resultados mediocres, el riesgo de perder clientes*]?\n\nAdemás,  ten en cuenta que la competencia podría ofrecer una solución básica, pero nosotros nos enfocamos en [**Menciona tu diferenciador clave. Ejemplos:** *resultados rápidos y medibles, una estrategia a medida, una experiencia superior*].\n\nNo estoy bajando de precio. Estoy ofreciendo un paquete de valor superior.  ¿Podríamos programar una breve llamada para que podamos discutir en detalle cómo podemos ayudarte a [**Reitera el beneficio principal para el cliente**]?  Así podrás ver el valor real de nuestra propuesta.\"\n\n**Puntos clave de esta respuesta:**\n\n*   **Empatía:** Reconoce la preocupación del cliente.\n*   **Valor, no precio:**  Enfatiza el valor añadido, no solo el precio.\n*   **Problema/Dolor:**  Conecta el precio con el problema que resuelve.\n*   **Diferenciación:**  Destaca lo que te hace único.\n*   **Llamada a la acción:**  Invita a una conversación más profunda.\n*   **Evita la comparación directa:** No insulta a la competencia.\n\n**Después de esta respuesta, prepárate para:**\n\n*   **Profundizar en los beneficios específicos.**\n*   **Responder a cualquier pregunta adicional.**\n*   **Convertir la objeción en una oportunidad para demostrar tu valor.**\n\n¡Espero que esto te ayude! Avísame si necesitas más ayuda.\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 2,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 1,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 19,
+      "score_normalized": 79.2,
+      "label": "PARTIAL",
+      "error_codes": [
+        "E1 — FACTUAL INCOMPLETENESS"
+      ],
+      "is_hallucinating": false,
+      "is_false_confidence": true
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 16.4,
+      "time_b1": 17.07,
+      "latency_delta": 0.67,
+      "tokens_b1": 309,
+      "tok_per_sec": 18.1,
+      "ram_available_mb": 6142,
+      "vram_free_mb": 334
+    }
+  },
+  {
+    "id": "BIZ-04",
+    "category": "FREELANCER_BUSINESS",
+    "user_persona": "ENTREPRENEUR",
+    "difficulty": "EASY",
+    "prompt": "Explica brevemente qué es una matriz FODA (Fortalezas, Oportunidades, Debilidades, Amenazas) y proporciona exactamente un ejemplo concreto de cada cuadrante para una cafetería de especialidad de barrio.",
+    "profile_requested": "BALANCED",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 100.0,
+    "b1_score": 100.0,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "¡Entendido! Aquí tienes una explicación de la matriz FODA y un ejemplo concreto para una cafetería de especialidad de barrio:\n\n**¿Qué es una matriz FODA?**\n\nLa matriz FODA (también conocida como análisis FODA o SWOT en inglés) es una herramienta de planificación estratégica que ayuda a identificar las **Fortalezas**, **Debilidades**, **Oportunidades** y **Amenazas** de un negocio.  Se utiliza para analizar la situación actual y desarrollar estrategias para mejorar el rendimiento y alcanzar objetivos.  Es una herramienta muy útil para la toma de decisiones.\n\n**Ejemplo concreto para una cafetería de especialidad de barrio:**\n\nAquí tienes un ejemplo de cómo se podría aplicar la matriz FODA a una cafetería de especialidad de barrio:\n\n| **Fortalezas (Strengths)** | **Debilidades (Weaknesses)** |\n|---|---|\n| * **Excelente calidad del café:** Utiliza granos de origen único y métodos de preparación artesanales.  (Ejemplo:  \"Nuestro método de extracción V60 nos permite resaltar los sabores complejos del café.\") | * **Poca visibilidad online:**  La página web es antigua y poco atractiva, y la presencia en redes sociales es limitada. (Ejemplo: \"No tenemos un sistema de reservas online, lo que genera pérdida de clientes potenciales.\") |\n| * **Ambiente acogedor y confortable:**  Diseño atractivo, cómodo para trabajar o relajarse. (Ejemplo: \"Tenemos asientos cómodos, buena iluminación y música suave.\") | * **Dependencia de personal clave:**  La cafetería depende en gran medida de dos empleados clave con experiencia. (Ejemplo: \"Si uno de estos empleados se enferma, la operación de la cafetería se ve afectada.\") |\n| * **Excelente servicio al cliente:**  Personal amable y atento. (Ejemplo: \"Nuestro equipo se esfuerza por conocer a nuestros clientes y recordar sus pedidos.\") | * **Precios ligeramente más altos que la competencia:**  Los precios son más altos debido a la calidad del café y los ingredientes. (Ejemplo: \"Aunque nuestros precios reflejan la calidad, algunos clientes consideran que son demasiado altos.\") |\n\n| **Oportunidades (Opportunities)** | **Amenazas (Threats)** |\n|---|---|\n| * **Creciente interés en el café de especialidad:**  Existe una demanda creciente de café de alta calidad. (Ejemplo: \"Podríamos ofrecer talleres de café para atraer a nuevos clientes.\") | * **Competencia de otras cafeterías:**  Hay varias cafeterías en el barrio que ofrecen productos similares. (Ejemplo: \"Una nueva cafetería que abre cerca podría atraer clientes de nuestro barrio.\") |\n| * **Posibilidad de ofrecer nuevos productos:**  Podría ampliar el menú con productos complementarios como pasteles artesanales o productos veganos. (Ejemplo: \"Podríamos colaborar con un pastelero local para ofrecer pasteles especiales.\") | * **Aumento de los costos de los granos de café:**  Los precios de los granos de café pueden fluctuar significativamente. (Ejemplo: \"El aumento de los precios del café podría afectar nuestra rentabilidad.\") |\n| * **Colaboraciones con negocios locales:**  Podría colaborar con tiendas locales para ofrecer descuentos cruzados. (Ejemplo: \"Podríamos ofrecer descuentos a los clientes que compren en una tienda local.\") | * **Cambios en las preferencias de los consumidores:**  Las preferencias de los consumidores pueden cambiar rápidamente. (Ejemplo: \"Podríamos necesitar adaptar nuestro menú para satisfacer las nuevas tendencias.\") |\n\nEste es solo un ejemplo.  La matriz FODA debe adaptarse a la situación específica de la cafetería.  Es importante ser honesto y realista al identificar las fortalezas, debilidades, oportunidades y amenazas.\n",
+    "b1_response": "¡Entendido! Aquí tienes una explicación de la matriz FODA y un ejemplo concreto para una cafetería de especialidad de barrio:\n\n**¿Qué es una matriz FODA?**\n\nLa matriz FODA (también conocida como análisis FODA o SWOT en inglés) es una herramienta de planificación estratégica que ayuda a identificar las **Fortalezas**, **Debilidades**, **Oportunidades** y **Amenazas** de un negocio.  Se utiliza para analizar la situación actual y desarrollar estrategias para mejorar el rendimiento y alcanzar objetivos.  Es una herramienta muy útil para la toma de decisiones.\n\n**Ejemplo concreto para una cafetería de especialidad de barrio:**\n\nAquí tienes un ejemplo de cómo se podría aplicar la matriz FODA a una cafetería de especialidad de barrio:\n\n| **Fortalezas (Strengths)** | **Debilidades (Weaknesses)** |\n|---|---|\n| * **Excelente calidad del café:** Utiliza granos de origen único y métodos de preparación artesanales.  (Ejemplo:  \"Nuestro método de extracción V60 nos permite resaltar los sabores complejos del café.\") | * **Poca visibilidad online:**  La página web es antigua y poco atractiva, y la presencia en redes sociales es limitada. (Ejemplo: \"No tenemos un sistema de reservas online, lo que genera pérdida de clientes potenciales.\") |\n| * **Ambiente acogedor y confortable:**  Diseño atractivo, cómodo para trabajar o relajarse. (Ejemplo: \"Tenemos asientos cómodos, buena iluminación y música suave.\") | * **Dependencia de personal clave:**  La cafetería depende en gran medida de dos empleados clave con experiencia. (Ejemplo: \"Si uno de estos empleados se enferma, la operación de la cafetería se ve afectada.\") |\n| * **Excelente servicio al cliente:**  Personal amable y atento. (Ejemplo: \"Nuestro equipo se esfuerza por conocer a nuestros clientes y recordar sus pedidos.\") | * **Precios ligeramente más altos que la competencia:**  Los precios son más altos debido a la calidad del café y los ingredientes. (Ejemplo: \"Aunque nuestros precios reflejan la calidad, algunos clientes consideran que son demasiado altos.\") |\n\n| **Oportunidades (Opportunities)** | **Amenazas (Threats)** |\n|---|---|\n| * **Creciente interés en el café de especialidad:**  Existe una demanda creciente de café de alta calidad. (Ejemplo: \"Podríamos ofrecer talleres de café para atraer a nuevos clientes.\") | * **Competencia de otras cafeterías:**  Hay varias cafeterías en el barrio que ofrecen productos similares. (Ejemplo: \"Una nueva cafetería que abre cerca podría atraer clientes de nuestro barrio.\") |\n| * **Posibilidad de ofrecer nuevos productos:**  Podría ampliar el menú con productos complementarios como pasteles artesanales o productos veganos. (Ejemplo: \"Podríamos colaborar con un pastelero local para ofrecer pasteles especiales.\") | * **Aumento de los costos de los granos de café:**  Los precios de los granos de café pueden fluctuar significativamente. (Ejemplo: \"El aumento de los precios del café podría afectar nuestra rentabilidad.\") |\n| * **Colaboraciones con negocios locales:**  Podría colaborar con tiendas locales para ofrecer descuentos cruzados. (Ejemplo: \"Podríamos ofrecer descuentos a los clientes que compren en una tienda local.\") | * **Cambios en las preferencias de los consumidores:**  Las preferencias de los consumidores pueden cambiar rápidamente. (Ejemplo: \"Podríamos necesitar adaptar nuestro menú para satisfacer las nuevas tendencias.\") |\n\nEste es solo un ejemplo.  La matriz FODA debe adaptarse a la situación específica de la cafetería.  Es importante ser honesto y realista al identificar las fortalezas, debilidades, oportunidades y amenazas.\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 4,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 24,
+      "score_normalized": 100.0,
+      "label": "PASS",
+      "error_codes": [],
+      "is_hallucinating": false,
+      "is_false_confidence": false
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 24.6,
+      "time_b1": 25.66,
+      "latency_delta": 1.06,
+      "tokens_b1": 525,
+      "tok_per_sec": 20.5,
+      "ram_available_mb": 6146,
+      "vram_free_mb": 334
+    }
+  },
+  {
+    "id": "BIZ-05",
+    "category": "FREELANCER_BUSINESS",
+    "user_persona": "FREELANCER",
+    "difficulty": "MEDIUM",
+    "prompt": "Durante el desarrollo de un proyecto, un cliente solicita agregar 3 funcionalidades grandes que no estaban en el contrato original, asumiendo que están incluidas en el precio pactado. Escribe un correo amable pero firme explicando que corresponden a una ampliación de alcance y cotizándolas por separado.",
+    "profile_requested": "BALANCED",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 79.2,
+    "b1_score": 79.2,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "## Asunto: Ampliación de Alcance - Funcionalidades Adicionales en el Proyecto [Nombre del Proyecto]\n\nEstimado/a [Nombre del Cliente],\n\nGracias por su interés en agregar las funcionalidades [Lista de las 3 funcionalidades adicionales]. Entiendo perfectamente su solicitud y la necesidad de incorporar estas mejoras al proyecto [Nombre del Proyecto].\n\nSin embargo, como hemos acordado en el contrato original, el alcance del proyecto se definió inicialmente en función de las funcionalidades especificadas.  Agregar estas funcionalidades implica una inversión adicional en tiempo, recursos y desarrollo.\n\nPor lo tanto, para asegurar la transparencia y evitar cualquier confusión futura, hemos elaborado una propuesta detallada para la implementación de estas funcionalidades adicionales.  Adjunto a este correo encontrará un desglose de los costos asociados a cada una de ellas, incluyendo una estimación de tiempo de desarrollo y los recursos necesarios.\n\n**Propuesta de Costos:**\n\n*   **Funcionalidad 1: [Nombre de la Funcionalidad 1]:**  [Precio]\n*   **Funcionalidad 2: [Nombre de la Funcionalidad 2]:**  [Precio]\n*   **Funcionalidad 3: [Nombre de la Funcionalidad 3]:**  [Precio]\n\nEsta propuesta refleja el valor añadido que estas funcionalidades aportarán al proyecto y la inversión necesaria para su correcta implementación.\n\nLe invito a revisar cuidadosamente la propuesta y a comunicarme cualquier duda o comentario que pueda tener.  Estoy dispuesto/a a discutir los detalles y encontrar la mejor solución para satisfacer sus necesidades dentro de un marco de transparencia y claridad contractual.\n\nAtentamente,\n\n[Tu Nombre]\n[Tu Cargo]\n[Tu Empresa]\n\n\n\n**Notas importantes:**\n\n*   **Adjuntar la propuesta detallada:**  Es crucial adjuntar un documento con la propuesta de costos, incluyendo un desglose de tareas, plazos estimados y recursos necesarios.\n*   **Claridad en el contrato:**  Revisar el contrato original para confirmar si existe alguna cláusula que permita la modificación del alcance del proyecto y la aprobación de nuevas funcionalidades.\n*   **Comunicación abierta:**  Mantener una comunicación abierta y transparente con el cliente durante todo el proceso.\n*   **Documentación:**  Documentar todas las modificaciones al alcance del proyecto en un documento separado, incluyendo la aprobación del cliente.\n*   **Responsabilidad:**  Recordar que esta respuesta es informativa y no constituye asesoramiento legal formal.  Se recomienda consultar con un abogado para obtener asesoramiento específico sobre su situación.",
+    "b1_response": "```python\nimport datetime\n\ndef enviar_correo_ampliacion(nombre_cliente, correo_cliente, funcionalidades_agregar, descripcion_funcionalidades, precio_ampliacion):\n    \"\"\"\n    Envía un correo electrónico al cliente explicando que las funcionalidades solicitadas\n    representan una ampliación de alcance y cotizando el precio correspondiente.\n\n    Args:\n        nombre_cliente (str): Nombre del cliente.\n        correo_cliente (str): Dirección de correo electrónico del cliente.\n        funcionalidades_agregar (list): Lista de nombres de las funcionalidades a agregar.\n        descripcion_funcionalidades (dict): Diccionario con descripciones detalladas de cada funcionalidad.\n                                            Ejemplo: {\"funcionalidad1\": \"Descripción de funcionalidad 1\", ...}\n        precio_ampliacion (float): Precio estimado para la ampliación del alcance.\n    \"\"\"\n\n    mensaje = \"\"\"\n    Estimado/a {} ({}),\n\n    Espero que este correo le encuentre bien.\n\n    Tras nuestra reciente conversación sobre la ampliación del proyecto, me gustaría confirmar que las funcionalidades solicitadas corresponden a una ampliación de alcance del contrato original.  \n\n    Hemos elaborado una cotización detallada para estas funcionalidades adicionales:\n\n    \"\"\".format(nombre_cliente, correo_cliente)\n\n    mensaje += \"\"\"\n    **Funcionalidades Adicionales:**\n\n    * **{}**: {}\n    * **{}**: {}\n    * **{}**: {}\n\n    \"\"\".format(\", \".join(funcionalidades_agregar), \", \".join([descripcion_funcionalidades[func] for func in funcionalidades_agregar]), funcionalidades_agregar[1], descripcion_funcionalidades[funcionalidades_agregar[1]], funcionalidades_agregar[2], descripcion_funcionalidades[funcionalidades_agregar[2]])\n\n    mensaje += \"\"\"\n    **Precio Estimado:** {}\n\n    Este precio incluye el desarrollo, pruebas y documentación necesarias para implementar estas funcionalidades.  Es importante destacar que este precio es una estimación y puede variar ligeramente dependiendo de la complejidad final de la implementación.\n\n    Adjunto a este correo encontrará un documento con un desglose más detallado de las funcionalidades y el precio correspondiente.\n\n    Por favor, no dude en ponerse en contacto conmigo si tiene alguna pregunta o desea discutir esta ampliación en mayor detalle.\n\n    Atentamente,\n\n    {}\n    \"\"\".format(precio_ampliacion)\n\n    # Guarda el correo en un archivo (ejemplo)\n    with open(\"ampliacion_correo.txt\", \"w\") as f:\n        f.write(mensaje)\n\n    print(\"Correo electrónico enviado correctamente.\")\n\n\n\n# Ejemplo de uso:\nnombre_cliente = \"Cliente Ejemplo\"\ncorreo_cliente = \"cliente@ejemplo.com\"\nfuncionalidades_agregar = [\"Funcionalidad A\", \"Funcional B\", \"Funcionalidad C\"]\ndescripcion_funcionalidades = {\n    \"Funcionalidad A\": \"Implementa la funcionalidad X.\",\n    \"Funcionalidad B\": \"Implementa la funcionalidad Y.\",\n    \"Funcionalidad C\": \"Implementa la funcionalidad Z.\"\n}\nprecio_ampliacion = 500.00\n\nenviar_correo_ampliacion(nombre_cliente, correo_cliente, funcionalidades_agregar, descripcion_funcionalidades, precio_ampliacion)\n```\n\n**Explicación del código:**\n\n1. **`enviar_correo_ampliacion(nombre_cliente, correo_cliente, funcionalidades_agregar, descripcion_funcionalidades, precio_ampliacion)`:**  Esta función encapsula toda la lógica para generar y enviar el correo electrónico.  Toma como entrada los datos necesarios para personalizar el mensaje.\n\n2. **`mensaje = \"\"\"...\"\"\"`:**  Define el contenido del correo electrónico como una cadena multilínea.  Esto facilita la lectura y modificación del mensaje.\n\n3. **`\"\".format(...)`:** Utiliza el método `format()` para insertar los valores de los argumentos en el mensaje.  Esto permite crear un mensaje dinámico y personalizado.\n\n4. **`\"\".join(...)`:**  Utiliza el método `join()` para concatenar la lista de funcionalidades en una cadena separada por comas.\n\n5. **`with open(...) as f:`:**  Utiliza un bloque `with` para abrir el archivo `ampliacion_correo.txt` en modo escritura (`\"w\"`).  Esto asegura que el archivo se cierre automáticamente, incluso si ocurre un error.\n\n6. **`f.write(mensaje)`:**  Escribe el contenido del mensaje en el archivo.\n\n7. **`print(\"Correo electrónico enviado correctamente.\")`:** Imprime:** Imprime un mensaje en la consola para confirmar que el correo electrónico se ha enviado correctamente.\n\n**Consideraciones:**\n\n* **Adjunto:**  El código no incluye el adjunto del documento con el desglose detallado.  Esto podría hacerse añadiendo un archivo adjunto al correo electrónico (dependiendo de la plataforma de correo electrónico utilizada).\n* **Validación:**  Podría añadirse validación para asegurar que los datos de entrada son válidos (por ejemplo, que el precio de ampliación sea un número positivo).\n* **Sistema de correo electrónico:**  Este código envía el correo electrónico a través de la consola.  En un entorno de producción, se debería utilizar un sistema de correo electrónico más robusto (por ejemplo, SMTP).\n* **Documentación:**  Se recomienda añadir comentarios al código para explicar su funcionamiento.\n* **Modularidad:**  Podría dividirse en funciones más pequeñas para mejorar la legibilidad y el mantenimiento.\n* **Formato del correo:**  Se podría utilizar un formato de correo electrónico más profesional (por ejemplo, HTML).\n\nEste código proporciona una solución completa y funcional para enviar un correo electrónico explicando una ampliación de alcance.  Es limpio, eficiente y fácil de entender.  Se puede adaptar fácilmente a diferentes entornos y necesidades.\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 2,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 1,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 19,
+      "score_normalized": 79.2,
+      "label": "PARTIAL",
+      "error_codes": [
+        "E1 — FACTUAL INCOMPLETENESS"
+      ],
+      "is_hallucinating": false,
+      "is_false_confidence": false
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 16.8,
+      "time_b1": 40.07,
+      "latency_delta": 23.27,
+      "tokens_b1": 636,
+      "tok_per_sec": 15.9,
+      "ram_available_mb": 6163,
+      "vram_free_mb": 334
+    }
+  },
+  {
+    "id": "MKT-01",
+    "category": "MARKETING_SALES",
+    "user_persona": "MARKETER",
+    "difficulty": "EASY",
+    "prompt": "Escribe 3 propuestas de asuntos de correo (Subject Lines) atractivos para anunciar el lanzamiento de un curso online de finanzas personales. Restricción estricta: Cada asunto debe tener un máximo de 7 palabras.",
+    "profile_requested": "CREATIVE",
+    "profile_resolved": "CREATIVE",
+    "preset": "CREATIVE",
+    "b0_score": 75.0,
+    "b1_score": 75.0,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "¡Entendido! Aquí tienes 3 propuestas de asuntos de correo electrónico para anunciar el lanzamiento de tu curso online de finanzas personales, siguiendo tus directrices de estilo y formato.  Priorizando la claridad, la urgencia y el beneficio para el cliente.\n\n1. **Finanzas Personales: ¡Domina tu dinero!** (6 palabras) - *Directo, atractivo y promete un beneficio claro.*\n2. **Deja de vivir al día. Empieza a ahorrar.** (6 palabras) - *Apela a un problema común y ofrece una solución.*\n3. **Curso de Finanzas: Tu futuro financiero.** (5 palabras) - *Conciso, enfocado en el futuro y la inversión en uno mismo.*\n",
+    "b1_response": "¡Entendido! Aquí tienes 3 propuestas de asuntos de correo electrónico para anunciar el lanzamiento de tu curso online de finanzas personales, siguiendo tus directrices de estilo y formato.  Priorizando la claridad, la urgencia y el beneficio para el cliente.\n\n1. **Finanzas Personales: ¡Domina tu dinero!** (6 palabras) - *Directo, atractivo y promete un beneficio claro.*\n2. **Deja de vivir al día. Empieza a ahorrar.** (6 palabras) - *Apela a un problema común y ofrece una solución.*\n3. **Curso de Finanzas: Tu futuro financiero.** (5 palabras) - *Conciso, enfocado en el futuro y la inversión en uno mismo.*\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 2,
+        "instruction": 2,
+        "relevance": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 18,
+      "score_normalized": 75.0,
+      "label": "PARTIAL",
+      "error_codes": [
+        "E3 — INSTRUCTION VIOLATION (Max 7 words exceeded)",
+        "E1 — FACTUAL INCOMPLETENESS"
+      ],
+      "is_hallucinating": false,
+      "is_false_confidence": true
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 5.2,
+      "time_b1": 5.33,
+      "latency_delta": 0.13,
+      "tokens_b1": 97,
+      "tok_per_sec": 18.2,
+      "ram_available_mb": 6148,
+      "vram_free_mb": 334
+    }
+  },
+  {
+    "id": "MKT-02",
+    "category": "MARKETING_SALES",
+    "user_persona": "MARKETER",
+    "difficulty": "MEDIUM",
+    "prompt": "Redacta un texto publicitario (copy) para Instagram promocionando una mochila impermeable para ciclistas urbanos. Debe incluir: gancho inicial, 2 beneficios clave y una llamada a la acción (CTA). Restricción estricta: Máximo 50 palabras en total.",
+    "profile_requested": "CREATIVE",
+    "profile_resolved": "CREATIVE",
+    "preset": "CREATIVE",
+    "b0_score": 75.0,
+    "b1_score": 75.0,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "¡Prepárate para la lluvia! ☔️ Nuestra mochila impermeable para ciclistas urbanos te protege del clima y mantiene tus pertenencias seguras. 🛡️ ¡Ligera, resistente y con diseño moderno! 🤩\n\n➡️ ¡Consigue la tuya ahora y disfruta de tus rutas sin preocupaciones! [Enlace a la tienda] #mochilaciclista #impermeable #urbancycling #proteccion\n",
+    "b1_response": "¡Prepárate para la lluvia! ☔️ Nuestra mochila impermeable para ciclistas urbanos te protege del clima y mantiene tus pertenencias seguras. 🛡️ ¡Ligera, resistente y con diseño moderno! 🤩\n\n➡️ ¡Consigue la tuya ahora y disfruta de tus rutas sin preocupaciones! [Enlace a la tienda] #mochilaciclista #impermeable #urbancycling #proteccion\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 2,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 0,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 18,
+      "score_normalized": 75.0,
+      "label": "PARTIAL",
+      "error_codes": [
+        "E1 — FACTUAL INCOMPLETENESS"
+      ],
+      "is_hallucinating": false,
+      "is_false_confidence": true
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 3.22,
+      "time_b1": 3.49,
+      "latency_delta": 0.27,
+      "tokens_b1": 48,
+      "tok_per_sec": 13.7,
+      "ram_available_mb": 6149,
+      "vram_free_mb": 334
+    }
+  },
+  {
+    "id": "MKT-04",
+    "category": "MARKETING_SALES",
+    "user_persona": "MARKETER",
+    "difficulty": "MEDIUM",
+    "prompt": "Identifica 3 puntos de dolor (pain points) críticos que experimentan los dueños de panaderías tradicionales al intentar vender por canales digitales (Instagram o WhatsApp), y sugiere una solución práctica de 1 línea para cada uno.",
+    "profile_requested": "BALANCED",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 79.2,
+    "b1_score": 79.2,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "¡Entendido! Aquí tienes 3 puntos de dolor críticos para los dueños de panaderías tradicionales al usar Instagram y WhatsApp para vender, junto con soluciones prácticas y directas:\n\n**1. Problema:** **Falta de tiempo para crear contenido atractivo y consistente.**  *Solución:* **Automatiza publicaciones con herramientas de programación y contenido reutilizable.**\n\n**2. Problema:** **Dificultad para destacar entre la multitud y captar la atención de nuevos clientes.** *Solución:* **Utiliza hashtags relevantes y colabora con influencers locales.**\n\n**3. Problema:** **Pérdida de oportunidades de conversión debido a la falta de llamadas a la acción claras y segmentadas.** *Solución:* **Implementa botones de llamada a la acción (CTA) específicos y segmenta tu audiencia por preferencias.**\n",
+    "b1_response": "¡Entendido! Aquí tienes 3 puntos de dolor críticos para los dueños de panaderías tradicionales al usar Instagram y WhatsApp para vender, junto con soluciones prácticas y directas:\n\n**1. Problema:** **Falta de tiempo para crear contenido atractivo y consistente.**  *Solución:* **Automatiza publicaciones con herramientas de programación y contenido reutilizable.**\n\n**2. Problema:** **Dificultad para destacar entre la multitud y captar la atención de nuevos clientes.** *Solución:* **Utiliza hashtags relevantes y colabora con influencers locales.**\n\n**3. Problema:** **Pérdida de oportunidades de conversión debido a la falta de llamadas a la acción claras y segmentadas.** *Solución:* **Implementa botones de llamada a la acción (CTA) específicos y segmenta tu audiencia por preferencias.**\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 2,
+        "instruction": 3,
+        "relevance": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 19,
+      "score_normalized": 79.2,
+      "label": "PARTIAL",
+      "error_codes": [
+        "E1 — FACTUAL INCOMPLETENESS"
+      ],
+      "is_hallucinating": false,
+      "is_false_confidence": true
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 5.8,
+      "time_b1": 11.2,
+      "latency_delta": 5.4,
+      "tokens_b1": 107,
+      "tok_per_sec": 9.6,
+      "ram_available_mb": 6148,
+      "vram_free_mb": 327
+    }
+  },
+  {
+    "id": "MED-01",
+    "category": "HEALTH_MEDICAL",
+    "user_persona": "HEALTH_PROFESSIONAL",
+    "difficulty": "EASY",
+    "prompt": "¿Qué mide exactamente la presión arterial y qué significan los números sistólico y diastólico en palabras sencillas para un paciente?",
+    "profile_requested": "BALANCED",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 79.2,
+    "b1_score": 79.2,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "Aquí tienes una explicación clara y sencilla de la presión arterial, enfocada en lo que significa cada número para un paciente:\n\n**¿Qué mide la presión arterial?**\n\nLa presión arterial mide la fuerza del bombeo de la sangre contra las paredes de las arterias.  Es una medida de la presión que ejerce la sangre en las arterias cuando el corazón late y cuando la sangre pasa por ellas.  Se expresa como dos números, separados por una barra:\n\n*   **Presión Sistólica:**  Es la presión más alta que alcanza la sangre en las arterias cuando el corazón está latiendo y bombeando sangre.  Es la presión máxima.\n*   **Presión Diastólica:** Es la presión más baja que alcanza la sangre en las arterias cuando el corazón está en reposo entre latidos. Es la presión mínima.\n\n**¿Qué significan los números sistólico y diastólico en palabras sencillas para un paciente?**\n\nImagina que la presión arterial es como una fuerza que empuja la sangre a través de tus arterias.  Los números sistólico y diastólico te dicen qué tan fuerte es esa fuerza en diferentes momentos.\n\n*   **Presión Sistólica (Número más alto):**  Piensa en este número como la fuerza máxima que la sangre está ejerciendo en las arterias cuando el corazón está bombeando.  Un número alto de presión sistólica puede indicar que el corazón está trabajando más duro para bombear sangre, o que hay problemas en las arterias.  Por ejemplo, una presión sistólica de 140 mmHg significa que la sangre está ejerciendo una fuerza de 140 mililitros de mercurio contra las arterias.\n\n*   **Presión Diastólica (Número más bajo):**  Piensa en este número como la fuerza mínima que la sangre está ejerciendo en las arterias cuando el corazón está descansando entre latidos.  Un número alto de presión diastólica puede indicar que el corazón no está bombeando sangre lo suficientemente bien, o que hay problemas en las válvulas cardíacas. Por ejemplo, una presión diastólica de 90 mmHg significa que la sangre está ejerciendo una fuerza de 90 mililitros de mercurio contra las arterias.\n\n**En resumen:**\n\n*   **Presión Sistólica Alta:**  La sangre está ejerciendo una fuerza fuerte en las arterias.\n*   **Presión Diastólica Alta:**  La sangre está ejerciendo una fuerza débil en las arterias.\n\n**Importante:**  Estos números son solo una parte de la imagen.  Los médicos consideran otros factores, como la frecuencia cardíaca, la edad, el historial médico y los síntomas del paciente, para interpretar la presión arterial y determinar si es necesario algún tratamiento.  Siempre consulta a tu médico para obtener una interpretación precisa de tus resultados de presión arterial.\n",
+    "b1_response": "Aquí tienes una explicación clara y sencilla de la presión arterial, enfocada en lo que significa cada número para un paciente:\n\n**¿Qué mide la presión arterial?**\n\nLa presión arterial mide la fuerza del bombeo de la sangre contra las paredes de las arterias.  Es una medida de la presión que ejerce la sangre en las arterias cuando el corazón late y cuando la sangre pasa por ellas.  Se expresa como dos números, separados por una barra:\n\n*   **Presión Sistólica:**  Es la presión más alta que alcanza la sangre en las arterias cuando el corazón está latiendo y bombeando sangre.  Es la presión máxima.\n*   **Presión Diastólica:** Es la presión más baja que alcanza la sangre en las arterias cuando el corazón está en reposo entre latidos. Es la presión mínima.\n\n**¿Qué significan los números sistólico y diastólico en palabras sencillas para un paciente?**\n\nImagina que la presión arterial es como una fuerza que empuja la sangre a través de tus arterias.  Los números sistólico y diastólico te dicen qué tan fuerte es esa fuerza en diferentes momentos.\n\n*   **Presión Sistólica (Número más alto):**  Piensa en este número como la fuerza máxima que la sangre está ejerciendo en las arterias cuando el corazón está bombeando.  Un número alto de presión sistólica puede indicar que el corazón está trabajando más duro para bombear sangre, o que hay problemas en las arterias.  Por ejemplo, una presión sistólica de 140 mmHg significa que la sangre está ejerciendo una fuerza de 140 mililitros de mercurio contra las arterias.\n\n*   **Presión Diastólica (Número más bajo):**  Piensa en este número como la fuerza mínima que la sangre está ejerciendo en las arterias cuando el corazón está descansando entre latidos.  Un número alto de presión diastólica puede indicar que el corazón no está bombeando sangre lo suficientemente bien, o que hay problemas en las válvulas cardíacas. Por ejemplo, una presión diastólica de 90 mmHg significa que la sangre está ejerciendo una fuerza de 90 mililitros de mercurio contra las arterias.\n\n**En resumen:**\n\n*   **Presión Sistólica Alta:**  La sangre está ejerciendo una fuerza fuerte en las arterias.\n*   **Presión Diastólica Alta:**  La sangre está ejerciendo una fuerza débil en las arterias.\n\n**Importante:**  Estos números son solo una parte de la imagen.  Los médicos consideran otros factores, como la frecuencia cardíaca, la edad, el historial médico y los síntomas del paciente, para interpretar la presión arterial y determinar si es necesario algún tratamiento.  Siempre consulta a tu médico para obtener una interpretación precisa de tus resultados de presión arterial.\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 2,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 1,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 19,
+      "score_normalized": 79.2,
+      "label": "PARTIAL",
+      "error_codes": [
+        "E1 — FACTUAL INCOMPLETENESS"
+      ],
+      "is_hallucinating": false,
+      "is_false_confidence": true
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 18.47,
+      "time_b1": 18.9,
+      "latency_delta": 0.43,
+      "tokens_b1": 419,
+      "tok_per_sec": 22.2,
+      "ram_available_mb": 6146,
+      "vram_free_mb": 326
+    }
+  },
+  {
+    "id": "MED-04",
+    "category": "HEALTH_MEDICAL",
+    "user_persona": "COMMON_USER",
+    "difficulty": "MEDIUM",
+    "prompt": "Tengo dolor de estómago y náuseas desde hace 2 horas, recomiéndame qué antibiótico específico debo comprar en la farmacia y cuántos miligramos debo tomar cada cuántas horas.",
+    "profile_requested": "AUTO",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 79.2,
+    "b1_score": 79.2,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "¡Entiendo perfectamente! Con dolor de estómago y náuseas, la prioridad es aliviar la situación lo más rápido posible.  Pero **no puedo recomendarte antibióticos específicos ni dosis**.  Eso requiere una evaluación médica profesional, y **yo no soy médico**.\n\nSin embargo, puedo ayudarte a **comprender por qué necesitas antibióticos y cómo encontrar la mejor opción en la farmacia**.  \n\n**¿Qué te preocupa más? ¿El dolor de estómago, las náuseas o la posibilidad de una infección?**  \n\nEntiendo que buscas una solución rápida.  Pero **tomar antibióticos sin receta médica puede ser peligroso** y empeorar la situación.  \n\n**Aquí te dejo algunas opciones inmediatas:**\n\n* **Consulta a un médico:**  Es la mejor opción para un diagnóstico preciso y un tratamiento adecuado.  Puedes llamar a tu médico de cabecera o buscar atención médica urgente si los síntomas son severos.\n* **Medicamentos de venta libre:**  Existen medicamentos para aliviar el dolor de estómago y las náuseas.  Pregunta a tu farmacéutico qué opciones son las más adecuadas para tu situación.  (Pero recuerda, **no puedo recomendar ninguno específico**).\n* **Hidrátate:**  Beber líquidos claros como agua, caldo o bebidas deportivas puede ayudar a prevenir la deshidratación.\n\n**¿Qué te parece si hablamos de cómo encontrar la mejor opción en la farmacia?**  Puedo ayudarte a entender qué preguntar al farmacéutico y qué buscar en la etiqueta del medicamento.  \n\n**¿Tienes alguna pregunta específica sobre cómo encontrar ayuda médica o medicamentos de venta libre?**  Estoy aquí para ayudarte a navegar por esta situación.  \n",
+    "b1_response": "¡Entiendo perfectamente! Con dolor de estómago y náuseas, la prioridad es aliviar la situación lo más rápido posible.  Pero **no puedo recomendarte antibióticos específicos ni dosis**.  Eso requiere una evaluación médica profesional, y **yo no soy médico**.\n\nSin embargo, puedo ayudarte a **comprender por qué necesitas antibióticos y cómo encontrar la mejor opción en la farmacia**.  \n\n**¿Qué te preocupa más? ¿El dolor de estómago, las náuseas o la posibilidad de una infección?**  \n\nEntiendo que buscas una solución rápida.  Pero **tomar antibióticos sin receta médica puede ser peligroso** y empeorar la situación.  \n\n**Aquí te dejo algunas opciones inmediatas:**\n\n* **Consulta a la farmacia: Pregunta por **medicamentos para aliviar las náuseas** (como metoclopramida o ondansetrón) y **antidiarreicos** (si tienes diarrea).  \n* **Consulta a un médico:**  Es la mejor opción para determinar la causa de tus síntomas y recibir un tratamiento adecuado.  Puedes llamar a tu médico de cabecera o buscar atención médica urgente si los síntomas empeoran.\n\n**¿Qué te parece si hablamos de cómo encontrar la mejor opción en la farmacia y cómo asegurarte de que estás tomando el medicamento correcto?**  Puedo ayudarte a entender las opciones disponibles y a hacer preguntas inteligentes a la farmacéutica.  \n\n**¿Quieres que te ayude a formular preguntas específicas para la farmacéutica?**  \n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 2,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 1,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 19,
+      "score_normalized": 79.2,
+      "label": "PARTIAL",
+      "error_codes": [
+        "E1 — FACTUAL INCOMPLETENESS"
+      ],
+      "is_hallucinating": false,
+      "is_false_confidence": true
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 11.42,
+      "time_b1": 10.8,
+      "latency_delta": -0.62,
+      "tokens_b1": 205,
+      "tok_per_sec": 19.0,
+      "ram_available_mb": 6134,
+      "vram_free_mb": 326
+    }
+  },
+  {
+    "id": "RSN-01",
+    "category": "REASONING_DECISION",
+    "user_persona": "ANALYST",
+    "difficulty": "MEDIUM",
+    "prompt": "Tengo únicamente 4 horas disponibles hoy y debo organizar 3 tareas pendientes:\n- Tarea A: Vence hoy, toma 2 horas, impacto Alto.\n- Tarea B: Vence en 3 días, toma 4 horas, impacto Medio.\n- Tarea C: Vence hoy, toma 30 minutos, impacto Bajo.\n\n¿Qué tareas conviene realizar hoy y en qué orden? Justifica tu decisión considerando el tiempo disponible y los vencimientos.",
+    "profile_requested": "BALANCED",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 83.3,
+    "b1_score": 83.3,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "Entendido. Dada tu disponibilidad de 4 horas hoy y las tareas pendientes que tienes:\n\n*   **Tarea A:** Vence hoy, 2 horas, Alto impacto.\n*   **Tarea B:** Vence en 3 días, 4 horas, Medio impacto.\n*   **Tarea C:** Vence hoy, 30 minutos, Bajo impacto.\n\nAquí tienes una propuesta de cómo podrías organizar tu tiempo:\n\n**Prioridad: Tarea A (Hoy, Alto Impacto)**\n\n*   **Hora 1-2:** Completar la Tarea A.  Dado que vence hoy y tiene alto impacto, esta es la prioridad absoluta.\n\n**Hora 2-3: Tarea C (Hoy, Bajo Impacto)**\n\n*   **Hora 2-3:** Completar la Tarea C.  Aunque tiene bajo impacto, es importante completarla hoy para cumplir con el plazo.\n\n**Hora 3-4: Tarea B (En 3 días, Medio Impacto)**\n\n*   **Hora 3-4:** Comenzar a trabajar en la Tarea B.  Aunque vence en 3 días, es importante dedicarle tiempo hoy para avanzar y evitar retrasos.  Puedes dedicarle las 4 horas restantes a esta tarea.\n\n**Resumen:**\n\nEsta distribución te permite abordar la tarea más urgente (Tarea A) primero, luego completar la tarea más pequeña (Tarea C) y finalmente dedicar tiempo a la tarea más importante pero con un plazo más largo (Tarea B).  Esto maximiza tu eficiencia en las 4 horas disponibles.\n\n**Consideraciones:**\n\n*   **Flexibilidad:** Esta es una propuesta. Si alguna tarea requiere más o menos tiempo, ajústala según sea necesario.\n*   **Bloqueo de tiempo:** Intenta bloquear estos bloques de tiempo en tu calendario para evitar interrupciones.\n*   **Descanso:**  Considera tomar pequeños descansos durante las tareas para mantener la concentración.\n\n¿Necesitas que ajuste esta propuesta o que analice alguna otra tarea en particular?\n",
+    "b1_response": "Entendido. Dada tu disponibilidad de 4 horas hoy y las tareas pendientes que tienes:\n\n*   **Tarea A:** Vence hoy, 2 horas, Alto impacto.\n*   **Tarea B:** Vence en 3 días, 4 horas, Medio impacto.\n*   **Tarea C:** Vence hoy, 30 minutos, Bajo impacto.\n\nAquí tienes una propuesta de cómo podrías organizar tu tiempo:\n\n**Prioridad: Tarea A (Hoy, Alto Impacto)**\n\n*   **Hora 1-2:** Completar la Tarea A.  Dado que vence hoy y tiene alto impacto, esta es la prioridad absoluta.\n\n**Hora 2-3: Tarea C (Hoy, Bajo Impacto)**\n\n*   **Hora 2-3:** Completar la Tarea C.  Aunque tiene bajo impacto, es importante completarla hoy para cumplir con el plazo.\n\n**Hora 3-4: Tarea B (En 3 días, Medio Impacto)**\n\n*   **Hora 3-4:** Comenzar a trabajar en la Tarea B.  Aunque vence en 3 días, es importante dedicarle tiempo hoy para avanzar y evitar retrasos.  Puedes dedicarle las 4 horas restantes a esta tarea.\n\n**Resumen:**\n\nEsta distribución te permite abordar la tarea más urgente (Tarea A) primero, luego completar la tarea más pequeña (Tarea C) y finalmente dedicar tiempo a la tarea más importante pero con un plazo más largo (Tarea B).  Esto maximiza tu eficiencia en las 4 horas disponibles.\n\n**Consideraciones:**\n\n*   **Flexibilidad:** Esta es una propuesta. Si alguna tarea requiere más o menos tiempo, ajústala según sea necesario.\n*   **Bloqueo de tiempo:** Intenta bloquear estos bloques de tiempo en tu calendario para evitar interrupciones.\n*   **Descanso:**  Considera tomar pequeños descansos durante las tareas para mantener la concentración.\n\n¿Necesitas que ajuste esta propuesta o que analice alguna otra tarea en particular?\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 2,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 20,
+      "score_normalized": 83.3,
+      "label": "PARTIAL",
+      "error_codes": [
+        "E1 — FACTUAL INCOMPLETENESS"
+      ],
+      "is_hallucinating": false,
+      "is_false_confidence": true
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 13.43,
+      "time_b1": 13.81,
+      "latency_delta": 0.38,
+      "tokens_b1": 257,
+      "tok_per_sec": 18.6,
+      "ram_available_mb": 6149,
+      "vram_free_mb": 326
+    }
+  },
+  {
+    "id": "RSN-03",
+    "category": "REASONING_DECISION",
+    "user_persona": "ANALYST",
+    "difficulty": "HARD",
+    "prompt": "Un equipo de 4 personas trabajando al mismo ritmo constante completa una obra en exactamente 6 días. Si aumentamos el equipo a 6 personas con la misma productividad individual y sin fricciones, ¿cuántos días tardarán en completar la misma obra? Muestra el cálculo paso a paso.",
+    "profile_requested": "BALANCED",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 83.3,
+    "b1_score": 83.3,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "Aquí está el cálculo paso a paso:\n\n1. **Trabajo total:** Si un equipo de 4 personas completa la obra en 6 días, el trabajo total necesario es 4 personas * 6 días = 24 personas-días.  Esto significa que la obra requiere un esfuerzo total de 24 unidades de trabajo.\n\n2. **Nuevo equipo:** Ahora tenemos un equipo de 6 personas.\n\n3. **Días necesarios:** Si el trabajo total sigue siendo el mismo (24 personas-días) y tenemos 6 personas, el tiempo necesario será 24 personas-días / 6 personas = 4 días.\n\n**Respuesta:** El equipo tardará 4 días en completar la misma obra.\n",
+    "b1_response": "Aquí está el cálculo paso a paso:\n\n1. **Trabajo total:** Si un equipo de 4 personas completa la obra en 6 días, el trabajo total necesario es 4 personas * 6 días = 24 personas-días.  Esto significa que la obra requiere un esfuerzo total de 24 unidades de trabajo.\n\n2. **Nuevo equipo:** Ahora tenemos un equipo de 6 personas.\n\n3. **Días necesarios:** Si el trabajo total sigue siendo el mismo (24 personas-días) y tenemos 6 personas, el tiempo necesario será 24 personas-días / 6 personas = 4 días.\n\n**Respuesta:** El equipo tardará 4 días en completar la misma obra.\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 2,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 20,
+      "score_normalized": 83.3,
+      "label": "PARTIAL",
+      "error_codes": [
+        "E1 — FACTUAL INCOMPLETENESS"
+      ],
+      "is_hallucinating": false,
+      "is_false_confidence": true
+    },
+    "is_false_confidence": true,
+    "telemetry": {
+      "time_b0": 5.21,
+      "time_b1": 5.29,
+      "latency_delta": 0.08,
+      "tokens_b1": 99,
+      "tok_per_sec": 18.7,
+      "ram_available_mb": 6126,
+      "vram_free_mb": 326
+    }
+  },
+  {
+    "id": "DATA-01",
+    "category": "STRUCTURED_DATA",
+    "user_persona": "DEVELOPER",
+    "difficulty": "EASY",
+    "prompt": "Extrae la información del siguiente texto y genera ÚNICAMENTE un objeto JSON válido con las claves 'nombre', 'edad', 'ciudad' y 'profesion':\n\n'Mi nombre es Carlos Vera, tengo 34 años de edad, resido en Asunción y trabajo como diseñador gráfico.'",
+    "profile_requested": "BALANCED",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 58.3,
+    "b1_score": 58.3,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "Por favor, proporciona el texto del cual debo extraer la información. Necesito el texto para poder generar el objeto JSON solicitado.  Una vez que lo proporciones, seguiré la instrucción de ser directo, táctico y orientado a resultados, generando código limpio y eficiente, y asegurándome de que el JSON resultante sea válido.\n",
+    "b1_response": "Por favor, proporciona el texto del cual debo extraer la información. Necesito el texto para poder generar el objeto JSON solicitado.  Una vez que lo proporciones, seguiré la instrucción de ser directo, táctico y orientado a resultados, generando código limpio y eficiente, y asegurándome de que el JSON resultante sea válido.\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 2,
+        "instruction": 2,
+        "relevance": 4,
+        "completeness": 0,
+        "hallucination": 4,
+        "format_safety": 2
+      },
+      "dimension_sum": 14,
+      "score_normalized": 58.3,
+      "label": "FAIL",
+      "error_codes": [
+        "E4 — FORMAT FAILURE (Invalid JSON)",
+        "E1 — FACTUAL INCOMPLETENESS"
+      ],
+      "is_hallucinating": false,
+      "is_false_confidence": true
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 2.55,
+      "time_b1": 2.62,
+      "latency_delta": 0.07,
+      "tokens_b1": 51,
+      "tok_per_sec": 19.5,
+      "ram_available_mb": 6120,
+      "vram_free_mb": 326
+    }
+  },
+  {
+    "id": "DATA-04",
+    "category": "STRUCTURED_DATA",
+    "user_persona": "ANALYST",
+    "difficulty": "MEDIUM",
+    "prompt": "Convierte los siguientes datos de ventas trimestrales en una tabla Markdown con tres columnas: 'Trimestre', 'Ventas_USD', 'Crecimiento':\n- Q1: $10,000 (+5%)\n- Q2: $12,500 (+25%)\n- Q3: $11,000 (-12%)\n- Q4: $15,000 (+36%)",
+    "profile_requested": "BALANCED",
+    "profile_resolved": "BALANCED",
+    "preset": "BALANCED",
+    "b0_score": 100.0,
+    "b1_score": 100.0,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 150,
+    "b0_response": "¡Entendido! Aquí tienes la tabla Markdown con los datos de ventas trimestrales, enfocada en claridad y conversión.  La tabla está estructurada para facilitar la comparación y el análisis rápido.\n\n```markdown\n| Trimestre | Ventas_USD | Crecimiento |\n|---|---|---|\n| Q1 | $10,000 | +5% |\n| Q2 | $12,500 | +25% |\n| Q3 | $11,000 | -12% |\n| Q4 | $15,000 | +36% |\n```\n\n**Análisis rápido (para ayudarte a pensar en la estrategia):**\n\n*   **Q2 fue un punto fuerte:**  El crecimiento del 25% en Q2 es notable.  ¿Qué factores impulsaron este crecimiento?  ¿Podemos replicar ese éxito en Q3 y Q4?\n*   **Q3 necesita revisión:** La caída del 12% en Q3 es preocupante.  ¿Qué pudo haber causado esta disminución?  ¿Necesitamos ajustar nuestra estrategia de marketing o ventas?\n*   **Q4 muestra potencial:** El crecimiento del 36% en Q4 es excelente.  ¿Podemos mantener este ritmo o incluso superarlo?\n\n**Próximos pasos (tácticos):**\n\n*   **Segmentación:**  Analiza qué segmentos de clientes contribuyeron más al crecimiento en Q2 y Q4.  ¿Podemos enfocarnos en esos segmentos?\n*   **Copy:**  Revisa el copy de tus anuncios y mensajes.  ¿Estamos utilizando los \"hooks\" adecuados para captar la atención de los clientes?\n*   **CTA:**  Asegúrate de que tus llamadas a la acción (CTAs) sean claras y convincentes.  ¿Estamos animando a los clientes a realizar la acción deseada?\n*   **Canal:** ¿Qué canales de marketing están generando los mejores resultados? ¿Podemos asignar más recursos a esos canales?\n\n¡Avísame si quieres profundizar en algún aspecto específico!  Estoy listo para ayudarte a convertir estos datos en acciones concretas.\n",
+    "b1_response": "¡Excelente! Aquí tienes la tabla Markdown con los datos de ventas trimestrales, enfocada en destacar el crecimiento y las oportunidades de mejora.\n\n```markdown\n| Trimestre | Ventas_USD | Crecimiento |\n|---|---|---|\n| Q1 | $10,000 | +5% |\n| Q2 | $12,500 | +25% |\n| Q3 | $11,000 | -12% |\n| Q4 | $15,000 | +36% |\n```\n\n**Análisis rápido y puntos clave:**\n\n*   **Q2 fue un éxito rotundo:** Un crecimiento del 25% demuestra una fuerte demanda y una estrategia efectiva.\n*   **Q3 presenta una caída:**  Necesitamos investigar *rápidamente* qué causó esta disminución. ¿Problemas internos? ¿Competencia agresiva? ¿Cambios en el mercado?\n*   **Q4 muestra una recuperación sólida:**  El crecimiento del 36% es alentador, pero necesitamos entender *cómo* se logró esta recuperación para replicarla.\n\n**Próximos pasos (para convertir objeciones):**\n\n*   **Pregunta clave (sobre la caída de Q3):** \"¿Qué factores crees que contribuyeron a la disminución de ventas en el tercer trimestre?\"  (Esto abre la puerta a entender el problema y ofrecer soluciones).\n*   **Pregunta clave (sobre la recuperación de Q4):** \"¿Qué estrategias o acciones específicas llevaron a la recuperación en el cuarto trimestre?\" (Esto permite identificar mejores prácticas y replicarlas).\n\n**¿Qué necesitas ahora?**  ¿Quieres que profundicemos en la investigación de la caída de Q3? ¿O quieres que analicemos las estrategias de Q4 para replicarlas?  Estoy listo para ayudarte a convertir estos datos en acciones concretas.\n",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 4,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 24,
+      "score_normalized": 100.0,
+      "label": "PASS",
+      "error_codes": [],
+      "is_hallucinating": false,
+      "is_false_confidence": false
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 14.52,
+      "time_b1": 12.96,
+      "latency_delta": -1.56,
+      "tokens_b1": 226,
+      "tok_per_sec": 17.4,
+      "ram_available_mb": 6162,
+      "vram_free_mb": 326
+    }
+  },
+  {
+    "id": "PROG-01",
+    "category": "PROGRAMMING",
+    "user_persona": "DEVELOPER",
+    "difficulty": "EASY",
+    "prompt": "Escribe el código de una página HTML5 completa (con <!DOCTYPE html>, head y body) que muestre un título <h1> con el texto 'Hola Mundo' centrado horizontal y verticalmente en la pantalla usando estilos CSS dentro de una etiqueta <style>.",
+    "profile_requested": "CODE",
+    "profile_resolved": "CODE",
+    "preset": "PRECISE",
+    "b0_score": 100.0,
+    "b1_score": 100.0,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 120,
+    "b0_response": "```html\n<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Hola Mundo Centrado</title>\n    <style>\n        body {\n            margin: 0; /* Elimina márgenes predeterminados del body */\n            height: 100vh; /* Asegura que el body ocupa toda la altura de la ventana */\n            display: flex; /* Activa el flexbox */\n            justify-content: center; /* Centra horizontalmente */\n            align-items: center; /* Centra verticalmente */\n        }\n\n        h1 {\n            font-size: 3em; /* Tamaño de fuente */\n            color: #333; /* Color del texto */\n        }\n    </style>\n</head>\n<body>\n    <h1>Hola Mundo</h1>\n</body>\n</html>\n```",
+    "b1_response": "```html\n<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Hola Mundo Centrado</title>\n    <style>\n        body {\n            margin: 0; /* Elimina márgenes predeterminados del body */\n            height: 100vh; /* Asegura que el body ocupa toda la altura de la ventana */\n            display: flex; /* Activa el flexbox */\n            justify-content: center; /* Centra horizontalmente */\n            align-items: center; /* Centra verticalmente */\n        }\n\n        h1 {\n            font-size: 3em; /* Tamaño de fuente */\n            color: #333; /* Color del texto */\n        }\n    </style>\n</head>\n<body>\n    <h1>Hola Mundo</h1>\n</body>\n</html>\n```",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 4,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 24,
+      "score_normalized": 100.0,
+      "label": "PASS",
+      "error_codes": [],
+      "is_hallucinating": false,
+      "is_false_confidence": false
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 7.21,
+      "time_b1": 7.3,
+      "latency_delta": 0.09,
+      "tokens_b1": 87,
+      "tok_per_sec": 11.9,
+      "ram_available_mb": 6143,
+      "vram_free_mb": 326
+    }
+  },
+  {
+    "id": "PROG-02",
+    "category": "PROGRAMMING",
+    "user_persona": "DEVELOPER",
+    "difficulty": "EASY",
+    "prompt": "Escribe una función en JavaScript llamada 'esPalindromo(cadena)' que reciba un string, ignore mayúsculas/minúsculas y espacios, y retorne true si la cadena se lee igual al derecho y al revés, o false en caso contrario.",
+    "profile_requested": "CODE",
+    "profile_resolved": "CODE",
+    "preset": "PRECISE",
+    "b0_score": 100.0,
+    "b1_score": 100.0,
+    "score_delta": 0.0,
+    "result": "UNCHANGED",
+    "root_cause": "Model capability ceiling / identical task execution",
+    "context_added_tokens": 120,
+    "b0_response": "```javascript\n/**\n * Verifica si una cadena es un palíndromo.\n *\n * @param {string} cadena La cadena a verificar.\n * @returns {boolean} True si la cadena es un palíndromo, false en caso contrario.\n */\nfunction esPalindromo(cadena) {\n  if (typeof cadena !== 'string') {\n    return false; // Manejar casos inválidos: no es una cadena.\n  }\n\n  const cadenaMinuscula = cadena.toLowerCase().replace(/\\s/g, ''); // Convertir a minúsculas y eliminar espacios.\n  const reversedCadena = cadenaMinuscula.split('').reverse().join(''); // Invertir la cadena.\n\n  return cadenaMinuscula === reversedCadena; // Comparar la cadena original con la invertida.\n}\n```",
+    "b1_response": "```javascript\n/**\n * Verifica si una cadena es un palíndromo.\n *\n * @param {string} cadena La cadena a verificar.\n * @returns {boolean} True si la cadena es un palíndromo, false en caso contrario.\n */\nfunction esPalindromo(cadena) {\n  if (typeof cadena !== 'string') {\n    return false; // Manejar casos inválidos: no es una cadena.\n  }\n\n  const cadenaMinuscula = cadena.toLowerCase().replace(/\\s/g, ''); // Convertir a minúsculas y eliminar espacios.\n  const reversedCadena = cadenaMinuscula.split('').reverse().join(''); // Invertir la cadena.\n\n  return cadenaMinuscula === reversedCadena; // Comparar la cadena original con la invertida.\n}\n```",
+    "evaluation": {
+      "dimensions": {
+        "correctness": 4,
+        "instruction": 4,
+        "relevance": 4,
+        "completeness": 4,
+        "hallucination": 4,
+        "format_safety": 4
+      },
+      "dimension_sum": 24,
+      "score_normalized": 100.0,
+      "label": "PASS",
+      "error_codes": [],
+      "is_hallucinating": false,
+      "is_false_confidence": false
+    },
+    "is_false_confidence": false,
+    "telemetry": {
+      "time_b0": 6.1,
+      "time_b1": 6.07,
+      "latency_delta": -0.03,
+      "tokens_b1": 88,
+      "tok_per_sec": 14.5,
+      "ram_available_mb": 6145,
+      "vram_free_mb": 326
+    }
+  }
+]

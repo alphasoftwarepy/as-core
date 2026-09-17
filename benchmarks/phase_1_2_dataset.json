@@ -1,0 +1,145 @@
+{
+  "dataset_id": "as-core-phase-1.2-capability-evidence-v1",
+  "language": "es",
+  "policy": {
+    "pass": "all objective checks pass",
+    "partial": "at least one objective check passes and no fatal check fails",
+    "fail": "no checks pass or a fatal check fails",
+    "blocked": "the case cannot execute safely or returns a technical error"
+  },
+  "baseline_properties": [
+    "instruction_following",
+    "general_language_response"
+  ],
+  "cases": [
+    {
+      "id": "SUM-01",
+      "capability": "summarization",
+      "input": "Resume el siguiente informe en exactamente tres viñetas, sin agregar datos: En agosto, Acme facturó USD 120000 y tuvo gastos por USD 90000. Las facturas vencidas aumentaron de 8 a 14. La prioridad de septiembre es reducir la demora de cobro.",
+      "max_tokens": 128,
+      "checks": [
+        {"type": "bullet_count", "value": 3, "fatal": true},
+        {"type": "contains_ci", "value": "120000"},
+        {"type": "contains_ci", "value": "90000"},
+        {"type": "contains_ci", "value": "14"},
+        {"type": "contains_ci", "value": "cobro"}
+      ]
+    },
+    {
+      "id": "SUM-02",
+      "capability": "summarization",
+      "input": "Resume en no más de 35 palabras conservando responsable, fecha y bloqueo: Lucía debe entregar el plan de migración el 30 de septiembre. El único bloqueo confirmado es la falta de acceso a la API del proveedor.",
+      "max_tokens": 96,
+      "checks": [
+        {"type": "max_words", "value": 35, "fatal": true},
+        {"type": "contains_ci", "value": "Lucía"},
+        {"type": "contains_ci", "value": "30 de septiembre"},
+        {"type": "contains_ci", "value": "API"},
+        {"type": "contains_ci", "value": "proveedor"},
+        {"type": "not_contains_ci", "value": "[", "fatal": true}
+      ]
+    },
+    {
+      "id": "EXT-01",
+      "capability": "structured_extraction",
+      "input": "Extrae la factura como JSON válido y responde solamente el objeto JSON, sin markdown: Factura F-204; total USD 1275.50; vence 2026-10-05; estado: pendiente, todavía no vencida. Campos exactos: invoice_id, total, currency, due_date, overdue.",
+      "max_tokens": 128,
+      "checks": [
+        {"type": "json_valid", "fatal": true},
+        {"type": "json_field", "path": "invoice_id", "value": "F-204"},
+        {"type": "json_field", "path": "total", "value": 1275.5},
+        {"type": "json_field", "path": "currency", "value": "USD"},
+        {"type": "json_field", "path": "due_date", "value": "2026-10-05"},
+        {"type": "json_field", "path": "overdue", "value": false}
+      ]
+    },
+    {
+      "id": "EXT-02",
+      "capability": "structured_extraction",
+      "input": "Devuelve solamente un array JSON válido con objetos que tengan exactamente name, email y risk, ordenados primero HIGH y luego LOW. Texto: Marta Ruiz <marta@example.com> tiene riesgo LOW. Diego Sol <diego@example.com> tiene riesgo HIGH.",
+      "max_tokens": 160,
+      "checks": [
+        {"type": "json_valid", "fatal": true},
+        {"type": "json_array_exact", "value": [{"name": "Diego Sol", "email": "diego@example.com", "risk": "HIGH"}, {"name": "Marta Ruiz", "email": "marta@example.com", "risk": "LOW"}]}
+      ]
+    },
+    {
+      "id": "GRD-01",
+      "capability": "grounded_answering",
+      "input": "Usa solo este contexto. Si la respuesta no aparece, responde NO CONSTA. Contexto: El código de desbloqueo del proyecto AS-Core es NEBULA-9988. Pregunta: ¿Cuál es el código de desbloqueo? Responde solamente el código.",
+      "max_tokens": 48,
+      "checks": [
+        {"type": "exact", "value": "NEBULA-9988", "fatal": true}
+      ]
+    },
+    {
+      "id": "GRD-02",
+      "capability": "grounded_answering",
+      "input": "Usa únicamente estas relaciones: Alba gestiona Beta. Beta suministra a Gamma. Nora gestiona Delta. Pregunta: ¿Quién gestiona la organización que suministra a Gamma? Responde exactamente: NOMBRE > ORGANIZACIÓN > Gamma.",
+      "max_tokens": 64,
+      "checks": [
+        {"type": "exact", "value": "Alba > Beta > Gamma", "fatal": true}
+      ]
+    },
+    {
+      "id": "REA-01",
+      "capability": "constraint_reasoning",
+      "input": "Tres tareas deben ordenarse: Ana antes que Bruno; Carla después de Bruno. Devuelve únicamente la secuencia con este formato: Ana > Bruno > Carla.",
+      "max_tokens": 48,
+      "checks": [
+        {"type": "exact", "value": "Ana > Bruno > Carla", "fatal": true}
+      ]
+    },
+    {
+      "id": "REA-02",
+      "capability": "constraint_reasoning",
+      "input": "Elige el único proveedor que cumple todo. A cuesta 900 y entrega en 12 días. B cuesta 1100 y entrega en 7 días. C cuesta 1400 y entrega en 5 días. Requisitos: presupuesto máximo 1200 y entrega máxima 8 días. Responde únicamente PROVEEDOR X.",
+      "max_tokens": 48,
+      "checks": [
+        {"type": "exact", "value": "PROVEEDOR B", "fatal": true}
+      ]
+    },
+    {
+      "id": "COD-01",
+      "capability": "code_generation",
+      "input": "Escribe solamente código Python para una función normalize_emails(emails). Debe quitar espacios, convertir a minúsculas, eliminar duplicados y conservar el orden de primera aparición. No uses imports.",
+      "max_tokens": 192,
+      "checks": [
+        {"type": "python_ast", "function": "normalize_emails", "fatal": true},
+        {"type": "contains_ci", "value": ".strip("},
+        {"type": "contains_ci", "value": ".lower("}
+      ]
+    },
+    {
+      "id": "COD-02",
+      "capability": "code_generation",
+      "input": "Responde solamente con una consulta SQL. Tabla payments(customer_id, amount, status). Devuelve customer_id y SUM(amount) AS total_paid para pagos con status='paid'; agrupa por cliente; conserva solo totales >= 10000; ordena total_paid descendente.",
+      "max_tokens": 128,
+      "checks": [
+        {"type": "sql_contract"},
+        {"type": "sql_only", "fatal": true}
+      ]
+    },
+    {
+      "id": "TOL-01",
+      "capability": "tool_protocol",
+      "input": "Emite solamente JSON válido para solicitar una herramienta. Usa exactamente este contrato: capability, action, params. Solicitud: listar documentos de /ventas. Valores requeridos: capability=documents, action=list, params.path=/ventas.",
+      "max_tokens": 96,
+      "checks": [
+        {"type": "json_valid", "fatal": true},
+        {"type": "json_field", "path": "capability", "value": "documents"},
+        {"type": "json_field", "path": "action", "value": "list"},
+        {"type": "json_field", "path": "params.path", "value": "/ventas"}
+      ]
+    },
+    {
+      "id": "TOL-02",
+      "capability": "tool_protocol",
+      "input": "Para consultar el clima se necesita city, pero el usuario no indicó ninguna ciudad. No inventes datos ni emitas una llamada. Responde exactamente: NEEDS_INPUT: city",
+      "max_tokens": 48,
+      "checks": [
+        {"type": "exact", "value": "NEEDS_INPUT: city", "fatal": true}
+      ]
+    }
+  ]
+}

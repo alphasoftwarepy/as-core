@@ -1,0 +1,962 @@
+{
+  "schema_version": 1,
+  "dataset_id": "as-core-phase-1.2-capability-evidence-v1",
+  "timestamp_utc": "2026-09-17T01:18:27.408906+00:00",
+  "router_audit": [
+    {
+      "id": "SUM-01",
+      "capability": "summarization",
+      "router_result": "chat"
+    },
+    {
+      "id": "SUM-02",
+      "capability": "summarization",
+      "router_result": "code"
+    },
+    {
+      "id": "EXT-01",
+      "capability": "structured_extraction",
+      "router_result": "code"
+    },
+    {
+      "id": "EXT-02",
+      "capability": "structured_extraction",
+      "router_result": "code"
+    },
+    {
+      "id": "GRD-01",
+      "capability": "grounded_answering",
+      "router_result": "chat"
+    },
+    {
+      "id": "GRD-02",
+      "capability": "grounded_answering",
+      "router_result": "chat"
+    },
+    {
+      "id": "REA-01",
+      "capability": "constraint_reasoning",
+      "router_result": "chat"
+    },
+    {
+      "id": "REA-02",
+      "capability": "constraint_reasoning",
+      "router_result": "chat"
+    },
+    {
+      "id": "COD-01",
+      "capability": "code_generation",
+      "router_result": "code"
+    },
+    {
+      "id": "COD-02",
+      "capability": "code_generation",
+      "router_result": "chat"
+    },
+    {
+      "id": "TOL-01",
+      "capability": "tool_protocol",
+      "router_result": "code"
+    },
+    {
+      "id": "TOL-02",
+      "capability": "tool_protocol",
+      "router_result": "chat"
+    }
+  ],
+  "model_evidence": {
+    "model_key": "qwen",
+    "model_id": "audit-qwen",
+    "physical_name": "Qwen1.5-MoE-A2.7B Q4_K_M",
+    "physical_path": "D:\\as-core\\moe_poc\\models\\qwen1.5-moe-a2.7b-q4_k_m.gguf",
+    "provider": "llamacpp",
+    "machine_before_suite": {
+      "vram_free_mb": 3935,
+      "ram_available_mb": 8857,
+      "gpu": "NVIDIA GeForce GTX 1650 Ti",
+      "vram_total_mb": 4096,
+      "vram_used_mb": 0,
+      "vram_free_mb_nvidia": 3935,
+      "driver": "595.71"
+    },
+    "machine_after_suite": {
+      "vram_free_mb": 3935,
+      "ram_available_mb": 10304,
+      "gpu": "NVIDIA GeForce GTX 1650 Ti",
+      "vram_total_mb": 4096,
+      "vram_used_mb": 0,
+      "vram_free_mb_nvidia": 3935,
+      "driver": "595.71"
+    },
+    "cases": [
+      {
+        "id": "SUM-01",
+        "capability": "summarization",
+        "state": "cold",
+        "response": "Assistant: Acme's August revenue was USD 120,000, with expenses of USD 90,000. Facturas vencidas increased from 8 to 14. The priority for September is to reduce the delay in payment.",
+        "finish_reason": null,
+        "evaluation": {
+          "status": "FAIL",
+          "checks_passed": 1,
+          "checks_total": 5,
+          "evidence": [
+            {
+              "check": {
+                "type": "bullet_count",
+                "value": 3,
+                "fatal": true
+              },
+              "passed": false,
+              "detail": "bullet_count: FAIL"
+            },
+            {
+              "check": {
+                "type": "contains_ci",
+                "value": "120000"
+              },
+              "passed": false,
+              "detail": "contains_ci: FAIL"
+            },
+            {
+              "check": {
+                "type": "contains_ci",
+                "value": "90000"
+              },
+              "passed": false,
+              "detail": "contains_ci: FAIL"
+            },
+            {
+              "check": {
+                "type": "contains_ci",
+                "value": "14"
+              },
+              "passed": true,
+              "detail": "contains_ci: PASS"
+            },
+            {
+              "check": {
+                "type": "contains_ci",
+                "value": "cobro"
+              },
+              "passed": false,
+              "detail": "contains_ci: FAIL"
+            }
+          ]
+        },
+        "operational": {
+          "ttft_ms": 110279.87,
+          "elapsed_ms": 115995.65,
+          "provider_metrics": {
+            "backend": "llamacpp",
+            "model_id": "audit-qwen",
+            "process_pid": 28188,
+            "server_port": 8892,
+            "loaded": true,
+            "uptime_seconds": 115.58,
+            "last_error": null,
+            "generation_count": 1,
+            "last_tok_s": 0.94,
+            "last_ttft_ms": 54175.13
+          },
+          "before": {
+            "vram_free_mb": 3935,
+            "ram_available_mb": 8864,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 0,
+            "vram_free_mb_nvidia": 3935,
+            "driver": "595.71"
+          },
+          "during_or_immediately_after": {
+            "vram_free_mb": 31,
+            "ram_available_mb": 686,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3905,
+            "vram_free_mb_nvidia": 31,
+            "driver": "595.71"
+          }
+        }
+      },
+      {
+        "id": "SUM-02",
+        "capability": "summarization",
+        "state": "warm",
+        "response": "Lucía must deliver the migration plan by September 30. The only confirmed block is the lack of access to the provider's API.",
+        "finish_reason": null,
+        "evaluation": {
+          "status": "PARTIAL",
+          "checks_passed": 4,
+          "checks_total": 6,
+          "evidence": [
+            {
+              "check": {
+                "type": "max_words",
+                "value": 35,
+                "fatal": true
+              },
+              "passed": true,
+              "detail": "max_words: PASS"
+            },
+            {
+              "check": {
+                "type": "contains_ci",
+                "value": "Lucía"
+              },
+              "passed": true,
+              "detail": "contains_ci: PASS"
+            },
+            {
+              "check": {
+                "type": "contains_ci",
+                "value": "30 de septiembre"
+              },
+              "passed": false,
+              "detail": "contains_ci: FAIL"
+            },
+            {
+              "check": {
+                "type": "contains_ci",
+                "value": "API"
+              },
+              "passed": true,
+              "detail": "contains_ci: PASS"
+            },
+            {
+              "check": {
+                "type": "contains_ci",
+                "value": "proveedor"
+              },
+              "passed": false,
+              "detail": "contains_ci: FAIL"
+            },
+            {
+              "check": {
+                "type": "not_contains_ci",
+                "value": "[",
+                "fatal": true
+              },
+              "passed": true,
+              "detail": "not_contains_ci: PASS"
+            }
+          ]
+        },
+        "operational": {
+          "ttft_ms": 2313.31,
+          "elapsed_ms": 3560.0,
+          "provider_metrics": {
+            "backend": "llamacpp",
+            "model_id": "audit-qwen",
+            "process_pid": 28188,
+            "server_port": 8892,
+            "loaded": true,
+            "uptime_seconds": 119.33,
+            "last_error": null,
+            "generation_count": 2,
+            "last_tok_s": 7.96,
+            "last_ttft_ms": 2272.03
+          },
+          "before": {
+            "vram_free_mb": 31,
+            "ram_available_mb": 688,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3905,
+            "vram_free_mb_nvidia": 31,
+            "driver": "595.71"
+          },
+          "during_or_immediately_after": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 661,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          }
+        }
+      },
+      {
+        "id": "EXT-01",
+        "capability": "structured_extraction",
+        "state": "warm",
+        "response": "You are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are",
+        "finish_reason": null,
+        "evaluation": {
+          "status": "FAIL",
+          "checks_passed": 0,
+          "checks_total": 6,
+          "evidence": [
+            {
+              "check": {
+                "type": "json_valid",
+                "fatal": true
+              },
+              "passed": false,
+              "detail": "json_valid: JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+            },
+            {
+              "check": {
+                "type": "json_field",
+                "path": "invoice_id",
+                "value": "F-204"
+              },
+              "passed": false,
+              "detail": "json_field: JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+            },
+            {
+              "check": {
+                "type": "json_field",
+                "path": "total",
+                "value": 1275.5
+              },
+              "passed": false,
+              "detail": "json_field: JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+            },
+            {
+              "check": {
+                "type": "json_field",
+                "path": "currency",
+                "value": "USD"
+              },
+              "passed": false,
+              "detail": "json_field: JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+            },
+            {
+              "check": {
+                "type": "json_field",
+                "path": "due_date",
+                "value": "2026-10-05"
+              },
+              "passed": false,
+              "detail": "json_field: JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+            },
+            {
+              "check": {
+                "type": "json_field",
+                "path": "overdue",
+                "value": false
+              },
+              "passed": false,
+              "detail": "json_field: JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+            }
+          ]
+        },
+        "operational": {
+          "ttft_ms": 2658.21,
+          "elapsed_ms": 9304.27,
+          "provider_metrics": {
+            "backend": "llamacpp",
+            "model_id": "audit-qwen",
+            "process_pid": 28188,
+            "server_port": 8892,
+            "loaded": true,
+            "uptime_seconds": 128.83,
+            "last_error": null,
+            "generation_count": 3,
+            "last_tok_s": 13.76,
+            "last_ttft_ms": 2655.73
+          },
+          "before": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 661,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          },
+          "during_or_immediately_after": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 605,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          }
+        }
+      },
+      {
+        "id": "EXT-02",
+        "capability": "structured_extraction",
+        "state": "warm",
+        "response": "You are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful",
+        "finish_reason": null,
+        "evaluation": {
+          "status": "FAIL",
+          "checks_passed": 0,
+          "checks_total": 2,
+          "evidence": [
+            {
+              "check": {
+                "type": "json_valid",
+                "fatal": true
+              },
+              "passed": false,
+              "detail": "json_valid: JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+            },
+            {
+              "check": {
+                "type": "json_array_exact",
+                "value": [
+                  {
+                    "name": "Diego Sol",
+                    "email": "diego@example.com",
+                    "risk": "HIGH"
+                  },
+                  {
+                    "name": "Marta Ruiz",
+                    "email": "marta@example.com",
+                    "risk": "LOW"
+                  }
+                ]
+              },
+              "passed": false,
+              "detail": "json_array_exact: JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+            }
+          ]
+        },
+        "operational": {
+          "ttft_ms": 2231.69,
+          "elapsed_ms": 10471.75,
+          "provider_metrics": {
+            "backend": "llamacpp",
+            "model_id": "audit-qwen",
+            "process_pid": 28188,
+            "server_port": 8892,
+            "loaded": true,
+            "uptime_seconds": 139.48,
+            "last_error": null,
+            "generation_count": 4,
+            "last_tok_s": 15.34,
+            "last_ttft_ms": 2190.59
+          },
+          "before": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 610,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          },
+          "during_or_immediately_after": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 562,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          }
+        }
+      },
+      {
+        "id": "GRD-01",
+        "capability": "grounded_answering",
+        "state": "warm",
+        "response": "The code for unlocking the AS-Core project is NEBULA-9988.",
+        "finish_reason": null,
+        "evaluation": {
+          "status": "FAIL",
+          "checks_passed": 0,
+          "checks_total": 1,
+          "evidence": [
+            {
+              "check": {
+                "type": "exact",
+                "value": "NEBULA-9988",
+                "fatal": true
+              },
+              "passed": false,
+              "detail": "exact: FAIL"
+            }
+          ]
+        },
+        "operational": {
+          "ttft_ms": 2503.99,
+          "elapsed_ms": 3303.38,
+          "provider_metrics": {
+            "backend": "llamacpp",
+            "model_id": "audit-qwen",
+            "process_pid": 28188,
+            "server_port": 8892,
+            "loaded": true,
+            "uptime_seconds": 142.96,
+            "last_error": null,
+            "generation_count": 5,
+            "last_tok_s": 5.52,
+            "last_ttft_ms": 2462.27
+          },
+          "before": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 562,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          },
+          "during_or_immediately_after": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 512,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          }
+        }
+      },
+      {
+        "id": "GRD-02",
+        "capability": "grounded_answering",
+        "state": "warm",
+        "response": "You are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful",
+        "finish_reason": null,
+        "evaluation": {
+          "status": "FAIL",
+          "checks_passed": 0,
+          "checks_total": 1,
+          "evidence": [
+            {
+              "check": {
+                "type": "exact",
+                "value": "Alba > Beta > Gamma",
+                "fatal": true
+              },
+              "passed": false,
+              "detail": "exact: FAIL"
+            }
+          ]
+        },
+        "operational": {
+          "ttft_ms": 1926.23,
+          "elapsed_ms": 4845.38,
+          "provider_metrics": {
+            "backend": "llamacpp",
+            "model_id": "audit-qwen",
+            "process_pid": 28188,
+            "server_port": 8892,
+            "loaded": true,
+            "uptime_seconds": 148.0,
+            "last_error": null,
+            "generation_count": 6,
+            "last_tok_s": 13.21,
+            "last_ttft_ms": 1923.98
+          },
+          "before": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 512,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          },
+          "during_or_immediately_after": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 498,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          }
+        }
+      },
+      {
+        "id": "REA-01",
+        "capability": "constraint_reasoning",
+        "state": "warm",
+        "response": "You are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\n",
+        "finish_reason": null,
+        "evaluation": {
+          "status": "FAIL",
+          "checks_passed": 0,
+          "checks_total": 1,
+          "evidence": [
+            {
+              "check": {
+                "type": "exact",
+                "value": "Ana > Bruno > Carla",
+                "fatal": true
+              },
+              "passed": false,
+              "detail": "exact: FAIL"
+            }
+          ]
+        },
+        "operational": {
+          "ttft_ms": 1714.68,
+          "elapsed_ms": 3882.11,
+          "provider_metrics": {
+            "backend": "llamacpp",
+            "model_id": "audit-qwen",
+            "process_pid": 28188,
+            "server_port": 8892,
+            "loaded": true,
+            "uptime_seconds": 152.06,
+            "last_error": null,
+            "generation_count": 7,
+            "last_tok_s": 12.37,
+            "last_ttft_ms": 1712.86
+          },
+          "before": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 499,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          },
+          "during_or_immediately_after": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 482,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          }
+        }
+      },
+      {
+        "id": "REA-02",
+        "capability": "constraint_reasoning",
+        "state": "warm",
+        "response": "You are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\n",
+        "finish_reason": null,
+        "evaluation": {
+          "status": "FAIL",
+          "checks_passed": 0,
+          "checks_total": 1,
+          "evidence": [
+            {
+              "check": {
+                "type": "exact",
+                "value": "PROVEEDOR B",
+                "fatal": true
+              },
+              "passed": false,
+              "detail": "exact: FAIL"
+            }
+          ]
+        },
+        "operational": {
+          "ttft_ms": 2743.53,
+          "elapsed_ms": 4844.37,
+          "provider_metrics": {
+            "backend": "llamacpp",
+            "model_id": "audit-qwen",
+            "process_pid": 28188,
+            "server_port": 8892,
+            "loaded": true,
+            "uptime_seconds": 157.1,
+            "last_error": null,
+            "generation_count": 8,
+            "last_tok_s": 9.91,
+            "last_ttft_ms": 2741.54
+          },
+          "before": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 483,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          },
+          "during_or_immediately_after": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 445,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          }
+        }
+      },
+      {
+        "id": "COD-01",
+        "capability": "code_generation",
+        "state": "warm",
+        "response": "def normalize_emails(emails):\n    # Remove spaces\n    emails = [email.replace(' ', '') for email in emails]\n    \n    # Convert to lowercase\n    emails = [email.lower() for email in emails]\n    \n    # Remove duplicates\n    emails = list(set(emails))\n    \n    # Return the list of normalized emails in the order of first appearance\n    return emails",
+        "finish_reason": null,
+        "evaluation": {
+          "status": "FAIL",
+          "checks_passed": 1,
+          "checks_total": 3,
+          "evidence": [
+            {
+              "check": {
+                "type": "python_ast",
+                "function": "normalize_emails",
+                "fatal": true
+              },
+              "passed": false,
+              "detail": "python_ast: FAIL"
+            },
+            {
+              "check": {
+                "type": "contains_ci",
+                "value": ".strip("
+              },
+              "passed": false,
+              "detail": "contains_ci: FAIL"
+            },
+            {
+              "check": {
+                "type": "contains_ci",
+                "value": ".lower("
+              },
+              "passed": true,
+              "detail": "contains_ci: PASS"
+            }
+          ]
+        },
+        "operational": {
+          "ttft_ms": 2131.15,
+          "elapsed_ms": 5756.61,
+          "provider_metrics": {
+            "backend": "llamacpp",
+            "model_id": "audit-qwen",
+            "process_pid": 28188,
+            "server_port": 8892,
+            "loaded": true,
+            "uptime_seconds": 163.04,
+            "last_error": null,
+            "generation_count": 9,
+            "last_tok_s": 13.47,
+            "last_ttft_ms": 2090.73
+          },
+          "before": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 445,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          },
+          "during_or_immediately_after": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 419,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          }
+        }
+      },
+      {
+        "id": "COD-02",
+        "capability": "code_generation",
+        "state": "warm",
+        "response": "SELECT customer_id, SUM(amount) AS total_paid\nFROM payments\nWHERE status = 'paid'\nGROUP BY customer_id\nHAVING total_paid >= 10000\nORDER BY total_paid DESC",
+        "finish_reason": null,
+        "evaluation": {
+          "status": "PASS",
+          "checks_passed": 2,
+          "checks_total": 2,
+          "evidence": [
+            {
+              "check": {
+                "type": "sql_contract"
+              },
+              "passed": true,
+              "detail": "sql_contract: PASS"
+            },
+            {
+              "check": {
+                "type": "sql_only",
+                "fatal": true
+              },
+              "passed": true,
+              "detail": "sql_only: PASS"
+            }
+          ]
+        },
+        "operational": {
+          "ttft_ms": 2449.3,
+          "elapsed_ms": 4324.71,
+          "provider_metrics": {
+            "backend": "llamacpp",
+            "model_id": "audit-qwen",
+            "process_pid": 28188,
+            "server_port": 8892,
+            "loaded": true,
+            "uptime_seconds": 167.55,
+            "last_error": null,
+            "generation_count": 10,
+            "last_tok_s": 9.81,
+            "last_ttft_ms": 2407.52
+          },
+          "before": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 419,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          },
+          "during_or_immediately_after": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 412,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          }
+        }
+      },
+      {
+        "id": "TOL-01",
+        "capability": "tool_protocol",
+        "state": "warm",
+        "response": "{\n  \"action\": \"list\",\n  \"path\": \"/ventas\",\n  \"capability\": \"documents\"\n}\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou",
+        "finish_reason": null,
+        "evaluation": {
+          "status": "FAIL",
+          "checks_passed": 0,
+          "checks_total": 4,
+          "evidence": [
+            {
+              "check": {
+                "type": "json_valid",
+                "fatal": true
+              },
+              "passed": false,
+              "detail": "json_valid: JSONDecodeError: Extra data: line 6 column 1 (char 73)"
+            },
+            {
+              "check": {
+                "type": "json_field",
+                "path": "capability",
+                "value": "documents"
+              },
+              "passed": false,
+              "detail": "json_field: JSONDecodeError: Extra data: line 6 column 1 (char 73)"
+            },
+            {
+              "check": {
+                "type": "json_field",
+                "path": "action",
+                "value": "list"
+              },
+              "passed": false,
+              "detail": "json_field: JSONDecodeError: Extra data: line 6 column 1 (char 73)"
+            },
+            {
+              "check": {
+                "type": "json_field",
+                "path": "params.path",
+                "value": "/ventas"
+              },
+              "passed": false,
+              "detail": "json_field: JSONDecodeError: Extra data: line 6 column 1 (char 73)"
+            }
+          ]
+        },
+        "operational": {
+          "ttft_ms": 2028.43,
+          "elapsed_ms": 6751.71,
+          "provider_metrics": {
+            "backend": "llamacpp",
+            "model_id": "audit-qwen",
+            "process_pid": 28188,
+            "server_port": 8892,
+            "loaded": true,
+            "uptime_seconds": 174.48,
+            "last_error": null,
+            "generation_count": 11,
+            "last_tok_s": 14.27,
+            "last_ttft_ms": 2005.14
+          },
+          "before": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 412,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          },
+          "during_or_immediately_after": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 418,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          }
+        }
+      },
+      {
+        "id": "TOL-02",
+        "capability": "tool_protocol",
+        "state": "warm",
+        "response": "You are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\nYou are a helpful assistant\n",
+        "finish_reason": null,
+        "evaluation": {
+          "status": "FAIL",
+          "checks_passed": 0,
+          "checks_total": 1,
+          "evidence": [
+            {
+              "check": {
+                "type": "exact",
+                "value": "NEEDS_INPUT: city",
+                "fatal": true
+              },
+              "passed": false,
+              "detail": "exact: FAIL"
+            }
+          ]
+        },
+        "operational": {
+          "ttft_ms": 1811.06,
+          "elapsed_ms": 3914.0,
+          "provider_metrics": {
+            "backend": "llamacpp",
+            "model_id": "audit-qwen",
+            "process_pid": 28188,
+            "server_port": 8892,
+            "loaded": true,
+            "uptime_seconds": 178.57,
+            "last_error": null,
+            "generation_count": 12,
+            "last_tok_s": 12.4,
+            "last_ttft_ms": 1768.9
+          },
+          "before": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 426,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          },
+          "during_or_immediately_after": {
+            "vram_free_mb": 29,
+            "ram_available_mb": 377,
+            "gpu": "NVIDIA GeForce GTX 1650 Ti",
+            "vram_total_mb": 4096,
+            "vram_used_mb": 3907,
+            "vram_free_mb_nvidia": 29,
+            "driver": "595.71"
+          }
+        }
+      }
+    ]
+  },
+  "evaluation_recomputed_utc": "2026-09-17T01:26:01.714840+00:00"
+}
