@@ -50,23 +50,20 @@ class RuntimeCoordinator:
         # Priority order:
         #   (a) Manually activated skill (e.g. from header X-Skill)
         #   (b) Persistent workflow skill in Working Memory (wf_skill)
-        #   (c) Top inferred skill from user message intent
+        # Note (Fase 2.1S): first_inferred is advisory-only (used for suggestions).
         current_state = load_workflow_state(db, session_id)
         
         resolved_skill = manual_skill
-        if not resolved_skill:
-            if first_inferred:
-                resolved_skill = first_inferred
-            elif current_state.active_skill:
-                wf_resolver = WorkflowContinuationResolver()
-                if wf_resolver.resolve(
-                    user_message=user_message,
-                    current_state=current_state,
-                    inferred_skill=first_inferred,
-                    manual_skill=manual_skill,
-                    session_id=session_id,
-                ):
-                    resolved_skill = current_state.active_skill
+        if not resolved_skill and current_state.active_skill:
+            wf_resolver = WorkflowContinuationResolver()
+            if wf_resolver.resolve(
+                user_message=user_message,
+                current_state=current_state,
+                inferred_skill=first_inferred,
+                manual_skill=manual_skill,
+                session_id=session_id,
+            ):
+                resolved_skill = current_state.active_skill
 
         # 5. Update workflow state transitions
         workflow_state = update_workflow(db, session_id, user_message, resolved_skill)
@@ -180,21 +177,23 @@ class PureCoordinator:
         first_inferred = inferred_skills[0] if inferred_skills else None
 
         # 2. Resolve skill and workflow state
+        # Priority order:
+        #   (a) Explicit manual skill (e.g. from contract.manual_skill)
+        #   (b) Valid active workflow continuation
+        # Note (Fase 2.1S): first_inferred is advisory-only (used for suggestions),
+        #       it has NO authority to hijack resolved_skill in normal chat.
         current_state = load_workflow_state(db, contract.session_id)
         resolved_skill = contract.manual_skill
-        if not resolved_skill:
-            if first_inferred:
-                resolved_skill = first_inferred
-            elif current_state.active_skill:
-                wf_resolver = WorkflowContinuationResolver()
-                if wf_resolver.resolve(
-                    user_message=contract.user_message,
-                    current_state=current_state,
-                    inferred_skill=first_inferred,
-                    manual_skill=contract.manual_skill,
-                    session_id=contract.session_id,
-                ):
-                    resolved_skill = current_state.active_skill
+        if not resolved_skill and current_state.active_skill:
+            wf_resolver = WorkflowContinuationResolver()
+            if wf_resolver.resolve(
+                user_message=contract.user_message,
+                current_state=current_state,
+                inferred_skill=first_inferred,
+                manual_skill=contract.manual_skill,
+                session_id=contract.session_id,
+            ):
+                resolved_skill = current_state.active_skill
 
         logger.info(
             f"[SKILL-TRACE] skill resolver: "
@@ -240,7 +239,7 @@ class PureCoordinator:
 
         root_prompt = resolve_root_prompt(lang, prompt_family)
 
-        system_prompt = f"[LANG={lang}]\n{root_prompt}"
+        system_prompt = root_prompt
 
         # 7. Inject Skill Prompt
         if resolved_skill and skill_service:

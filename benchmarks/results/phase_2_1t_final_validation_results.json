@@ -1,0 +1,364 @@
+{
+  "reduction_set_ids": [
+    "FACT-01",
+    "FACT-02",
+    "GEN-07",
+    "BIZ-05",
+    "MKT-01",
+    "RSN-03",
+    "DATA-01",
+    "PROG-01",
+    "WRIT-01",
+    "OFF-03",
+    "BIZ-04"
+  ],
+  "summary": {
+    "quality_score": 83.71,
+    "avg_latency_sec": 8.67,
+    "avg_context_tokens": 63.0,
+    "avg_output_tokens": 150.1,
+    "avg_instruction_score": 3.45,
+    "false_confidence_count": 3,
+    "language_drift_count": 0,
+    "tag_leakage_count": 0
+  },
+  "cases": {
+    "FACT-01": {
+      "response": "Aquí tienes la lista de los 17 departamentos de Paraguay y su capital:\n\n1.  **Alto Paraná:** Ciudad del Este\n2.  **Amambay:** Mandiyú\n3.  **Asunción:** Asunción\n4.  **Boquerón:** Puerto Pilín\n5.  **Büenvita:** Concepción\n6.  **Chapelín:** Trinidad\n7.  **Chaco:** Formón\n8.  **Chimalay:** San Miguel del Oeste\n9.  **Departamento de Departamento:** Departamento de Departamento\n10. **Departamento de Itaipu:** Departamento de Itaipu\n11. **Departamento de Jamaracán:** Departamento de Jamaracán\n12. **Departamento de Jesús de Jesús:** Departamento de Jesús de Jesús\n13. **Departamento de Libertad:** Departamento de Libertad\n14. **Departamento de Luque:** Departamento de Luque\n15. **Departamento de Magna:** Departamento de Magna\n16. **Departamento de Meso:** Departamento de Meso\n17. **Departamento de Pilcomayo:** Departamento de Pilcomayo\n\nEs importante notar que el Departamento de Departamento es un departamento administrativo en Paraguay, pero no tiene una capital definida.",
+      "score": 91.7,
+      "evaluation": {
+        "dimensions": {
+          "correctness": 4,
+          "instruction": 4,
+          "relevance": 4,
+          "completeness": 2,
+          "hallucination": 4,
+          "format_safety": 4
+        },
+        "dimension_sum": 22,
+        "score_normalized": 91.7,
+        "label": "PASS",
+        "error_codes": [],
+        "is_hallucinating": false,
+        "is_false_confidence": false
+      },
+      "latency_sec": 12.16,
+      "output_tokens": 131,
+      "context_tokens": 63,
+      "is_false_confidence": false,
+      "language_drift": false,
+      "tag_leakage": false,
+      "hallucination": 4,
+      "instruction": 4,
+      "active_physical_model": "litert_embedded::D:\\as-core\\models\\gemma\\gemma-3n-E2B-it-int4.litertlm"
+    },
+    "FACT-02": {
+      "response": "Las principales ciudades del Departamento Central de Paraguay son:\n\n1.  **Ciudad del Paraguay (Asunción):** Es la capital y la ciudad más grande del departamento. Es el centro político, económico y cultural del país.\n2.  **Bayanés:** Una ciudad importante en el departamento, conocida por su actividad comercial y agrícola.\n3.  **San Lorenzo:**  Una ciudad con una significativa población y actividad económica, especialmente en el sector industrial.\n4.  **Mandaparo:**  Una ciudad con una población considerable y una ubicación estratégica.\n5.  **Rolando:** Una ciudad con una población en crecimiento y actividad económica.\n\nEstas son solo algunas de las ciudades más importantes. El Departamento Central alberga una variedad de centros urbanos con diferentes características y roles dentro del departamento.\n",
+      "score": 87.5,
+      "evaluation": {
+        "dimensions": {
+          "correctness": 2,
+          "instruction": 4,
+          "relevance": 4,
+          "completeness": 3,
+          "hallucination": 4,
+          "format_safety": 4
+        },
+        "dimension_sum": 21,
+        "score_normalized": 87.5,
+        "label": "PARTIAL",
+        "error_codes": [
+          "E1 — FACTUAL INCOMPLETENESS"
+        ],
+        "is_hallucinating": false,
+        "is_false_confidence": true
+      },
+      "latency_sec": 5.41,
+      "output_tokens": 115,
+      "context_tokens": 63,
+      "is_false_confidence": true,
+      "language_drift": false,
+      "tag_leakage": false,
+      "hallucination": 4,
+      "instruction": 4,
+      "active_physical_model": "litert_embedded::D:\\as-core\\models\\gemma\\gemma-3n-E2B-it-int4.litertlm"
+    },
+    "GEN-07": {
+      "response": "La capital del estado soberano de San Veridia es **Veridia Ciudad**.\n\nLa moneda oficial de San Veridia es el **Veridia**.\n",
+      "score": 50.0,
+      "evaluation": {
+        "dimensions": {
+          "correctness": 0,
+          "instruction": 4,
+          "relevance": 4,
+          "completeness": 0,
+          "hallucination": 0,
+          "format_safety": 4
+        },
+        "dimension_sum": 12,
+        "score_normalized": 50.0,
+        "label": "CRITICAL FAIL",
+        "error_codes": [
+          "E2 — HALLUCINATION",
+          "E7 — OVERCONFIDENCE",
+          "E1 — FACTUAL INCOMPLETENESS"
+        ],
+        "is_hallucinating": true,
+        "is_false_confidence": true
+      },
+      "latency_sec": 1.41,
+      "output_tokens": 20,
+      "context_tokens": 63,
+      "is_false_confidence": true,
+      "language_drift": false,
+      "tag_leakage": false,
+      "hallucination": 0,
+      "instruction": 4,
+      "active_physical_model": "litert_embedded::D:\\as-core\\models\\gemma\\gemma-3n-E2B-it-int4.litertlm"
+    },
+    "BIZ-05": {
+      "response": "**Asunto:** Ampliación de Alcance - Funcionalidades Adicionales para [Nombre del Proyecto]\n\n**Cuerpo del correo:**\n\nEstimado/a [Nombre del Cliente],\n\nGracias por su interés en agregar las funcionalidades adicionales que mencionó a nuestro proyecto [Nombre del Proyecto]. Entendemos que estas nuevas características son importantes para alcanzar los objetivos deseados.\n\nHemos revisado cuidadosamente la solicitud y consideramos que estas funcionalidades representan una ampliación del alcance del proyecto original, tal como se definió en el contrato firmado el [Fecha del Contrato].  Aunque inicialmente no estaban contempladas, su inclusión ahora requiere una cotización separada para asegurar que podamos mantener la transparencia y la claridad en la gestión del proyecto.\n\nPara facilitar su comprensión, hemos elaborado una cotización detallada para cada una de las funcionalidades solicitadas:\n\n*   **Funcionalidad 1:** [Descripción breve de la funcionalidad 1] - Precio: [Precio]\n*   **Funcionalidad 2:** [Descripción breve de la funcionalidad 2] - Precio: [Precio]\n*   **Funcionalidad 3:** [Descripción breve de la funcionalidad 3] - Precio: [Precio]\n\nAdjunto a este correo encontrará la cotización completa con los detalles de cada funcionalidad, incluyendo el tiempo estimado de desarrollo y los recursos necesarios.\n\nLe agradeceríamos que revisara la cotización y nos confirmara su aprobación.  Una vez aprobada, procederemos a iniciar el desarrollo de las funcionalidades adicionales.\n\nEstamos comprometidos a entregar un proyecto exitoso y cumplimos con nuestros acuerdos originales.  Esta ampliación de alcance nos permitirá satisfacer sus necesidades de manera completa.\n\nSi tiene alguna pregunta o desea discutir la cotización con mayor detalle, no dude en ponerse en contacto conmigo.\n\nAtentamente,\n\n[Tu Nombre]\n[Tu Cargo]\n[Tu Empresa]\n",
+      "score": 79.2,
+      "evaluation": {
+        "dimensions": {
+          "correctness": 2,
+          "instruction": 4,
+          "relevance": 4,
+          "completeness": 1,
+          "hallucination": 4,
+          "format_safety": 4
+        },
+        "dimension_sum": 19,
+        "score_normalized": 79.2,
+        "label": "PARTIAL",
+        "error_codes": [
+          "E1 — FACTUAL INCOMPLETENESS"
+        ],
+        "is_hallucinating": false,
+        "is_false_confidence": false
+      },
+      "latency_sec": 12.0,
+      "output_tokens": 254,
+      "context_tokens": 63,
+      "is_false_confidence": false,
+      "language_drift": false,
+      "tag_leakage": false,
+      "hallucination": 4,
+      "instruction": 4,
+      "active_physical_model": "litert_embedded::D:\\as-core\\models\\gemma\\gemma-3n-E2B-it-int4.litertlm"
+    },
+    "MKT-01": {
+      "response": "Aquí tienes 3 propuestas de asuntos de correo para anunciar el lanzamiento de un curso online de finanzas personales, cumpliendo con la restricción de 7 palabras:\n\n1. **Finanzas Personales: ¡Empieza hoy a prosperar!**\n2. **Tu futuro financiero: Curso online disponible.**\n3. **Controla tu dinero: Curso de finanzas.**\n",
+      "score": 75.0,
+      "evaluation": {
+        "dimensions": {
+          "correctness": 2,
+          "instruction": 2,
+          "relevance": 4,
+          "completeness": 2,
+          "hallucination": 4,
+          "format_safety": 4
+        },
+        "dimension_sum": 18,
+        "score_normalized": 75.0,
+        "label": "PARTIAL",
+        "error_codes": [
+          "E3 — INSTRUCTION VIOLATION (Max 7 words exceeded)",
+          "E1 — FACTUAL INCOMPLETENESS"
+        ],
+        "is_hallucinating": false,
+        "is_false_confidence": true
+      },
+      "latency_sec": 2.83,
+      "output_tokens": 47,
+      "context_tokens": 63,
+      "is_false_confidence": false,
+      "language_drift": false,
+      "tag_leakage": false,
+      "hallucination": 4,
+      "instruction": 2,
+      "active_physical_model": "litert_embedded::D:\\as-core\\models\\gemma\\gemma-3n-E2B-it-int4.litertlm"
+    },
+    "RSN-03": {
+      "response": "Aquí está el análisis y la solución paso a paso:\n\n**Entendiendo el problema:**\n\n*   Tenemos un equipo de 4 personas que tardan 6 días en completar una obra.\n*   Queremos saber cuántos días tardará un equipo de 6 personas en completar la misma obra, manteniendo la misma productividad individual.\n\n**Pasos para la solución:**\n\n1.  **Calcula la cantidad de trabajo:** Si 4 personas tardan 6 días, el trabajo total es equivalente a 4 personas * 6 días = 24 personas-días.  Esto significa que la obra requiere 24 unidades de trabajo.\n\n2.  **Calcula la nueva cantidad de trabajo:** Si aumentamos el equipo a 6 personas, la nueva cantidad de trabajo es 6 personas * 6 días = 36 personas-días.\n\n3.  **Calcula el tiempo necesario:**  El tiempo necesario para completar la obra con 6 personas es el trabajo total dividido por la nueva cantidad de trabajo: 24 personas-días / 36 personas-días = 2/3 de día.\n\n**Respuesta:**\n\nCon 6 personas, tardarán 2/3 de día en completar la misma obra. Esto equivale a 2 horas y 40 minutos (aproximadamente).",
+      "score": 83.3,
+      "evaluation": {
+        "dimensions": {
+          "correctness": 2,
+          "instruction": 4,
+          "relevance": 4,
+          "completeness": 2,
+          "hallucination": 4,
+          "format_safety": 4
+        },
+        "dimension_sum": 20,
+        "score_normalized": 83.3,
+        "label": "PARTIAL",
+        "error_codes": [
+          "E5 — LOGIC ERROR (Inverse proportion)",
+          "E1 — FACTUAL INCOMPLETENESS"
+        ],
+        "is_hallucinating": false,
+        "is_false_confidence": true
+      },
+      "latency_sec": 8.87,
+      "output_tokens": 174,
+      "context_tokens": 63,
+      "is_false_confidence": true,
+      "language_drift": false,
+      "tag_leakage": false,
+      "hallucination": 4,
+      "instruction": 4,
+      "active_physical_model": "litert_embedded::D:\\as-core\\models\\gemma\\gemma-3n-E2B-it-int4.litertlm"
+    },
+    "DATA-01": {
+      "response": "Por favor, proporciona el texto del cual debo extraer la información. Necesito el texto para poder generar el objeto JSON solicitado. Una vez que lo proporciones, analizaré el texto y extraeré los valores correspondientes para las claves 'nombre', 'edad', 'ciudad' y 'profesion', y luego los convertiré en un objeto JSON válido.\n",
+      "score": 83.3,
+      "evaluation": {
+        "dimensions": {
+          "correctness": 4,
+          "instruction": 2,
+          "relevance": 4,
+          "completeness": 4,
+          "hallucination": 4,
+          "format_safety": 2
+        },
+        "dimension_sum": 20,
+        "score_normalized": 83.3,
+        "label": "PARTIAL",
+        "error_codes": [
+          "E4 — FORMAT FAILURE (Invalid JSON)"
+        ],
+        "is_hallucinating": false,
+        "is_false_confidence": false
+      },
+      "latency_sec": 2.69,
+      "output_tokens": 51,
+      "context_tokens": 63,
+      "is_false_confidence": false,
+      "language_drift": false,
+      "tag_leakage": false,
+      "hallucination": 4,
+      "instruction": 2,
+      "active_physical_model": "litert_embedded::D:\\as-core\\models\\gemma\\gemma-3n-E2B-it-int4.litertlm"
+    },
+    "PROG-01": {
+      "response": "```html\n<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Hola Mundo Centrado</title>\n  <style>\n    body {\n      margin: 0; /* Elimina márgenes predeterminados del body */\n      height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */\n      display: flex;\n      justify-content: center; /* Centra horizontalmente */\n      align-items: center; /* Centra verticalmente */\n      background-color: #f0f0f0; /* Añade un fondo suave */\n    }\n\n    h1 {\n      text-align: center; /* Centra el texto dentro del h1 */\n      font-size: 2em; /* Ajusta el tamaño de la fuente */\n      color: #333; /* Establece el color del texto */\n    }\n  </style>\n</head>\n<body>\n  <h1>Hola Mundo</h1>\n</body>\n</html>\n```\n\n**Explicación:**\n\n*   **`<!DOCTYPE html>`**: Declara el documento como HTML5.\n*   **`<html lang=\"es\">`**:  Define el elemento raíz del documento HTML y especifica el idioma como español.\n*   **`<head>`**: Contiene metadatos sobre el documento.\n    *   **`<meta charset=\"UTF-8\">`**: Especifica la codificación de caracteres UTF-8 para soportar caracteres especiales.\n    *   **`<meta name=\"viewport\" ...>`**: Configura la ventana gráfica para dispositivos móviles.\n    *   **`<title>`**: Establece el título de la pestaña del navegador.\n    *   **`<style>`**: Contiene el código CSS para estilizar la página.\n*   **`<body>`**: Contiene el contenido visible de la página.\n    *   **`<h1>Hola Mundo</h1>`**:  Define un encabezado de nivel 1 con el texto \"Hola Mundo\".\n\n**Estilos CSS:**\n\n*   **`body { ... }`**:  Estilos aplicados al elemento `<body>`.\n    *   **`margin: 0;`**: Elimina los márgenes predeterminados del `<body>`, asegurando que el contenido esté centrado correctamente.\n    *   **`height: 100vh;`**: Establece la altura del `<body>` al 100% de la altura de la ventana gráfica (`viewport height`). Esto es crucial para que el centrado vertical funcione correctamente.\n    *   **`display: flex;`**:  Convierte el `<body>` en un contenedor flexbox.\n    *   **`justify-content: center;`**: Centra los elementos hijos del `<body>` horizontalmente.\n    *   **`align-items: center;`**: Centra los elementos hijos del `<body>` verticalmente.\n    *   **`background-color: #f0f0f0;`**: Añade un fondo gris claro para mejorar la apariencia.\n*   **`h1 { ... }`**: Estilos aplicados al elemento `<h1>`.\n    *   **`text-align: center;`**: Centra el texto dentro del encabezado.\n    *   **`font-size: 2em;`**: Ajusta el tamaño de la fuente a 2 veces el tamaño de fuente estándar.\n    *   **`color: #333;`**: Establece el color del texto a gris oscuro.\n\n**Consideraciones:**\n\n*   **Eficiencia:**  El código es directo y eficiente.  Utiliza CSS flexbox para un centrado fácil y moderno.\n*   **Claridad:**  Los comentarios explican la función de cada sección del código.\n*   **Mantenibilidad:**  El código está bien estructurado y fácil de entender.\n*   **Compatibilidad:**  El código es compatible con la mayoría de los navegadores modernos.\n*   **Centrado Vertical:**  El uso de `height: 100vh` en el `body` es esencial para el centrado vertical.  Sin esto, el centrado vertical no funcionará correctamente.\n*   **Flexbox:** Flexbox es una excelente opción para centrar elementos en el navegador moderno.\n\nEste código proporciona una solución completa y eficiente para centrar el título \"Hola Mundo\" tanto horizontal como verticalmente en la pantalla.\n",
+      "score": 100.0,
+      "evaluation": {
+        "dimensions": {
+          "correctness": 4,
+          "instruction": 4,
+          "relevance": 4,
+          "completeness": 4,
+          "hallucination": 4,
+          "format_safety": 4
+        },
+        "dimension_sum": 24,
+        "score_normalized": 100.0,
+        "label": "PASS",
+        "error_codes": [],
+        "is_hallucinating": false,
+        "is_false_confidence": false
+      },
+      "latency_sec": 30.14,
+      "output_tokens": 464,
+      "context_tokens": 63,
+      "is_false_confidence": false,
+      "language_drift": false,
+      "tag_leakage": false,
+      "hallucination": 4,
+      "instruction": 4,
+      "active_physical_model": "litert_embedded::D:\\as-core\\models\\gemma\\gemma-3n-E2B-it-int4.litertlm"
+    },
+    "WRIT-01": {
+      "response": "**Asunto:** Solicitud de Reunión - Revisión de Avances Proyecto\n\n**Estimado Lic. Gómez:**\n\nEspero que se encuentre bien.\n\nAdjunto a este correo electrónico una solicitud para agendar una reunión de 30 minutos la próxima semana para revisar los avances del proyecto.\n\nPor favor, indiqueme qué día y hora le serían más convenientes.\n\nAgradezco su tiempo y atención.\n\nAtentamente,\n\n[Tu Nombre]\n[Tu Cargo]\n",
+      "score": 100.0,
+      "evaluation": {
+        "dimensions": {
+          "correctness": 4,
+          "instruction": 4,
+          "relevance": 4,
+          "completeness": 4,
+          "hallucination": 4,
+          "format_safety": 4
+        },
+        "dimension_sum": 24,
+        "score_normalized": 100.0,
+        "label": "PASS",
+        "error_codes": [],
+        "is_hallucinating": false,
+        "is_false_confidence": false
+      },
+      "latency_sec": 3.6,
+      "output_tokens": 61,
+      "context_tokens": 63,
+      "is_false_confidence": false,
+      "language_drift": false,
+      "tag_leakage": false,
+      "hallucination": 4,
+      "instruction": 4,
+      "active_physical_model": "litert_embedded::D:\\as-core\\models\\gemma\\gemma-3n-E2B-it-int4.litertlm"
+    },
+    "OFF-03": {
+      "response": "Por favor, proporciona el párrafo que deseas convertir en una tabla Markdown. Necesito el texto para poder crear la tabla con las columnas especificadas: 'Nombre', 'Cargo', 'Departamento', 'Interno'.  Una vez que me proporciones el párrafo, lo analizaré y lo estructuraré en la tabla Markdown solicitada.\n",
+      "score": 70.8,
+      "evaluation": {
+        "dimensions": {
+          "correctness": 4,
+          "instruction": 2,
+          "relevance": 4,
+          "completeness": 1,
+          "hallucination": 4,
+          "format_safety": 2
+        },
+        "dimension_sum": 17,
+        "score_normalized": 70.8,
+        "label": "PARTIAL",
+        "error_codes": [
+          "E4 — FORMAT FAILURE (Table expected)"
+        ],
+        "is_hallucinating": false,
+        "is_false_confidence": false
+      },
+      "latency_sec": 2.54,
+      "output_tokens": 45,
+      "context_tokens": 63,
+      "is_false_confidence": false,
+      "language_drift": false,
+      "tag_leakage": false,
+      "hallucination": 4,
+      "instruction": 2,
+      "active_physical_model": "litert_embedded::D:\\as-core\\models\\gemma\\gemma-3n-E2B-it-int4.litertlm"
+    },
+    "BIZ-04": {
+      "response": "## Análisis FODA: Cafetería de Especialidad de Barrio\n\nUna matriz FODA (Fortalezas, Debilidades, Oportunidades, Amenazas) es una herramienta de análisis estratégico que ayuda a identificar factores internos y externos que pueden afectar el éxito de un negocio.  Se utiliza para evaluar la situación actual y planificar estrategias para mejorar la posición competitiva.\n\nAquí tienes un ejemplo concreto de cada cuadrante para una cafetería de especialidad de barrio:\n\n**1. Fortalezas (Factores internos positivos):**\n\n*   **Ejemplo:**  \"Café de alta calidad proveniente de granos recién tostados, con métodos de preparación especializados (V60, prensa francesa, etc.).\"  *Esta fortaleza se basa en la calidad del producto principal y la experiencia del barista.*\n\n**2. Debilidades (Factores internos negativos):**\n\n*   **Ejemplo:** \"Ubicación en una zona de tráfico peatonal limitado, lo que resulta en menor visibilidad y menor número de clientes potenciales.\" *Esta debilidad se refiere a la accesibilidad y la exposición de la cafetería.*\n\n**3. Oportunidades (Factores externos positivos):**\n\n*   **Ejemplo:** \"Creciente demanda de opciones de café de especialidad y productos de origen ético en la comunidad local.\" *Esta oportunidad se basa en una tendencia del mercado y la posibilidad de satisfacer una necesidad.*\n\n**4. Amenazas (Factores externos negativos):**\n\n*   **Ejemplo:** \"Competencia de otras cafeterías de especialidad en la zona, incluyendo cadenas de café más grandes que ofrecen precios más bajos.\" *Esta amenaza se refiere a la presencia de competidores y la presión sobre los márgenes de beneficio.*\n\nEste análisis FODA proporciona un punto de partida para desarrollar estrategias específicas. Por ejemplo, la cafetería podría aprovechar la fortaleza del café de alta calidad para diferenciarse de la competencia y capitalizar la oportunidad de la creciente demanda de café de especialidad.  También podría abordar la debilidad de la ubicación mediante campañas de marketing local y promociones especiales.\n",
+      "score": 100.0,
+      "evaluation": {
+        "dimensions": {
+          "correctness": 4,
+          "instruction": 4,
+          "relevance": 4,
+          "completeness": 4,
+          "hallucination": 4,
+          "format_safety": 4
+        },
+        "dimension_sum": 24,
+        "score_normalized": 100.0,
+        "label": "PASS",
+        "error_codes": [],
+        "is_hallucinating": false,
+        "is_false_confidence": false
+      },
+      "latency_sec": 13.67,
+      "output_tokens": 289,
+      "context_tokens": 63,
+      "is_false_confidence": false,
+      "language_drift": false,
+      "tag_leakage": false,
+      "hallucination": 4,
+      "instruction": 4,
+      "active_physical_model": "litert_embedded::D:\\as-core\\models\\gemma\\gemma-3n-E2B-it-int4.litertlm"
+    }
+  }
+}

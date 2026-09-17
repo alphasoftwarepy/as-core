@@ -202,8 +202,7 @@ async def chat_completions(
 
     root_prompt = resolve_root_prompt(lang, prompt_family)
 
-    # Inject language anchor at POSITION 0
-    system_prompt = f"[LANG={lang}]\n{root_prompt}"
+    system_prompt = root_prompt
 
     # ── Runtime Contract (Subfase 1A / Continuity) ──────────────
     import time
@@ -269,7 +268,7 @@ async def chat_completions(
     except Exception as assemble_err:
         logger.error(f"PureCoordinator.assemble failed (degrading): {assemble_err}", exc_info=True)
         # Fallback to a basic prompt if it fails completely
-        system_prompt = f"[LANG={lang}]\n{root_prompt}"
+        system_prompt = root_prompt
         resolved_skill = skill_id
         from runtime.coordinator.models import WorkflowState, ContextManifest
         manifest = ContextManifest(
