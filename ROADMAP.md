@@ -2,13 +2,28 @@
 # EVOLUCIÓN DEL COGNITIVE RUNTIME
 
 > DOCUMENTATION STATUS: UPDATED AGAINST CURRENT CODEBASE
-> DATE: 2026-08-29
+> DATE: 2026-09-16
+> BASELINE CHECKPOINT: Commit 8825ca2
 
 AS-Core evoluciona hacia un **Runtime Cognitivo Local** centrado en proyectos, combinando memoria, documentos, contexto, orquestación determinista y ejecución desacoplada.
 
 ---
 
 ## 🏛️ ETAPAS HISTÓRICAS DE FUNDACIÓN (COMPLETADAS)
+
+### ✅ Fase 0 — Runtime Lifecycle Baseline & Hardening (Completada & Congelada)
+*   **[VERIFIED] Subfase 0.2A — Model Residency Contract:** $A \to A \to A = 1$ carga física vía `LiteRTEmbeddedProvider` persistente en GPU.
+*   **[VERIFIED] Subfase 0.2B — Physical Identity & Alias Reuse:** Separación de alias lógicos e identidad física canónica (`{provider_id}::{realpath}`).
+*   **[VERIFIED] Subfase 0.2C.1 — Swap Forensics:** Auditoría forense intra-proceso LiteRT (Dawn/WebGPU memory pressure aislada).
+*   **[VERIFIED] Subfase 0.2C.2B — Generic Physical Transition Contract:** Swaps cross-provider (`LiteRTEmbedded` $\leftrightarrow$ `LlamaCppProvider`), Busy Guard activo, target load failure fidedigno y fail-fast en modo multiusuario. Ciclo real verificado E2B $\leftrightarrow$ MoE (16.76s).
+*   **[VERIFIED] Subfase 0.2D — Concurrency, Cancellation & Shutdown Hardening:**
+    *   Exclusión mutua en modo single-user (`MAX ACTIVE INFERENCE = 1`).
+    *   Reserva temprana sincrónica de generación (eliminación de ventana TOCTOU).
+    *   Serialización atómica de cargas físicas (`_load_lock` con double-checked locking).
+    *   Limpieza garantizada de guards en `finally` (éxito, excepción, desconexión de stream o cancelación).
+    *   Protección de bucle de descarga idle (`_unload_loop`) durante inferencias activas y actualización fidedigna de timestamp post-inferencia.
+    *   Parada idempotente (`EngineManager.stop()`) y verificación de 0 procesos huérfanos (`llama-server.exe`).
+*   **[VERIFIED] Suite de Lifecycle 0.2A - 0.2D:** 19/19 tests GREEN. Suite global: 229 PASSED.
 
 ### ✅ Fase 1 — Core Runtime, RAG & Skills (Completada)
 *   **[VERIFIED] LiteRT-LM Windows Runtime:** Inferencia local acelerada para modelos densos compactos (Gemma 3n E2B, Gemma 4 E4B).

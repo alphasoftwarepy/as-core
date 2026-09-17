@@ -40,7 +40,13 @@ AS-Core provides a local-first cognitive workspace centered around projects that
 
 AS-Core has evolved from a local chat server into an extensible, project-centric cognitive workspace runtime.
 
-* **Multi-Backend & MoE Engine (Latest):** 
+* **Phase 0 — Hardened Runtime Lifecycle Baseline (Latest):**
+  - **Single-User Inference Guarantee:** Strict deterministic enforcement of `MAX ACTIVE PHYSICAL INFERENCE = 1`. Incompatible concurrent requests receive immediate `finish_reason="busy"` without race conditions.
+  - **Load Serialization (`_load_lock`):** Double-checked asynchronous locking prevents concurrent physical loads and VRAM collisions (e.g., startup warmup vs user requests).
+  - **Generic Cross-Provider Swaps:** Fully verified transition contract between **LiteRT-LM** (dense) and **LLaMA.cpp** (MoE/GGUF) with clean process termination and VRAM reclaim.
+  - **Robustness & Cleanup:** Guaranteed `finally` teardown on exceptions, client disconnection, or stream cancellation; 0 orphan/zombie child processes; fully idempotent engine stop.
+  - **Physical Identity Reuse:** Decoupled logical model roles from canonical physical artifacts (`{provider_id}::{realpath}`) preventing redundant reloads.
+* **Multi-Backend & MoE Engine:** 
   - **LLaMA.cpp Backend:** Full integration supporting `.gguf` models, K-quants, and custom GPU offloading (`n_gpu_layers`).
   - **MoE Architecture (Mixture of Experts):** Execution of MoE models (e.g., OLMoE 1B-7B, Qwen1.5-MoE) on consumer GPUs through dynamic expert residency.
   - **VRAM & RAM Pools:** High-frequency expert hotsets cached in VRAM (Pool B2) with background staging in RAM (Pool B3) and predictive LRU swapping (B4).
@@ -50,7 +56,7 @@ AS-Core has evolved from a local chat server into an extensible, project-centric
 * **Phase 3 (Smart Main Agent Foundation & Runtime Hardening):** Unified Runtime Coordinator managing memory limits, deterministic workflow transitions, and skill suggestions. Includes output stabilization, backend presets, and runtime hardening (immutable `RuntimeContract`/`ContextManifest` flow).
 * **Phase 3.5 & 3.6 (Agent Loop & Intent Gate):** Server-side agent loops, native execution protocol parsing (`capability.execute()`), session-scoped RAG (Active Retrieval Scope), intent gate keyword boundaries (`\b`), and prompt family registry.
 * **Phase 4 (Project Layer):** Scoping chats, documents, and memory under unified `project_id` boundaries.
-* **Phase 6 / Knowledge Graph Subsystem (Latest):** 
+* **Phase 6 / Knowledge Graph Subsystem:** 
   - **Relational Knowledge Graph:** Optional, fail-safe, project-scoped relational reasoning subsystem.
   - **Deterministic Extraction & Resolution:** Extracts structural S-V-O relationships and unifies entities cross-document without false relations.
   - **Bounded Traversal (BFS):** Strict control over cognitive exploration (`max_depth`, `max_nodes`, `timeout_seconds`) with cycle interruption.
@@ -61,6 +67,7 @@ AS-Core has evolved from a local chat server into an extensible, project-centric
 
 ## ⚡ Key Features
 
+* **Hardened Physical Runtime:** Robust single-user lifecycle guard (`MAX ACTIVE INFERENCE = 1`), double-checked load serialization (`_load_lock`), zero orphan child processes, and clean teardown across heterogeneous backends.
 * **Multi-Backend Engine:** Native support for both **LiteRT-LM** (`.litertlm`) and **LLaMA.cpp** (`.gguf`).
 * **MoE Dynamic Residency:** Run massive Mixture of Experts models exceeding your GPU VRAM without crashing.
 * **Hardware-Adaptive Profiles:** Auto-tunes settings (VRAM pools, GPU offload layers, thread allocation) to match system specs.
